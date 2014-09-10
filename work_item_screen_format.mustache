@@ -1,0 +1,25 @@
+{{#stories}}
+{{id}} -- {{{name}}}
+Project: {{{project}}}
+Feature: {{{feature}}}
+Release: {{{release}}}
+Tags: {{{tags}}}
+Keywords: {{{keywords}}}
+
+{{#state_changes.length}}
+State Changes:
+
+{{#state_changes}}
+{{{release}}}  {{valid_from}}  {{valid_to}}  {{blocked}}  {{ready}}  {{state}} {{user}}
+{{/state_changes}}
+{{/state_changes.length}}
+
+State Change Violations: {{state_change_violations}}
+User Count             : {{user_count}}
+Defect Count           : {{defect_count}} {{#defects_status}}({{defects_status}}){{/defects_status}}
+Blocked Hours          : {{blocked_hours}}
+
+{{#status_counts}}
+{{name}}: {{value}} hours
+{{/status_counts}}
+{{/stories}}

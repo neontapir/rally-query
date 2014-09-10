@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://cdurfee%40ghx.com:rlySh1ny%21@rally1.rallydev.com/analytics/v2.0/service/rally/workspace/208717725/artifact/snapshot/query.json
+    body:
+      encoding: UTF-8
+      string: '{ "find" : { "FormattedID": "US53364" },                  "fields"
+        : ["ObjectID", "_ValidFrom", "_ValidTo", "Release", "Blocked", "Ready", "c_EGXKanbanState",
+        "_User"],                  "compress" : true }'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '205'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Jetty(8.0.y.z-SNAPSHOT)
+      Cache-Control:
+      - private,max-age=0,must-revalidate
+      Expires:
+      - Fri, 27 Jun 2014 21:41:31 GMT
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      P3p:
+      - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
+      Date:
+      - Sat, 28 Jun 2014 21:41:31 GMT
+      Content-Length:
+      - '817'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c0445525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - ZSESSIONID=DCajSMpvRoerR5Q1iQ2r8awtcHdY0Gli1OdKbcLDNQ;Path=/;Domain=rally1.rallydev.com;HttpOnly
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA7yWbU/bMBDHv4u1lyXyQ5o0ecdoB2hsMAjbNIQqNzFtIIkz
+        JxkrVb/7zm5om/UBUVGqSLGvvrvf/c9xMkF9xZNkfHhx+oXfS4V8RFFryRhn
+        xojB2FNKqgL5N7ct9IOrLM6G9SwYKcGjq5KXYJigMK+COBXgRrClPR95XNYW
+        PR0kMnwQ0ZJFLziSVVY2VyxMU0gSp7OME5QrcaFkKAqYQYYWuouzqFcmXV5C
+        RNbRJihAPoroO08qUXTjgqeDeFjxMpYZ8onxSmU2lN8qocbPFl6VI6nip3oZ
+        NbGlSnlZiug0qrMVVQ4ERfFVZpfiN4SHPyHCStaTcaTqSMYvlKnxu8p4Xoxk
+        +UwfnAeHZ8h3IALUeSwyAW4iqskmpjp9/8D1/WaC+tfZgqqL/DZjjg1dC8a5
+        OInBW4Uj8KS44xLXo84UetQHpjj6pGRqQiVaKUQxsQ+wc0A7AWa+jX3SsWjH
+        /oWmAJKA4KVWRpf8EOdAq5UWSWSacD64F2Gp05Nm9Pk0kGZyKRLBC2HGH2eN
+        re08GptR2O8d//zMswHP9CaaLe1fF0KZEfRap4LxdCEi8ktVCb0vZMmTS1FU
+        yfMWIqyFII4qT7NI/DXYF3woruInUZfTC85me2WzAi10VGcS0Ur0maEwzZiX
+        dMeTQrSWdfHarscotTvevNp6UV2c3bYdSmzKnKaEcyzsBMTxsesTajke01gL
+        bRurPCD3WdtiNoX2tV7LpcV8HVYj4QtYrkUcZxesHeRqZHyBC3rteXrV6g6s
+        Cd5PyTnLVmLPguf5jYl3FnkOsw3ZxlaHsg3IXVHEw+z9VF7AbEWmFqWdt0be
+        VeYFzTpmL6DUx9S3iWU77Y3Mf0Qi81TAAbZ3rVeJtnIzy23be+F+reCrSFvB
+        25bj4A3gxm/27n8/vedAG7GZY14klO4Duyk3Ycx1icM8am8FbyCtASc4IC4c
+        NT614VWz6eg7DEOR68+wfau9BmcdtBtQ+JRgfpvCEbnp8GtAr8+2Gmcpmwe/
+        A0zgCjD2zWVhbHbAhpLX9aYhw//SbaNe/rLzbI+BcITg6e30HwAAAP//AwAC
+        UM08VQwAAA==
+    http_version: 
+  recorded_at: Sat, 28 Jun 2014 21:41:31 GMT
+recorded_with: VCR 2.9.2
