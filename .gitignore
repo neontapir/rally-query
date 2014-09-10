@@ -3,3 +3,4 @@ coverage/
 .buildpath
 .project
 your_credentials.yml
+Gemfile.lock
