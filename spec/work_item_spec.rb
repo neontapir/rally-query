@@ -8,7 +8,7 @@ describe 'Work item US53364' do
   before :all do
     detailer = WorkItemDetailer.new
     id = 'US53364'
-    VCR.use_cassette("#{id}-details") do
+    VCR.use_cassette("#{id}-details", :record => :new_episodes) do
       @results = detailer.get_data id
     end
     @work_item = WorkItem.new(@results)
@@ -61,8 +61,8 @@ describe 'Work item US52746' do
     detailer = WorkItemDetailer.new
     @id = 'US52746'
     @release_id = '18641616440'
-    VCR.use_cassette("#{@release_id}-release-details") do
-      VCR.use_cassette("#{@id}-details") do
+    VCR.use_cassette("#{@release_id}-release-details", :record => :new_episodes) do
+      VCR.use_cassette("#{@id}-details", :record => :new_episodes) do
         @results = detailer.get_data @id
         @work_item = WorkItem.new(@results)
       end
@@ -82,7 +82,7 @@ describe 'Work item US51735' do
   before :all do
     detailer = WorkItemDetailer.new
     @id = 'US51735'
-    VCR.use_cassette("#{@id}-details") do
+    VCR.use_cassette("#{@id}-details", :record => :new_episodes) do
       @results = detailer.get_data @id
       @work_item = WorkItem.new(@results)
     end
@@ -97,7 +97,7 @@ describe 'Work item DE7477' do
   before :all do
     detailer = WorkItemDetailer.new
     @id = 'DE7477'
-    VCR.use_cassette("#{@id}-details") do
+    VCR.use_cassette("#{@id}-details", :record => :new_episodes) do
       @results = detailer.get_data @id
       @work_item = WorkItem.new(@results)
     end

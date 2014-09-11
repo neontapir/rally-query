@@ -14,7 +14,7 @@ describe 'Work item formatter' do
     before :all do
       work_item_detailer = WorkItemDetailer.new
       id = 'US53364'
-      VCR.use_cassette("#{id}-details", record: :new_episodes) do
+      VCR.use_cassette("#{id}-details", :record => :new_episodes) do
         @results = work_item_detailer.get_data id
       end
 
@@ -42,7 +42,7 @@ describe 'Work item formatter' do
 
     it 'with backend story should have the expected output at time of cassette capture' do
       id = 'US53364'
-      VCR.use_cassette("#{id}-details") do
+      VCR.use_cassette("#{id}-details", :record => :new_episodes) do
         @results = @work_item_detailer.get_data id
         work_item = WorkItem.new(@results)
 
@@ -68,8 +68,8 @@ describe 'Work item formatter' do
     it 'with GUI story should have the expected output at time of cassette capture' do
       # expected = "'id','kanban_board','release','keywords','class_of_service','dev_lead','qa_lead','made_ready_in_validation','actual_story_points','state','rally_create','ready','design','development','validation','accepted','rejected','violations','user_count','defect_count','blocked_hours','design_hours','development_hours','ready_hours','validation_hours'\n'US52586','GUI','INSX BETA','Organization,Certificates','Standard','Alex Alitoits','Nastia Neveykova','Aliaksandra Rabushka','','Validation','2014-05-06','N/A','N/A','2014-06-13','2014-06-17','N/A','N/A','1','9','5','164.178','378.520','23.319','217.794','345.940'\n"
       id = 'US52586'
-      VCR.use_cassette("#{id}-details") do
-        VCR.use_cassette("#{id}-lookback", match_requests_on: [:method, :uri, :body]) do
+      VCR.use_cassette("#{id}-details", :record => :new_episodes) do
+        VCR.use_cassette("#{id}-lookback", record: :new_episodes, match_requests_on: [:method, :uri, :body]) do
           @results = @work_item_detailer.get_data id
         end
 

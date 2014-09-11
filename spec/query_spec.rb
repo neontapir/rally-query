@@ -34,7 +34,7 @@ describe 'Rally detail query object' do
 
   it "should connect to Rally's detail API" do
     id = 'US53364'
-    VCR.use_cassette("#{id}-details") do
+    VCR.use_cassette("#{id}-details", :record => :new_episodes) do
       details = @query.get_raw_details 'US53364'
       expect(details.code).to eq(200)
     end
@@ -42,7 +42,7 @@ describe 'Rally detail query object' do
 
   it 'should get release details by id' do
     id = '18641615604'
-    VCR.use_cassette("#{id}-release-details") do
+    VCR.use_cassette("#{id}-release-details", :record => :new_episodes) do
       details = @query.get_raw_release id
       expect(details.code).to eq(200)
     end
@@ -50,7 +50,7 @@ describe 'Rally detail query object' do
 
   it 'should get user details by id' do
     id = '13377163924'
-    VCR.use_cassette("#{id}-user-details") do
+    VCR.use_cassette("#{id}-user-details", :record => :new_episodes) do
       details = @query.get_raw_user id
       expect(details.code).to eq(200)
     end
@@ -58,7 +58,7 @@ describe 'Rally detail query object' do
 
   it 'should get project details by id' do
     id = '18143128574'
-    VCR.use_cassette("#{id}-project-details") do
+    VCR.use_cassette("#{id}-project-details", :record => :new_episodes) do
       details = @query.get_raw_project id
       expect(details.code).to eq(200)
     end

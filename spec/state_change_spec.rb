@@ -9,7 +9,7 @@ describe 'State changes for work item US53364' do
   before :all do
     work_item_detailer = WorkItemDetailer.new
     id = 'US53364'
-    VCR.use_cassette("#{id}-details") do
+    VCR.use_cassette("#{id}-details", :record => :new_episodes) do
       @results = work_item_detailer.get_data id
     end
     @work_item = WorkItem.new(@results)
@@ -32,7 +32,7 @@ describe 'State changes for work item DE7477' do
   before :all do
     work_item_detailer = WorkItemDetailer.new
     @id = 'DE7477'
-    VCR.use_cassette("#{@id}-details") do
+    VCR.use_cassette("#{@id}-details", :record => :new_episodes) do
       @results = work_item_detailer.get_data @id
       @work_item = WorkItem.new(@results)
     end

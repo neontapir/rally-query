@@ -11,7 +11,7 @@ describe 'Get story details' do
 
   it 'should get details of a user story' do
     id = 'US53364'
-    VCR.use_cassette("#{id}-details") do
+    VCR.use_cassette("#{id}-details", :record => :new_episodes) do
       results = @work_item_detailer.get_detail id
       expect(results.to_s).to match /#{id}/
     end
@@ -19,7 +19,7 @@ describe 'Get story details' do
 
   it 'should get details of a user story with no prefix' do
     id = 'US53364'
-    VCR.use_cassette("#{id}-details") do
+    VCR.use_cassette("#{id}-details", :record => :new_episodes) do
       results = @work_item_detailer.get_detail id
       expect(results.to_s).to match /#{id}/
     end
@@ -27,7 +27,7 @@ describe 'Get story details' do
 
   it 'should get details of a defect' do
     id = 'DE7477'
-    VCR.use_cassette("#{id}-details") do
+    VCR.use_cassette("#{id}-details", :record => :new_episodes) do
       results = @work_item_detailer.get_detail id
       expect(results.to_s).to match /#{id}/
     end
@@ -47,7 +47,7 @@ describe 'Get story details' do
     id = 'US53364'
     story_object_id = '19579322489'
     VCR.use_cassette("#{id}-details") do
-      VCR.use_cassette("#{id}-lookback", match_requests_on: [:method, :uri, :body]) do
+      VCR.use_cassette("#{id}-lookback", record: :new_episodes, match_requests_on: [:method, :uri, :body]) do
         results = @work_item_detailer.get_data id
         expect(results.is_a? Hash).to be_truthy
         expect(results[:detail].to_s).to match /#{id}/
@@ -58,7 +58,7 @@ describe 'Get story details' do
 
   it 'should get the release name from a release query' do
     release_id = '18641615604'
-    VCR.use_cassette("#{release_id}-release-details") do
+    VCR.use_cassette("#{release_id}-release-details", :record => :new_episodes) do
       results = @work_item_detailer.get_release release_id
       expect(results['Name'].to_s).to eq('INSX ALPHA')
     end
@@ -66,7 +66,7 @@ describe 'Get story details' do
 
   it 'should get the user name from a user query' do
     user_id = '13377163924'
-    VCR.use_cassette("#{user_id}-user-details") do
+    VCR.use_cassette("#{user_id}-user-details", :record => :new_episodes) do
       results = @work_item_detailer.get_user user_id
       expect(results['DisplayName'].to_s).to eq('Jon Jenkins')
     end

@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       Accept:
-      - '*/*; q=0.5, application/xml'
+      - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
@@ -185,7 +185,7 @@ http_interactions:
       string: ''
     headers:
       Accept:
-      - '*/*; q=0.5, application/xml'
+      - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
@@ -281,4 +281,137 @@ http_interactions:
         /uRaSWNl8uiA6lhddmB/usp8/fnr138DSzZlhRghAAA=
     http_version: 
   recorded_at: Sun, 29 Jun 2014 22:43:10 GMT
+- request:
+    method: get
+    uri: https://cdurfee%40ghx.com:rlySh1ny%21@rally1.rallydev.com/slm/webservice/v2.0/users/4546214236?workspace=https://rally1.rallydev.com/slm/webservice/v2.0/workspace/208717725
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Rallyrequestid:
+      - qs-app-061qmbec012bpqiupzs17j6i00s.qs-app-0619718507
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Content-Type:
+      - text/javascript;  charset=utf-8
+      Etag:
+      - '"0494ae4aca0f1ef58bff28584bda95e2f"'
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      P3p:
+      - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
+      Cache-Control:
+      - private,max-age=0,must-revalidate
+      Content-Length:
+      - '788'
+      Date:
+      - Thu, 11 Sep 2014 16:22:24 GMT
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - JSESSIONID=qs-app-061qmbec012bpqiupzs17j6i00s.qs-app-06;Path=/;Secure;HttpOnly
+      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c0a45525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - SUBBUCKETID=175;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
+      - ZSESSIONID=FZUKGqtnTDq9ZaqUWATGQaQiWsv2D0o1ropKqQGFuc;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA8VV0W7bNhT9FcFPG1BaokRJlJ8WNFkTwEmMxt6GDsNAiVc2
+        W0oUSNqtUeTfK1L2ImXea/Zk8PDy3HsOj+jvs40BPVsE32d/aybl8Wp1d88+
+        KwfN4tm7YASLdoCjAYbaLXbWdmYRhr4Kz/0Ph8O8Uk1oZBN+hbJvcBAVhId4
+        HoX7fhWSlGQxJnGSnakey89Q2c3m7tqRVrykEa1zFLM8RSTNS8QgAxTHNKl5
+        Vda0SPxJ5Y/9BtoI1bqTaZJOKR9YA27jmh0geKp2rP3S6+1L3mtgtj91zawv
+        iCOMEY4QztdxvEjiBSFzHGefPJ0vBn5lXeVjZQOcvwvcCbc7NPKTvwjr8dNY
+        d3w02NO+NJUWnR3mfSvXzahtiAklNCcFvmw+J4RS3ptfJ1AgUtEaFZzUKGEl
+        VJDGKY7yyx5/uP0j+OmDVCWTwS0waXcV0xDcfHO2b+Fnf8oeO188ceLZXYgy
+        9j201sdx9qBacPXX0DFtmx536BqqXauk2h79njCslOD8rZk0MECdZMf/vPWb
+        hgl5xbkGY7xYc9r8Zbv75uxzRb8KbSbBceCStVy02xXbejhUop/UJ8hYZvdm
+        qDF2qbZiHCqCogJhvMbEhSqh8yKOPp2Lz03GIzp8xYz5qjTfdLxnmrKlKI7W
+        OOnzuSDZPKXUs90LziWc+Nq9lD32ALYn+eKv9QQ91nUfiqWq2CmBs6XaC3MQ
+        UnqVj22noVly1rl3oZ3QrXbuTv5ZfoSDcPm+FcYqfXzDNOtT593Q+eU5yS8n
+        GjNKMwKAMCsJIllWuERXqEjLpMYlzSCJJtl8Lc3F86OSQx5AigPoY7AG1gT3
+        0JTDtT3tlLbT+J2MGif9ijeiHeXVkQwcZic684YmbqYPcfh6krEfK62cn/7Z
+        VHv/KWbOE8dxjvDFL8kVrEA3wjg7/095rycZy5vujVXiPDrr7D2ohY/AW/5V
+        dkPXFyX0csRLksS05CnCvH9uCKkpYgUuUJ1FRUYLVnDI/q35JMlJvNFaaXdB
+        f/7Vr35nuu0fu2H9/PwD916gCCYIAAA=
+    http_version: 
+  recorded_at: Thu, 11 Sep 2014 16:22:25 GMT
+- request:
+    method: get
+    uri: https://cdurfee%40ghx.com:rlySh1ny%21@rally1.rallydev.com/slm/webservice/v2.0/releases/19493621110?workspace=https://rally1.rallydev.com/slm/webservice/v2.0/workspace/208717725
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Rallyrequestid:
+      - qs-app-071uwpnmvs7xxdg1thvkvyhc773z.qs-app-0719251683
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Content-Type:
+      - text/javascript;  charset=utf-8
+      Etag:
+      - '"041e905bde0aa54350d47d5465f5a18ab"'
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      P3p:
+      - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
+      Cache-Control:
+      - private,max-age=0,must-revalidate
+      Content-Length:
+      - '643'
+      Date:
+      - Thu, 11 Sep 2014 16:22:25 GMT
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - JSESSIONID=qs-app-071uwpnmvs7xxdg1thvkvyhc773z.qs-app-07;Path=/;Secure;HttpOnly
+      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c0c45525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - SUBBUCKETID=175;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
+      - ZSESSIONID=oIoftbWPSq74U9Tn8hcmiA4xv6EMrpDouS8isK8;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA71UUWvbMBD+K8YPY4MplmTZsvOWtSHNYF1p065sjCHJp8ad
+        YwdZTRdK//skO22Skr4GBEZ33+nuPn93T+ElVCBaCIfBU/jHiKpajy6m38R9
+        Y5wppOHnYMdc1r0Z92bQ/jK3dtkOo6hDkUH3KWA1UM0iaqtF9AiyBbMqFUQr
+        OsCR6TNGJGd5nFJCyOtz3+U9KHt9PT3tkheCZpwIJAihiAnOkHR4lIMGEmOm
+        tVBdZNOF3YBpy6b2kcn+g+di4RsMp+dXt8GX8Wzk3ScGhHX4U2E7J8WEIZwi
+        HM9IOqTxECeDjJGf3VMdGIqR9civD3UQe3P/elfsTjPOsSllWrwWc/UgW2XK
+        pe0rPBbX7U7aiLCMZZzl5DDdBWNZVmiOdAw5YirTKC+YRrGQoCChCcH8MK+T
+        s9vg46RqpKiCMxCVnSthIBj/U3NR38GnLsqulx14j4ln5/nRmL/tUqhjavDx
+        JWdEsZMY5zQ5TEqsc6akZkjnUjsNihjlkmGkMuxEmCSEZvRdUvb63rbpm56Y
+        pm3HrS0XTlcnTb3qFXPpJenlNPAyOqjb88ZC663+clGJuobiBqpGlXbtzPVD
+        VXmHaXwxR6R02Wd8HWvM3xlrrnKGNYuRBsoR49KNteIEFQwnKpEZkZAfpnQ8
+        uQ1QcPnhdI/Yl1Y9rZtt9namKZnhZJjk7gwwxt1Mb6BXVhi7j0/cmeF0iLE7
+        O/hV6X/RWdnaxqyPujD7zPM+887ifGeSJVM45YojIjBzk4wlygQDpLRORUoY
+        STjbo/Btb55KR0xPykgpWLrl5yNmc+h/RbjdclvRjY1pjNfmr99+roWpy/qu
+        vz8//wcWkIApawYAAA==
+    http_version: 
+  recorded_at: Thu, 11 Sep 2014 16:22:25 GMT
 recorded_with: VCR 2.9.2
