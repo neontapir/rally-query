@@ -1,7 +1,7 @@
 require_relative('logging_provider')
 
 class WorkItemState
-  include LoggingProvider
+  extend LoggingProvider
 
   # weight reflects the order of Kanban states
   attr_reader :state, :weight

@@ -18,11 +18,11 @@ class Capture
     OpenStruct.new result: result, stdout: stdout.string, stderr: stderr.string
   end
 
-  # def self.argv(items)
-  #   old_argv = ARGV.clone
-  #   ARGV.replace items
-  #   yield
-  # ensure
-  #   ARGV.replace old_argv
-  # end
+  def self.argv(items)
+    old_argv = ARGV.clone
+    ARGV.replace items
+    yield
+  ensure
+    ARGV.replace old_argv
+  end
 end

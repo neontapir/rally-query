@@ -1,7 +1,7 @@
 require 'rspec'
 require 'spec_helper'
 require 'vcr'
-require_relative '../lookback_query'
+require_relative '../rally_lookback_query'
 require_relative '../vcr_setup'
 
 describe 'Rally lookback query object' do
@@ -13,7 +13,7 @@ describe 'Rally lookback query object' do
   end
 
   before :each do
-    @query = LookbackQuery.new
+    @query = RallyLookbackQuery.new
   end
 
   it "should connect to Rally's lookback API" do

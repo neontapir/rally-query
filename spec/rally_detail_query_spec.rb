@@ -1,12 +1,12 @@
 require 'rspec'
 require 'spec_helper'
 require 'vcr'
-require_relative '../detail_query'
+require_relative '../rally_detail_query'
 require_relative '../vcr_setup'
 
 describe 'Rally detail query object' do
   before :each do
-    @query = DetailQuery.new
+    @query = RallyDetailQuery.new
   end
 
   it 'should canonize a work item identifier' do
