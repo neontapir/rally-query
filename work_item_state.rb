@@ -1,4 +1,9 @@
+require_relative('logging_provider')
+
 class WorkItemState
+  include LoggingProvider
+
+  # weight reflects the order of Kanban states
   attr_reader :state, :weight
 
   def self.ready
@@ -22,7 +27,7 @@ class WorkItemState
   end
 
   def self.rejected
-    new(:rejected, -100)
+    new(:rejected, -100) # any negative number would work
   end
 
   def self.rally_create
@@ -39,11 +44,11 @@ class WorkItemState
 
   def self.find_by_name(name)
     case name
-      when 'Ready', 'Requirements' then
+      when 'Ready', 'Requirements', 'Grooming' then
         self.ready
       when 'Design', 'Wireframes', 'Contracts' then
         self.design
-      when 'Development', 'Proof of Concept', 'Production Ready' then
+      when 'Development', 'Proof of Concept', 'Production Ready', 'Code Review', 'Merge' then
         self.development
       when 'Validation', 'Release & Merge', 'Deployment' then
         self.validation
@@ -52,6 +57,7 @@ class WorkItemState
       when 'Rejected' then
         self.rejected
       else
+        log.debug "Unrecognized Kanban state #{name}"
         self.none
     end
   end

@@ -32,7 +32,7 @@ module ConfigurationProvider
       @stories = ARGV
       @credentials = credentialsProvider.get
       if (@credentials == '')
-        fail "Rally credentials missing. Run this script with '-c username:password' to set."
+        fail "Rally credentials file missing (#{credentialsProvider.filename}). Run this script with '-c username:password' to set."
       end
 
       #if @options.key? :input

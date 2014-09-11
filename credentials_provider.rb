@@ -5,7 +5,7 @@ require 'yaml'
 class CredentialsProvider
   attr_reader :filename
 
-  def initialize(yaml_file = 'your_credentials.yml')
+  def initialize(yaml_file = File.dirname(__FILE__) + '/your_credentials.yml')
     @filename = yaml_file
     @secret_key = 'xyzzy-unicorn'
   end
