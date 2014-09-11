@@ -147,16 +147,16 @@ class WorkItem
   end
 
   def dev_lead
-    extract_data_from_state_changes('Development', proc { |x| x.mode.user })
+    extract_state_changes_data('Development', proc { |x| x.mode.user })
   end
 
   def qa_lead
-    extract_data_from_state_changes('Validation', proc { |x| x.mode.user })
+    extract_state_changes_data('Validation', proc { |x| x.mode.user })
   end
 
   # TODO: make sure ready=true in last validation state
   def made_ready_in_validation
-    extract_data_from_state_changes('Validation', proc { |x| x.last.user })
+    extract_state_changes_data('Validation', proc { |x| x.last.user })
   end
 
   def ready_date
@@ -191,7 +191,7 @@ class WorkItem
     state ? state.valid_from : nil
   end
 
-  def extract_data_from_state_changes(target_state, extract)
+  def extract_state_changes_data(target_state, extract)
     state_work = @state_changes.select { |x| x.state == target_state }
     if state_work.empty?
       result = 'N/A'

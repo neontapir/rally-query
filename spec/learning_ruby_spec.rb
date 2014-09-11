@@ -28,7 +28,7 @@ describe 'Just learning Ruby' do
     input = "'id','name','value'\n'1','Fred','42'"
     #expected = {'id' => '1', 'name' => 'Fred', 'value' => '42'}
 
-    actual = {}
+    # actual = {}
 
     csv = CSV.new(input.gsub!("'", ''), headers: true)
     actual = csv.to_a.map { |row| row.to_hash }.first

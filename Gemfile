@@ -5,8 +5,18 @@ gem 'json', '1.8.1'
 gem 'logger', '1.2.8'
 gem 'mustache', '0.99.5'
 gem 'rest-client', '1.6.7'
-gem 'rspec', '3.0.0', :require => false, :group => :test
-gem 'simplecov', '~> 0.7.1', :require => false, :group => :test
 gem 'slop', '3.5.0'
-gem 'vcr', '2.9.2', :require => false, :group => :test
-gem 'webmock', '1.18.0', :require => false, :group => :test
+
+group :development do
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'rb-readline'
+end
+
+group :test do
+  gem 'rspec', '3.0.0', :require => false
+  gem 'simplecov', '~> 0.7.1', :require => false
+  gem 'vcr', '2.9.2', :require => false
+  gem 'webmock', '1.18.0', :require => false
+end
+

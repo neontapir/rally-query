@@ -21,18 +21,18 @@ module ConfigurationProvider
         on :x, :export, 'Export to CSV'
       end
 
-      credentialsProvider = CredentialsProvider.new
+      credentials_provider = CredentialsProvider.new
       unless @options[:credentials].nil?
         new_creds = @options[:credentials]
-        puts "Creating credentials file at #{credentialsProvider.filename}"
-        credentialsProvider.set new_creds
+        puts "Creating credentials file at #{credentials_provider.filename}"
+        credentials_provider.set new_creds
         exit
       end
 
       @stories = ARGV
-      @credentials = credentialsProvider.get
-      if (@credentials == '')
-        fail "Rally credentials file missing (#{credentialsProvider.filename}). Run this script with '-c username:password' to set."
+      @credentials = credentials_provider.get
+      if @credentials.empty?
+        fail "Rally credentials file missing (#{credentials_provider.filename}). Run this script with '-c username:password' to set."
       end
 
       #if @options.key? :input

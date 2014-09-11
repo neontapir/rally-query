@@ -9,6 +9,7 @@ describe 'Credentials provider' do
   end
 
   it 'should have no credentials at first' do
+    File.delete(@creds_file) if File.file?(@creds_file)
     expect(@credentials.get).to eql('')
   end
 
@@ -24,6 +25,6 @@ describe 'Credentials provider' do
   end
 
   after :all do
-    File.delete(@creds_file)
+    File.delete(@creds_file) if File.file?(@creds_file)
   end
 end
