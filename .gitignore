@@ -4,3 +4,7 @@ coverage/
 .project
 your_credentials.yml
 Gemfile.lock
+input.txt
+output.csv
+results.csv
+data.pstore
