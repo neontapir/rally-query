@@ -21,9 +21,11 @@ class WorkItemExportFormat < WorkItemBaseFormat
     @work_items.compact.map do |w|
       {
           id: w.id,
+          name: w.name,
           kanban_board: w.kanban_board,
-          release: w.release,
+          release: format_string(w.release),
           feature: w.feature,
+          tags: w.tags,
           keywords: w.keywords,
           class_of_service: w.class_of_service,
           dev_lead: format_string(w.dev_lead),

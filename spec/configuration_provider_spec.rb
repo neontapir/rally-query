@@ -13,6 +13,16 @@ describe 'Default configuration provider' do
 end
 
 describe 'Configuration provider with arguments' do
+  # TODO: --help causes program to halt, how to test that?
+  # it 'should allow help' do
+  #   output = Capture.capture do
+  #     Capture.argv(%w(--help)) do
+  #       configuration = Configuration.new
+  #     end
+  #   end
+  #   expect(output.stdout).to match('--analysis')
+  # end
+
   it 'should allow debug logging capability' do
     Capture.argv(%w(--debug)) do
       configuration = Configuration.new
@@ -24,6 +34,13 @@ describe 'Configuration provider with arguments' do
     Capture.argv(%w(--export)) do
       configuration = Configuration.new
       expect(configuration.formatter).to eq('WorkItemExportFormat')
+    end
+  end
+
+  it 'should allow analysis render capability' do
+    Capture.argv(%w(--analysis)) do
+      configuration = Configuration.new
+      expect(configuration.formatter).to eq('WorkItemAnalysisFormat')
     end
   end
 

@@ -11,15 +11,18 @@ module ConfigurationProvider
     attr_accessor :options, :credentials, :rally_workspace, :stories
 
     def initialize
-      @options = Slop.parse! do
+      @options = Slop.parse!(:help => true) do
+        on :analysis, 'Export to CSV for Frank Vega\'s analysis script'
+        # noinspection RubyQuotedStringsInspection
         on "c=", :credentials, 'Write credentials'
         on :d, :debug, 'Print debug messages'
-        on :h, :header, 'Print header with export'
+        on :header, 'Print header with export types'
         # noinspection RubyQuotedStringsInspection
         on "i=", :input, 'File to read story IDs from'
         on :s, :screen, 'Display to screen'
         on :x, :export, 'Export to CSV'
       end
+      # puts "DEBUG: Command line options: #{@options}"
 
       credentials_provider = CredentialsProvider.new
       unless @options[:credentials].nil?
@@ -47,6 +50,8 @@ module ConfigurationProvider
       case
         when @options.export?
           'WorkItemExportFormat'
+        when @options.analysis?
+          'WorkItemAnalysisFormat'
         else
           'WorkItemScreenFormat'
       end

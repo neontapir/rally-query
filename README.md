@@ -14,6 +14,10 @@ prompt you if you need it.
 
 ## Usage
 
+### To see all the options
+
+    ./story_query.rb --help
+
 ### Single story
 
     ./story_query.rb US12345
@@ -23,6 +27,13 @@ prompt you if you need it.
     ./story_query.rb -i input.txt -x > output.csv
     
 ## Extension points
+
+### Add a new report type
+
+The easiest way would be copy and existing flow. Copy the format Ruby class and the Mustache template. Create a RSpec 
+specification by copying one of the other ones.
+
+You'll also need to add a reference to your formatter class to work_item_formatter.rb
 
 ### Add a new Kanban state
 
