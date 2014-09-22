@@ -47,13 +47,7 @@ module ConfigurationProvider
       if @options[:release].nil?
         @stories = ARGV
       else
-        require_relative 'release_detailer'
-        detailer = ReleaseDetailer.new
-
-        @stories = []
-        ARGV.each do |release|
-          @stories += detailer.get_work_items release
-        end
+        @stories = populate_stories_from_releases
       end
 
       @rally_workspace = 208_717_725
@@ -85,6 +79,17 @@ module ConfigurationProvider
       File.open(filename).each_line do |line|
         @stories << line.chomp
       end
+    end
+
+    def populate_stories_from_releases
+      require_relative 'release_detailer'
+      detailer = ReleaseDetailer.new
+
+      stories = []
+      ARGV.each do |release|
+        stories += detailer.get_work_items release
+      end
+      stories
     end
   end
 end
