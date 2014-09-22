@@ -35,7 +35,7 @@ describe 'Rally detail query object' do
   it "should connect to Rally's detail API" do
     id = 'US53364'
     VCR.use_cassette("#{id}-details", :record => :new_episodes) do
-      details = @query.get_raw_details 'US53364'
+      details = @query.get_raw_details id
       expect(details.code).to eq(200)
     end
   end
