@@ -6,7 +6,7 @@ require 'logger'
 require_relative 'query'
 
 class RallyProjectQuery < GroupQuery
-  def initialize(group_identifier_name = 'Project')
-    @group_identifier = group_identifier_name
+  def initialize(group_identifier = 'Project')
+    @group_identifier = group_identifier
   end
 end

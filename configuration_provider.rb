@@ -50,23 +50,23 @@ module ConfigurationProvider
         read_file @options[:input]
       end
 
-      if @options[:release].nil?
+      if @options[:release].nil? && @options[:project].nil?
         @stories = ARGV
       else
-        if @options.feature?
-          @stories = populate_features_from_releases
-        else
-          @stories = populate_stories_from_releases
+        unless @options[:release].nil?
+          if @options.feature?
+            @stories = populate_features_from_releases
+          else
+            @stories = populate_stories_from_releases
+          end
         end
-      end
 
-      if @options[:project].nil?
-        @stories = ARGV
-      else
-        if @options.feature?
-          @stories = populate_features_from_projects
-        else
-          @stories = populate_stories_from_projects
+        unless @options[:project].nil?
+          if @options.feature?
+            @stories = populate_features_from_projects
+          else
+            @stories = populate_stories_from_projects
+          end
         end
       end
 

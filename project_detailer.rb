@@ -5,6 +5,6 @@ require_relative 'rally_project_query'
 
 class ProjectDetailer < GroupDetailerBase
   def initialize(detail_query = RallyProjectQuery.new)
-    super(detail_query, 'project')
+    super(detail_query, 'Project')
   end
 end
