@@ -21,11 +21,16 @@ module ConfigurationProvider
         on :header, 'Print header with export types'
         # noinspection RubyQuotedStringsInspection
         on "i=", :input, 'File to read story IDs from'
+        on :p, :project, 'Arguments are project names to query for stories'
         on :r, :release, 'Arguments are release names to query for stories'
         on :s, :screen, 'Display to screen'
         on :x, :export, 'Export to CSV'
       end
       # puts "DEBUG: Command line options: #{@options}"
+
+      unless @options[:project].nil? || @options[:release].nil?
+        fail 'Project and release cannot both be selected'
+      end
 
       credentials_provider = CredentialsProvider.new
       unless @options[:credentials].nil?
@@ -52,6 +57,16 @@ module ConfigurationProvider
           @stories = populate_features_from_releases
         else
           @stories = populate_stories_from_releases
+        end
+      end
+
+      if @options[:project].nil?
+        @stories = ARGV
+      else
+        if @options.feature?
+          @stories = populate_features_from_projects
+        else
+          @stories = populate_stories_from_projects
         end
       end
 
@@ -106,6 +121,28 @@ module ConfigurationProvider
       features = []
       ARGV.each do |release|
         features += detailer.get_portfolio_items release
+      end
+      features
+    end
+
+    def populate_stories_from_projects
+      require_relative 'project_detailer'
+      detailer = ProjectDetailer.new
+
+      stories = []
+      ARGV.each do |project|
+        stories += detailer.get_work_items project
+      end
+      stories
+    end
+
+    def populate_features_from_projects
+      require_relative 'project_detailer'
+      detailer = ProjectDetailer.new
+
+      features = []
+      ARGV.each do |project|
+        features += detailer.get_portfolio_items project
       end
       features
     end
