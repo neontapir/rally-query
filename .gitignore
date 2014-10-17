@@ -1,3 +1,4 @@
+.DS_Store
 .sublime-*
 coverage/
 .buildpath
@@ -8,3 +9,4 @@ input.txt
 output.csv
 results.csv
 data.pstore
+projectFilesBackup/

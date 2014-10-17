@@ -3,11 +3,8 @@ require_relative 'work_item'
 require_relative 'work_item_analysis_format'
 require_relative 'work_item_base_format'
 require_relative 'work_item_export_format'
+require_relative 'work_item_feature_format'
 require_relative 'work_item_screen_format'
-
-# Dir.glob(File.expand_path('work_item_*_format.rb', __FILE__)).each do |file|
-#   require file
-# end
 
 class WorkItemFormatter
   include ConfigurationProvider

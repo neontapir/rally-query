@@ -11,19 +11,24 @@ class QueryEngine
   include LoggingProvider
 
   def execute
-    detailer = WorkItemDetailer.new
-    log.info "Processing #{configuration.stories.length} stories"
-    work_items = configuration.stories.map do |s|
-      log.info "Build work item object for #{s}"
-      begin
-        work_item = WorkItem.new(detailer.get_data s)
-      rescue => e
-        log.warn "#{e.message}, skipping item..."
+    if configuration.options.feature?
+      formatter = WorkItemFormatter.new configuration.stories
+      formatter.dump
+    else
+      detailer = WorkItemDetailer.new
+      log.info "Processing #{configuration.stories.length} stories"
+      work_items = configuration.stories.map do |s|
+        log.info "Build work item object for #{s}"
+        begin
+          work_item = WorkItem.new(detailer.get_data s)
+        rescue => e
+          log.warn "#{e.message}, skipping item..."
+        end
+        work_item # nil if not retrieved, filtered out later
       end
-      work_item # nil if not retrieved, filtered out later
+      formatter = WorkItemFormatter.new work_items
+      formatter.dump
     end
-    formatter = WorkItemFormatter.new work_items
-    formatter.dump
   end
 end
 

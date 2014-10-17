@@ -16,4 +16,12 @@ describe 'Release detailer' do
       expect(results).to include "US52286"
     end
   end
+
+  it 'should get portfolio items' do
+    id = 'ODAP'
+    VCR.use_cassette("odap-details", :record => :new_episodes) do
+      results = @detailer.get_portfolio_items id
+      expect(results).to include "F3969"
+    end
+  end
 end

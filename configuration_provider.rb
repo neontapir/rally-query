@@ -17,6 +17,7 @@ module ConfigurationProvider
         # noinspection RubyQuotedStringsInspection
         on "c=", :credentials, 'Write credentials'
         on :d, :debug, 'Print debug messages'
+        on :f, :feature, 'Display list of features'
         on :header, 'Print header with export types'
         # noinspection RubyQuotedStringsInspection
         on "i=", :input, 'File to read story IDs from'
@@ -47,7 +48,11 @@ module ConfigurationProvider
       if @options[:release].nil?
         @stories = ARGV
       else
-        @stories = populate_stories_from_releases
+        if @options.feature?
+          @stories = populate_features_from_releases
+        else
+          @stories = populate_stories_from_releases
+        end
       end
 
       @rally_workspace = 208_717_725
@@ -59,6 +64,8 @@ module ConfigurationProvider
           'WorkItemExportFormat'
         when @options.analysis?
           'WorkItemAnalysisFormat'
+        when @options.feature?
+          'WorkItemFeatureFormat'
         else
           'WorkItemScreenFormat'
       end
@@ -90,6 +97,17 @@ module ConfigurationProvider
         stories += detailer.get_work_items release
       end
       stories
+    end
+
+    def populate_features_from_releases
+      require_relative 'release_detailer'
+      detailer = ReleaseDetailer.new
+
+      features = []
+      ARGV.each do |release|
+        features += detailer.get_portfolio_items release
+      end
+      features
     end
   end
 end
