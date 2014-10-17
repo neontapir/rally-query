@@ -10,11 +10,6 @@ class CredentialsProvider
     @secret_key = 'xyzzy-unicorn'
   end
 
-  def read_static
-    decoded = Base64.decode64 'Y2R1cmZlZUBnaHguY29tOnJseVNoMW55IQo='
-    @credentials = decoded.strip.split(':')
-  end
-
   def get
     return '' unless File.file? @filename
     account_config = YAML.load_file(@filename)
