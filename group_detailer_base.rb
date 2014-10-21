@@ -20,7 +20,7 @@ class GroupDetailerBase
   def get_portfolio_items(group_name)
     details = @detail_query.get_raw_story_list_with_portfolio_items group_name
     results = JSON.parse(details)
-    fail "No such #{@group_identifier} #{group_name}" if results['QueryResult']['TotalResultCount'] == 0
+    warn "No such #{@group_identifier} #{group_name}" if results['QueryResult']['TotalResultCount'] == 0
     work_items = results['QueryResult']['Results'].map do |item|
       item['PortfolioItem']
     end
@@ -41,7 +41,7 @@ class GroupDetailerBase
   def get_items(group_name, &lookup_method)
     details = lookup_method.call group_name
     results = JSON.parse(details)
-    fail "No such #{@group_identifier} #{group_name}" if results['QueryResult']['TotalResultCount'] == 0
+    warn "No such #{@group_identifier} #{group_name}" if results['QueryResult']['TotalResultCount'] == 0
     work_items = results['QueryResult']['Results'].map do |item|
       item['FormattedID']
     end
