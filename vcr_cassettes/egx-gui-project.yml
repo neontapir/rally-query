@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       Accept:
-      - '*/*; q=0.5, application/xml'
+      - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
@@ -80,4 +80,84 @@ http_interactions:
         jONo1LjLxEsAtMY0cOpt8LrQdpM7CvnkqCS86r/3L958+PA3Yq0gqE8cAAA=
     http_version: 
   recorded_at: Fri, 17 Oct 2014 21:38:30 GMT
+- request:
+    method: get
+    uri: https://cdurfee%40ghx.com:%26%265T%2A4pZBfaB@rally1.rallydev.com/slm/webservice/v2.0/hierarchicalrequirement?fetch=FormattedID&query=(Project.Name%20=%20%22EGX%20-%20GUI%22)&workspace=https://rally1.rallydev.com/slm/webservice/v2.0/workspace/208717725
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Rallyrequestid:
+      - qs-app-111q8jsn59bb8pc19fyl16y83lwg.qs-app-116149367
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Content-Type:
+      - text/javascript;  charset=utf-8
+      Etag:
+      - '"00d770cc1b26eafa2e8fed1c228b909cd"'
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      P3p:
+      - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
+      Cache-Control:
+      - private,max-age=0,must-revalidate
+      Content-Length:
+      - '1349'
+      Date:
+      - Tue, 21 Oct 2014 16:10:24 GMT
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - JSESSIONID=qs-app-111q8jsn59bb8pc19fyl16y83lwg.qs-app-11;Path=/;Secure;HttpOnly
+      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c3745525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - SUBBUCKETID=175;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
+      - ZSESSIONID=vkdm9QDKRRusIWGOvj3kg2ddGLcLUengrgKzfxgg3s;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    http_version: 
+  recorded_at: Tue, 21 Oct 2014 16:10:24 GMT
 recorded_with: VCR 2.9.2

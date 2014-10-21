@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       Accept:
-      - '*/*; q=0.5, application/xml'
+      - "*/*; q=0.5, application/xml"
       Accept-Encoding:
       - gzip, deflate
       User-Agent:
@@ -68,4 +68,140 @@ http_interactions:
         fSZK2Cs3vB8f/wHrllBCGggAAA==
     http_version: 
   recorded_at: Wed, 25 Jun 2014 22:44:50 GMT
+- request:
+    method: get
+    uri: https://cdurfee%40ghx.com:%26%265T%2A4pZBfaB@rally1.rallydev.com/slm/webservice/v2.0/users/13377163924?workspace=https://rally1.rallydev.com/slm/webservice/v2.0/workspace/208717725
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Rallyrequestid:
+      - qs-app-05foay3yipc2xi5j5frtmyatqz.qs-app-057934410
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Content-Type:
+      - text/javascript;  charset=utf-8
+      Etag:
+      - '"0fdc174fb2fa6c5557096ffe13f544e8a"'
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      P3p:
+      - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
+      Cache-Control:
+      - private,max-age=0,must-revalidate
+      Content-Length:
+      - '784'
+      Date:
+      - Tue, 21 Oct 2014 16:06:46 GMT
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - JSESSIONID=qs-app-05foay3yipc2xi5j5frtmyatqz.qs-app-05;Path=/;Secure;HttpOnly
+      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c0d45525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - SUBBUCKETID=175;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
+      - ZSESSIONID=dad9vvf6TqGsVTyRHXuk83KCgGve60AigTxKqZQxc1A;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA8VV224bNxD9lYWeWiDU3m96qhC7sQPZFlKrLRIUBZec1dLh
+        kguSkiME/veSXDldOcqr8yRwLmdmzpwdfZ1tNKjZIvg6+1dhzg/L9fUNfpDO
+        NEtmb4KJmYnRHI1maN2jM2bQizD0UfHc/1DYz4nsQ8378BEaW2DPCIT7ZB6F
+        O/sK4zQty7hI6yR7xrprHoCYzeb6wqGWlNA6ghyROi1QltQZagpIUZGS1OZB
+        RZrCZ0qf9icozaRwmVlcnELe4h6c470UwXsQn5nQLuCtAmxszgU23p1EcYqi
+        CkX1fVws8mKRJvOyTj96MB8MdGlc5HK3Deo3gUtwzrGKb3sylnUcm7qmk7b+
+        2DWaKDaYsdvXIl1PyoZxVmVVmdXxeeppllUVbUvUplCjjFQtqmnWohQ3QCBP
+        8jgqzzP87urv4Jd3XDaYB1eAuekIVhBcfiEdFlv41WeZw+CDT5h4cguR2rwF
+        YbwaZ7dSgIu/gAEr01u7s94D6YTkcnvwPqZxw8Hx22KuYTQNHB9+sPPLHjO+
+        pFSB1s798DD6ftt2Xxx3LuZ3pvRUM862woIysV3jrbeGktkuvXq0wWanxxht
+        VnLLpoLKUByhuLiPy0VSL6JsXlTFx+fgbzX+78+Z11jrR6noZqAW6AQsqj1Y
+        sUjyRZLOszzyYDeMUg5HOLHj3NpuwViQz36jR9Nd21o9rCTBR/HNVnLH9J5x
+        7pm+E4OCfkXx4C6COIFbd24d354fYM+ctK+YNlIdXlHI6li5GytPDkl+Xs2k
+        KuuoAIzqMgKUYZIiTEmL4rIiSRpncVmmJ7p8OZuT5gfJvW+tJN0RE9w9CqtS
+        9zl3UplTzR0pmsp7SXsmJiK9B9zfQN/Y+9CxQb8ifZsXxzd82cqUCTutY9If
+        S7nzH2Ds2HAgz+I99wU5/xpUz7Tj8aeO97KV6XinvrNTWgZa5lf/mv+Ow1h1
+        MkhxXttNE+VRXtUIl0WJMlrkCLfESp2QBtPE5tfN9yMfZ3IzXiollVvQp3/s
+        6y+shL1y4/vp6T9vdtugGggAAA==
+    http_version: 
+  recorded_at: Tue, 21 Oct 2014 16:06:46 GMT
+- request:
+    method: get
+    uri: https://cdurfee%40ghx.com:%26%265T%2A4pZBfaB@rally1.rallydev.com/slm/webservice/v2.0/users/13377163924?pagesize=1000&workspace=https://rally1.rallydev.com/slm/webservice/v2.0/workspace/208717725
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Rallyrequestid:
+      - qs-app-04pgw1xynfbm6m1rykp42d8rdpv.qs-app-048230333
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Content-Type:
+      - text/javascript;  charset=utf-8
+      Etag:
+      - '"0fdc174fb2fa6c5557096ffe13f544e8a"'
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      P3p:
+      - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
+      Cache-Control:
+      - private,max-age=0,must-revalidate
+      Content-Length:
+      - '784'
+      Date:
+      - Tue, 21 Oct 2014 20:35:57 GMT
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - JSESSIONID=qs-app-04pgw1xynfbm6m1rykp42d8rdpv.qs-app-04;Path=/;Secure;HttpOnly
+      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c0645525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - SUBBUCKETID=175;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
+      - ZSESSIONID=5T6qW34TDOoQ6nYrHNHl2r3ZelxgUiJseKPwzfzBJ0;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA8VV224bNxD9lYWeWiDU3m96qhC7sQPZFlKrLRIUBZec1dLh
+        kguSkiME/veSXDldOcqr8yRwLmdmzpwdfZ1tNKjZIvg6+1dhzg/L9fUNfpDO
+        NEtmb4KJmYnRHI1maN2jM2bQizD0UfHc/1DYz4nsQ8378BEaW2DPCIT7ZB6F
+        O/sK4zQty7hI6yR7xrprHoCYzeb6wqGWlNA6ghyROi1QltQZagpIUZGS1OZB
+        RZrCZ0qf9icozaRwmVlcnELe4h6c470UwXsQn5nQLuCtAmxszgU23p1EcYqi
+        CkX1fVws8mKRJvOyTj96MB8MdGlc5HK3Deo3gUtwzrGKb3sylnUcm7qmk7b+
+        2DWaKDaYsdvXIl1PyoZxVmVVmdXxeeppllUVbUvUplCjjFQtqmnWohQ3QCBP
+        8jgqzzP87urv4Jd3XDaYB1eAuekIVhBcfiEdFlv41WeZw+CDT5h4cguR2rwF
+        YbwaZ7dSgIu/gAEr01u7s94D6YTkcnvwPqZxw8Hx22KuYTQNHB9+sPPLHjO+
+        pFSB1s798DD6ftt2Xxx3LuZ3pvRUM862woIysV3jrbeGktkuvXq0wWanxxht
+        VnLLpoLKUByhuLiPy0VSL6JsXlTFx+fgbzX+78+Z11jrR6noZqAW6AQsqj1Y
+        sUjyRZLOszzyYDeMUg5HOLHj3NpuwViQz36jR9Nd21o9rCTBR/HNVnLH9J5x
+        7pm+E4OCfkXx4C6COIFbd24d354fYM+ctK+YNlIdXlHI6li5GytPDkl+Xs2k
+        KuuoAIzqMgKUYZIiTEmL4rIiSRpncVmmJ7p8OZuT5gfJvW+tJN0RE9w9CqtS
+        9zl3UplTzR0pmsp7SXsmJiK9B9zfQN/Y+9CxQb8ifZsXxzd82cqUCTutY9If
+        S7nzH2Ds2HAgz+I99wU5/xpUz7Tj8aeO97KV6XinvrNTWgZa5lf/mv+Ow1h1
+        MkhxXttNE+VRXtUIl0WJMlrkCLfESp2QBtPE5tfN9yMfZ3IzXiollVvQp3/s
+        6y+shL1y4/vp6T9vdtugGggAAA==
+    http_version: 
+  recorded_at: Tue, 21 Oct 2014 20:35:56 GMT
 recorded_with: VCR 2.9.2

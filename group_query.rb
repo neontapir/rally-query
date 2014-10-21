@@ -30,12 +30,12 @@ class GroupQuery < Query
   private
 
   def get_list_with_portfolio_items(group_item_name, item_type)
-    query = "#{WEBSERVICE_ROOT}/#{item_type}?workspace=#{workspace_url}&query=(#{@group_identifier}.Name = \"#{group_item_name}\")&fetch=FormattedID,PortfolioItem"
+    query = "#{WEBSERVICE_ROOT}/#{item_type}?workspace=#{workspace_url}&query=(#{@group_identifier}.Name = \"#{group_item_name}\")&fetch=FormattedID,PortfolioItem&pagesize=1000"
     make_get_rest_call query
   end
 
   def get_list(group_item_name, item_type)
-    query = "#{WEBSERVICE_ROOT}/#{item_type}?workspace=#{workspace_url}&query=(#{@group_identifier}.Name = \"#{group_item_name}\")&fetch=FormattedID"
+    query = "#{WEBSERVICE_ROOT}/#{item_type}?workspace=#{workspace_url}&query=(#{@group_identifier}.Name = \"#{group_item_name}\")&fetch=FormattedID&pagesize=1000"
     make_get_rest_call query
   end
 end

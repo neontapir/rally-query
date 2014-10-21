@@ -66,7 +66,7 @@ describe 'Rally detail query object' do
 
   it 'should get feature details by id' do
     id = '20662787587'
-    VCR.use_cassette("#{id}-feature-details") do
+    VCR.use_cassette("#{id}-feature-details", :record => :new_episodes) do
       details = @query.get_raw_feature id
       expect(details.code).to eq(200)
     end

@@ -9,8 +9,8 @@ class KanbanBoard
 
   def initialize(project, tags = nil)
     @board = case
-               when project == 'EGX - GUI' then
-                 GUI
+               when project =~ /EGX - (GUI|TPM)/ then
+                 KanbanBoard.const_get($1.upcase)
                when tags =~ /(Rules|Adapters|TPM)/ then
                  KanbanBoard.const_get($1.upcase)
                else

@@ -11,10 +11,14 @@ class RallyDetailQuery < Query
     WEBSERVICE_ROOT
   end
 
+  def standardQueryString
+    "workspace=#{workspace_url}&pagesize=1000"
+  end
+
   def get_raw_details(work_item_id)
     story = canonize work_item_id
     item_type = item_type_identifier story
-    make_get_rest_call "#{WEBSERVICE_ROOT}/#{item_type}?query=(FormattedID = #{story})&fetch=true&workspace=#{workspace_url}"
+    make_get_rest_call "#{WEBSERVICE_ROOT}/#{item_type}?query=(FormattedID = #{story})&fetch=true&#{standardQueryString}"
   end
 
   def get_story_details(object_id)
@@ -28,26 +32,26 @@ class RallyDetailQuery < Query
   end
 
   def get_raw_release(release_id)
-    make_get_rest_call "#{WEBSERVICE_ROOT}/releases/#{release_id}?workspace=#{workspace_url}"
+    make_get_rest_call "#{WEBSERVICE_ROOT}/releases/#{release_id}?#{standardQueryString}"
   end
 
   def get_raw_user(user_id)
-    make_get_rest_call "#{WEBSERVICE_ROOT}/users/#{user_id}?workspace=#{workspace_url}"
+    make_get_rest_call "#{WEBSERVICE_ROOT}/users/#{user_id}?#{standardQueryString}"
   end
 
   def get_raw_project(project_id)
-    make_get_rest_call "#{WEBSERVICE_ROOT}/project/#{project_id}?workspace=#{workspace_url}"
+    make_get_rest_call "#{WEBSERVICE_ROOT}/project/#{project_id}?#{standardQueryString}"
   end
 
   def get_raw_feature(feature_id)
-    make_get_rest_call "#{WEBSERVICE_ROOT}/portfolioitem/feature/#{feature_id}?workspace=#{workspace_url}"
+    make_get_rest_call "#{WEBSERVICE_ROOT}/portfolioitem/feature/#{feature_id}?#{standardQueryString}"
   end
 
   def get_project_children(project_id)
-    make_get_rest_call "#{WEBSERVICE_ROOT}/project/#{project_id}/children?workspace=#{workspace_url}"
+    make_get_rest_call "#{WEBSERVICE_ROOT}/project/#{project_id}/children?#{standardQueryString}"
   end
 
   def get_details_by_id(item_type, object_id)
-    make_get_rest_call "#{WEBSERVICE_ROOT}/#{item_type}/#{object_id}?fetch=true&workspace=#{workspace_url}"
+    make_get_rest_call "#{WEBSERVICE_ROOT}/#{item_type}/#{object_id}?fetch=true&#{standardQueryString}"
   end
 end

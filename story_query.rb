@@ -16,7 +16,7 @@ class QueryEngine
       formatter.dump
     else
       detailer = WorkItemDetailer.new
-      log.info "Processing #{configuration.stories.length} stories"
+      log.info "Processing #{configuration.stories.length} items"
       work_items = configuration.stories.map do |s|
         log.info "Build work item object for #{s}"
         begin

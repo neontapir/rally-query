@@ -21,14 +21,16 @@ class RallyLookbackQuery < Query
 
     filter = %({ "find" : { "FormattedID": "#{story}" }, \
                  "fields" : ["ObjectID", "_ValidFrom", "_ValidTo", "Release", "Blocked", "Ready", "#{kanban_field}", "_User"], \
-                 "compress" : true })
+                 "compress" : true,
+                 "start": 0,
+                 "pagesize": 1000 })
 
     make_post_rest_call url, filter
   end
 
   def get_kanban_field_name(project)
     case project
-      when /Backend|R&D|Teams/
+      when /Backend|R&D|Teams|TPM/
         'c_EGXKanbanState'
       when /GUI/
         'c_EGXGUIKanbanState'
