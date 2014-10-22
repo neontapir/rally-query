@@ -22,7 +22,9 @@ module ConfigurationProvider
         on "i=", :input, 'File to read story IDs from'
         on :p, :project, 'Arguments are project names to query for stories'
         on :r, :release, 'Arguments are release names to query for stories'
-        on :s, :screen, 'Display to screen'
+        on :screen, 'Display to screen'
+        # noinspection RubyQuotedStringsInspection
+        on "s=", :system, 'System to query: Rally or Jira'
         on :x, :export, 'Export to CSV'
       end
       # puts "DEBUG: Command line options: #{@options}"
@@ -31,18 +33,7 @@ module ConfigurationProvider
         raise 'Project and release cannot both be selected'
       end
 
-      credentials_provider = CredentialsProvider.new
-      unless @options[:credentials].nil?
-        new_creds = @options[:credentials]
-        puts "Creating credentials file at #{credentials_provider.filename}"
-        credentials_provider.set_password 'Rally', new_creds
-        exit
-      end
-
-      @credentials = credentials_provider.get_password('Rally')
-      if @credentials.empty?
-        raise "Rally credentials file missing (#{credentials_provider.filename}). Run this script with '-c username:password' to set."
-      end
+      ensure_credentials
 
       #if @options.key? :input
       unless @options[:input].nil?
@@ -69,7 +60,24 @@ module ConfigurationProvider
         end
       end
 
+      # TODO: Store in credentials file
       @rally_workspace = 208_717_725
+    end
+
+    def ensure_credentials
+      system = @options[:system] || 'Rally'
+      credentials_provider = CredentialsProvider.new
+      unless @options[:credentials].nil?
+        new_creds = @options[:credentials]
+        puts "Creating credentials for #{system} at #{credentials_provider.filename}"
+        credentials_provider.set_password system, new_creds
+        exit
+      end
+
+      @credentials = credentials_provider.get_password(system)
+      if @credentials.empty?
+        raise "#{system} credentials file missing (#{credentials_provider.filename}). Run this script with '-c username:password' to set."
+      end
     end
 
     def formatter

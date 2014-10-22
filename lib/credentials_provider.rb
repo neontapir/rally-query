@@ -11,39 +11,37 @@ class CredentialsProvider
   end
 
   def get_password(system)
-    key = get_key system
-    get key
+    get system, get_key
   end
 
   def set_password(system, value)
-    key = get_key system
-    set(key, value)
+    set system, get_key, value
   end
 
   private
 
-  def get_key(system)
-    "#{system.to_s.downcase}-password"
+  def get_key
+    'password'
   end
 
-  def get(key)
+  def get(system, key)
     return '' unless File.file? @filename
 
     contents = YAML.load_file(@filename)
-    raise "No entry found for #{key}" if contents[key].nil?
+    raise "No entry found for #{system} -> #{key}" if contents[system][key].nil?
 
-    account_password = Encryptor.decrypt(Base64.decode64(contents[key]), :key => @secret_key, :algorithm => 'aes-256-ecb')
+    account_password = Encryptor.decrypt(Base64.decode64(contents[system][key]), :key => @secret_key, :algorithm => 'aes-256-ecb')
     @credentials = account_password.to_s.split(':')
   end
 
-  def set(key, value)
+  def set(system, key, value)
     password = Base64.encode64(Encryptor.encrypt(value, :key => @secret_key, :algorithm => 'aes-256-ecb'))
 
     if File.file? @filename
       contents = YAML.load_file(@filename)
-      contents[key] = password
+      contents[system] = { key => password }
     else
-      contents = { key => password }
+      contents = { system => { key => password } }
     end
 
     File.open(@filename, 'w') {|f| f.write contents.to_yaml }
