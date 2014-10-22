@@ -8,7 +8,7 @@ require 'base64'
 require_relative '../configuration_provider'
 require_relative '../logging_provider'
 
-class Query
+class RallyQuery
   include ConfigurationProvider
   include LoggingProvider
 

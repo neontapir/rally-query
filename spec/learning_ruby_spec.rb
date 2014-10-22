@@ -43,4 +43,14 @@ describe 'Just learning Ruby' do
   #   # duration = ticket_reported.business_time_until(ticket_resolved)
   #   # expect(duration / 3600.0).to eq(0)
   # end
+
+  def bad_idea
+    raise 'uh-oh'
+  end
+
+  it 'should handle errors' do
+    expect { raise 'oops' }.to raise_error
+
+    expect{bad_idea}.to raise_error
+  end
 end

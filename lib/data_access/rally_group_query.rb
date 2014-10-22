@@ -1,6 +1,6 @@
-require File.expand_path(File.dirname(__FILE__) + '/query.rb')
+require File.expand_path(File.dirname(__FILE__) + '/rally_query.rb')
 
-class GroupQuery < Query
+class RallyGroupQuery < RallyQuery
   attr_accessor :group_identifier
   WEBSERVICE_ROOT = 'https://rally1.rallydev.com/slm/webservice/v2.0'
 

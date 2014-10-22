@@ -35,11 +35,11 @@ module ConfigurationProvider
       unless @options[:credentials].nil?
         new_creds = @options[:credentials]
         puts "Creating credentials file at #{credentials_provider.filename}"
-        credentials_provider.set new_creds
+        credentials_provider.set_password 'Rally', new_creds
         exit
       end
 
-      @credentials = credentials_provider.get
+      @credentials = credentials_provider.get_password('Rally')
       if @credentials.empty?
         fail "Rally credentials file missing (#{credentials_provider.filename}). Run this script with '-c username:password' to set."
       end

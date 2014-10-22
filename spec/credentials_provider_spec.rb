@@ -10,18 +10,29 @@ describe 'Credentials provider' do
 
   it 'should have no credentials at first' do
     File.delete(@creds_file) if File.file?(@creds_file)
-    expect(@credentials.get).to eql('')
+    expect(@credentials.get_password 'System').to eql('')
   end
 
-  it 'should provide create credentials' do
+  it 'should only have credentials for systems that have been set' do
+    File.delete(@creds_file) if File.file?(@creds_file)
     test_credentials = 'user:password'
-    @credentials.set(test_credentials)
-    expect(File.file?(@creds_file)).to be_truthy
+    @credentials.set_password('System', test_credentials)
 
-    data = File.read(@creds_file)
-    expect(data).not_to be_nil
+    expect(@credentials.get_password 'System').to eql(test_credentials.split(':'))
+    expect{@credentials.get_password 'System-2'}.to raise_error
+  end
 
-    expect(@credentials.get).to eql(test_credentials.split(':'))
+  it 'should have credentials for multiple systems' do
+    File.delete(@creds_file) if File.file?(@creds_file)
+
+    test_credentials = 'user:password'
+    @credentials.set_password('System', test_credentials)
+
+    test_credentials2 = 'user2:password2'
+    @credentials.set_password('System-2', test_credentials2)
+
+    expect(@credentials.get_password 'System').to eql(test_credentials.split(':'))
+    expect(@credentials.get_password 'System-2').to eql(test_credentials2.split(':'))
   end
 
   after :all do

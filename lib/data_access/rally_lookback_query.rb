@@ -1,9 +1,9 @@
 require 'rest-client'
 require 'open-uri'
 require 'logger'
-require_relative 'query'
+require_relative 'rally_query'
 
-class RallyLookbackQuery < Query
+class RallyLookbackQuery < RallyQuery
   WEBSERVICE_ROOT = 'https://rally1.rallydev.com/analytics/v2.0/service/rally'
 
   def webservice_root
