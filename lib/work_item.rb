@@ -205,7 +205,7 @@ class WorkItem
   # extract into factory, will need to set all these variables though
 
   def create_item(raw_data)
-    fail "rawData is not a Hash, it's a #{raw_data.class}" unless raw_data.is_a? Hash
+    raise "rawData is not a Hash, it's a #{raw_data.class}" unless raw_data.is_a? Hash
 
     # log.debug "Raw data: #{JSON.pretty_generate(rawData)}"
 

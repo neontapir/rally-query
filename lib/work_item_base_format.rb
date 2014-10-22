@@ -5,7 +5,7 @@ class WorkItemBaseFormat < Mustache
   attr_accessor :work_items
 
   def stories
-    fail 'Must implement in descendant'
+    raise 'Must implement in descendant'
   end
 
   def format_date(value)

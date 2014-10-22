@@ -28,7 +28,7 @@ module ConfigurationProvider
       # puts "DEBUG: Command line options: #{@options}"
 
       unless @options[:project].nil? || @options[:release].nil?
-        fail 'Project and release cannot both be selected'
+        raise 'Project and release cannot both be selected'
       end
 
       credentials_provider = CredentialsProvider.new
@@ -41,7 +41,7 @@ module ConfigurationProvider
 
       @credentials = credentials_provider.get_password('Rally')
       if @credentials.empty?
-        fail "Rally credentials file missing (#{credentials_provider.filename}). Run this script with '-c username:password' to set."
+        raise "Rally credentials file missing (#{credentials_provider.filename}). Run this script with '-c username:password' to set."
       end
 
       #if @options.key? :input

@@ -21,7 +21,6 @@ class WorkItemFormatter
       @format = formatter
     end
 
-    # fail "work_items is a #{work_items.class}, not an Array" unless work_items.is_a? Array
     @format.work_items = Array(work_items)
   end
 

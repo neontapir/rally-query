@@ -16,8 +16,8 @@ class RallyLookbackQuery < RallyQuery
 
     kanban_field = get_kanban_field_name project
 
-    fail 'Bad story ID' if story.empty?
-    fail 'Bad kanban field ID' if kanban_field.empty?
+    raise 'Bad story ID' if story.empty?
+    raise 'Bad kanban field ID' if kanban_field.empty?
 
     filter = %({ "find" : { "FormattedID": "#{story}" }, \
                  "fields" : ["ObjectID", "_ValidFrom", "_ValidTo", "Release", "Blocked", "Ready", "#{kanban_field}", "_User"], \
@@ -35,7 +35,7 @@ class RallyLookbackQuery < RallyQuery
       when /GUI/
         'c_EGXGUIKanbanState'
       else
-        fail "Unknown project '#{project}'"
+        raise "Unknown project '#{project}'"
     end
   end
 end

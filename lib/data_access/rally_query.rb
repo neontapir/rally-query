@@ -19,7 +19,7 @@ class RallyQuery
   end
 
   def workspace_url
-    fail "Missing webservice_root method in #{self.class}" unless respond_to? :webservice_root
+    raise "Missing webservice_root method in #{self.class}" unless respond_to? :webservice_root
     "#{webservice_root}/workspace/#{configuration.rally_workspace}"
   end
 
@@ -62,7 +62,7 @@ class RallyQuery
                                           content_type: :json,
                                           accept: :json)
       results = resource.get
-      fail "REST call failed, got #{results.code} status" unless results.code == HTTP_OK
+      raise "REST call failed, got #{results.code} status" unless results.code == HTTP_OK
     rescue => e
       log.error e
       raise e
@@ -81,7 +81,7 @@ class RallyQuery
       results = resource.post body,
                               content_type: APP_JSON,
                               accept: APP_JSON
-      fail "REST call failed, got #{results.code} status" unless results.code == HTTP_OK
+      raise "REST call failed, got #{results.code} status" unless results.code == HTTP_OK
     rescue => e
       log.error e
       raise e
