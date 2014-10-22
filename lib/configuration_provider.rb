@@ -1,6 +1,6 @@
 require 'logger'
 require 'slop'
-require_relative 'credentials_provider'
+require_relative 'secrets_store'
 
 module ConfigurationProvider
   def configuration
@@ -66,17 +66,18 @@ module ConfigurationProvider
 
     def ensure_credentials
       system = @options[:system] || 'Rally'
-      credentials_provider = CredentialsProvider.new
+      store_location = File.expand_path('../your_credentials.yml', File.dirname(__FILE__))
+      secrets_store = SecretsStore.new store_location, system
       unless @options[:credentials].nil?
         new_creds = @options[:credentials]
-        puts "Creating credentials for #{system} at #{credentials_provider.filename}"
-        credentials_provider.set_password system, new_creds
+        puts "Creating credentials for #{system} at #{secrets_store.filename}"
+        secrets_store.set 'password', new_creds
         exit
       end
 
-      @credentials = credentials_provider.get_password(system)
+      @credentials = secrets_store.get 'password'
       if @credentials.empty?
-        raise "#{system} credentials file missing (#{credentials_provider.filename}). Run this script with '-c username:password' to set."
+        raise "#{system} credentials file missing (#{secrets_store.filename}). Run this script with '-c username:password' to set."
       end
     end
 

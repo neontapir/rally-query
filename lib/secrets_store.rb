@@ -2,29 +2,16 @@ require 'base64'
 require 'encryptor'
 require 'yaml'
 
-class CredentialsProvider
-  attr_reader :filename
+class SecretsStore
+  attr_reader :filename, :system
 
-  def initialize(yaml_file = File.expand_path('../your_credentials.yml', File.dirname(__FILE__)))
+  def initialize(yaml_file = File.expand_path('../your_credentials.yml', File.dirname(__FILE__)), system = 'Rally')
+    @system = system
     @filename = yaml_file
     @secret_key = 'xyzzy-unicorn'
   end
 
-  def get_password(system)
-    get system, get_key
-  end
-
-  def set_password(system, value)
-    set system, get_key, value
-  end
-
-  private
-
-  def get_key
-    'password'
-  end
-
-  def get(system, key)
+  def get(key, system = @system)
     return '' unless File.file? @filename
 
     contents = YAML.load_file(@filename)
@@ -34,7 +21,7 @@ class CredentialsProvider
     @credentials = account_password.to_s.split(':')
   end
 
-  def set(system, key, value)
+  def set(key, value, system = @system)
     password = Base64.encode64(Encryptor.encrypt(value, :key => @secret_key, :algorithm => 'aes-256-ecb'))
 
     if File.file? @filename
