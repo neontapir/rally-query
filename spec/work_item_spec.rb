@@ -1,8 +1,8 @@
 require 'rspec'
 require 'spec_helper'
 require 'vcr'
-require_relative '../work_item_detailer'
-require_relative '../work_item'
+require_relative '../lib/work_item_detailer'
+require_relative '../lib/work_item'
 
 describe 'Work item US53364' do
   before :all do

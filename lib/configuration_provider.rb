@@ -1,7 +1,6 @@
 require 'logger'
 require 'slop'
 require_relative 'credentials_provider'
-#require_relative 'release_detailer'
 
 module ConfigurationProvider
   def configuration

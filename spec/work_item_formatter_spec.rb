@@ -1,11 +1,11 @@
 require 'rspec'
 require 'vcr'
 
-require_relative '../work_item_export_format'
-require_relative '../work_item_detailer'
-require_relative '../work_item_formatter'
-require_relative '../work_item'
-require_relative '../vcr_setup'
+require_relative '../lib/work_item_export_format'
+require_relative '../lib/work_item_detailer'
+require_relative '../lib/work_item_formatter'
+require_relative '../lib/work_item'
+require_relative 'vcr_setup'
 require_relative 'capture'
 require_relative 'spec_helper'
 

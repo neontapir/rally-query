@@ -1,7 +1,9 @@
 require 'rspec'
 require 'spec_helper'
 
-require_relative '../work_item'
+require_relative '../lib/work_item'
+require_relative '../lib/work_item_detailer'
+require_relative '../lib/state_change'
 
 # These tests were added afterward, so I create StateChanges using the WorkItem.create_state_changes method
 

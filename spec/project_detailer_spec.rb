@@ -1,8 +1,8 @@
 require 'rspec'
 require 'spec_helper'
 require 'vcr'
-require_relative '../project_detailer'
-require_relative '../vcr_setup'
+require_relative '../lib/project_detailer'
+require_relative 'vcr_setup'
 
 describe 'Project detailer' do
   before :each do

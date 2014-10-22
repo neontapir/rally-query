@@ -1,8 +1,8 @@
 require 'rspec'
 require 'spec_helper'
 require 'vcr'
-require_relative '../rally_project_query'
-require_relative '../vcr_setup'
+require_relative '../lib/rally_project_query'
+require_relative 'vcr_setup'
 
 describe 'Rally project query object' do
   before :each do

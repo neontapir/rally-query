@@ -2,9 +2,9 @@
 
 # example: ./story_query.rb -i input.txt -x >> output.csv
 
-require_relative 'configuration_provider'
-require_relative 'work_item_detailer'
-require_relative 'work_item_formatter'
+require_relative 'lib/configuration_provider'
+require_relative 'lib/work_item_detailer'
+require_relative 'lib/work_item_formatter'
 
 class QueryEngine
   include ConfigurationProvider

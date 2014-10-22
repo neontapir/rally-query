@@ -1,8 +1,8 @@
 require 'rspec'
 require 'spec_helper'
 require 'vcr'
-require_relative '../work_item_detailer'
-require_relative '../vcr_setup'
+require_relative '../lib/work_item_detailer'
+require_relative 'vcr_setup'
 
 describe 'Get story details' do
   before :each do

@@ -1,6 +1,6 @@
 require 'rspec'
 
-require_relative '../credentials_provider'
+require_relative '../lib/credentials_provider'
 
 describe 'Credentials provider' do
   before :all do

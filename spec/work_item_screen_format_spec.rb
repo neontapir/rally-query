@@ -1,4 +1,4 @@
-require_relative '../work_item_screen_format'
+require_relative '../lib/work_item_screen_format'
 
 describe 'Work Item Screen Format' do
   before :each do

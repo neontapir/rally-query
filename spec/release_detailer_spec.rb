@@ -1,8 +1,8 @@
 require 'rspec'
 require 'spec_helper'
 require 'vcr'
-require_relative '../release_detailer'
-require_relative '../vcr_setup'
+require_relative '../lib/release_detailer'
+require_relative 'vcr_setup'
 
 describe 'Release detailer' do
   before :each do

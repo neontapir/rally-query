@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../work_item_state'
+require_relative '../lib/work_item_state'
 
 describe 'Work item state' do
   it 'should convert to string' do

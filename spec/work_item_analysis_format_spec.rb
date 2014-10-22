@@ -1,4 +1,4 @@
-require_relative '../work_item_analysis_format'
+require_relative '../lib/work_item_analysis_format'
 
 describe 'Work Item Analysis Format' do
   before :each do
