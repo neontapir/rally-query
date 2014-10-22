@@ -1,7 +1,7 @@
 require 'logger'
 require 'json'
-require_relative 'rally_project_query'
-require_relative 'rally_release_query'
+require_relative 'data_access/rally_project_query'
+require_relative 'data_access/rally_release_query'
 
 class GroupDetailerBase
   attr_accessor :detail_query

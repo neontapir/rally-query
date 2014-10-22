@@ -1,8 +1,8 @@
-require File.expand_path(File.dirname(__FILE__) + '/group_query.rb')
 require 'rest-client'
 require 'open-uri'
 require 'logger'
-require_relative 'query'
+
+require_relative 'group_query'
 
 class RallyReleaseQuery < GroupQuery
   def initialize(group_identifier = 'Release')

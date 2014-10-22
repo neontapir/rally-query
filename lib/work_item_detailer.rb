@@ -1,7 +1,7 @@
 require 'logger'
 require 'json'
-require_relative 'rally_detail_query'
-require_relative 'rally_lookback_query'
+require_relative 'data_access/rally_detail_query'
+require_relative 'data_access/rally_lookback_query'
 
 class WorkItemDetailer
   include LoggingProvider
