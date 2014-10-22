@@ -14,12 +14,13 @@ module ConfigurationProvider
       @options = Slop.parse!(:help => true) do
         on :analysis, 'Export to CSV for Frank Vega\'s analysis script'
         # noinspection RubyQuotedStringsInspection
-        on "c=", :credentials, 'Write credentials'
+        on "c=", :credentials, 'Write credentials for system to secret store'
         on :d, :debug, 'Print debug messages'
         on :f, :feature, 'Display list of features'
         on :header, 'Print header with export types'
         # noinspection RubyQuotedStringsInspection
         on "i=", :input, 'File to read story IDs from'
+        on 'workspace=', 'Write workspace ID for system to secret store'
         on :p, :project, 'Arguments are project names to query for stories'
         on :r, :release, 'Arguments are release names to query for stories'
         on :screen, 'Display to screen'
@@ -33,7 +34,7 @@ module ConfigurationProvider
         raise 'Project and release cannot both be selected'
       end
 
-      ensure_credentials
+      establish_secret_store_data
 
       #if @options.key? :input
       unless @options[:input].nil?
@@ -59,25 +60,37 @@ module ConfigurationProvider
           end
         end
       end
-
-      # TODO: Store in credentials file
-      @rally_workspace = 208_717_725
     end
 
-    def ensure_credentials
+    def establish_secret_store_data
       system = @options[:system] || 'Rally'
       store_location = File.expand_path('../your_credentials.yml', File.dirname(__FILE__))
       secrets_store = SecretsStore.new store_location, system
+
       unless @options[:credentials].nil?
         new_creds = @options[:credentials]
         puts "Creating credentials for #{system} at #{secrets_store.filename}"
-        secrets_store.set 'password', new_creds
+        secrets_store.set_password new_creds
         exit
       end
 
-      @credentials = secrets_store.get 'password'
+      unless @options[:workspace].nil?
+        new_workspace = @options[:workspace]
+        puts "Adding workspace for #{system} at #{secrets_store.filename}"
+        secrets_store.set 'workspace', new_workspace
+        exit
+      end
+
+      @credentials = secrets_store.get_password
       if @credentials.empty?
         raise "#{system} credentials file missing (#{secrets_store.filename}). Run this script with '-c username:password' to set."
+      end
+
+      if system == 'Rally'
+        @rally_workspace = secrets_store.get 'workspace'
+        if @rally_workspace.empty?
+          raise "#{system} workspace value missing (#{secrets_store.filename}). Run this script with '--workspace ID' to set."
+        end
       end
     end
 

@@ -325,4 +325,91 @@ http_interactions:
         fKoZrw4l2tps7sR/JV2H3S7m7GL2FwAA//8DADlT9eUkDQAA
     http_version: 
   recorded_at: Tue, 21 Oct 2014 20:35:57 GMT
+- request:
+    method: post
+    uri: https://cdurfee%40ghx.com:%26%265T%2A4pZBfaB@rally1.rallydev.com/analytics/v2.0/service/rally/workspace/true/artifact/snapshot/query.json
+    body:
+      encoding: UTF-8
+      string: |-
+        { "find" : { "FormattedID": "US53364" },                  "fields" : ["ObjectID", "_ValidFrom", "_ValidTo", "Release", "Blocked", "Ready", "c_EGXKanbanState", "_User"],                  "compress" : true,
+                         "start": 0,
+                         "pagesize": 1000 }
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '269'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Server:
+      - Jetty(8.0.y.z-SNAPSHOT)
+      Content-Type:
+      - text/html;charset=UTF-8
+      Cache-Control:
+      - private,max-age=0,must-revalidate
+      Expires:
+      - Wed, 22 Oct 2014 22:55:09 GMT
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      P3p:
+      - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
+      Date:
+      - Wed, 22 Oct 2014 22:55:09 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - Transfer-Encoding
+      - close
+      Set-Cookie:
+      - JSESSIONID=1dh5bzimdvvkndsq7xolwlol6;Path=/analytics
+      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c0645525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - ZSESSIONID=HgKDlkn3SuOfl0OqErwmAIdsvB0A3kGRW5L9wO2k;Path=/;Domain=rally1.rallydev.com;HttpOnly
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    http_version: 
+  recorded_at: Wed, 22 Oct 2014 22:55:09 GMT
 recorded_with: VCR 2.9.2

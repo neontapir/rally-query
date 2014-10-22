@@ -515,4 +515,58 @@ http_interactions:
         PT7+Hy82tEbVHQAA
     http_version: 
   recorded_at: Tue, 21 Oct 2014 20:35:56 GMT
+- request:
+    method: get
+    uri: https://cdurfee%40ghx.com:%26%265T%2A4pZBfaB@rally1.rallydev.com/slm/webservice/v2.0/defect?fetch=true&pagesize=1000&query=(FormattedID%20=%20DE7477)&workspace=https://rally1.rallydev.com/slm/webservice/v2.0/workspace/true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Rallyrequestid:
+      - qs-app-01qjq5h3w1u0u9mqosa89mgvju.qs-app-01851634
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Content-Type:
+      - text/javascript;  charset=utf-8
+      Etag:
+      - '"05dcecee69e6cbd36953a8ce113072cec"'
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      P3p:
+      - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
+      Cache-Control:
+      - private,max-age=0,must-revalidate
+      Content-Length:
+      - '162'
+      Date:
+      - Wed, 22 Oct 2014 22:55:09 GMT
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - JSESSIONID=qs-app-01qjq5h3w1u0u9mqosa89mgvju.qs-app-01;Path=/;Secure;HttpOnly
+      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c0545525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - SUBBUCKETID=175;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
+      - ZSESSIONID=lvGFN7kZRtK1J2BddtLQaYC7gAR2aEnssPj3eF6Tur0;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA02OMQvCMBBG/0q42aE4dhNx6CBUW3AQkcMeJRov5ZKgtfS/
+        m5gOju/B+/gmOASS8UguGA+lmuAqaMy4qas93q1EBWtYqT+tOesi6Z2IFRfx
+        DFsbTKfYejWgOFIofXgS+1K9rDzcgDeCS0xOKKy5/0WJW+vR5ANxgtOLIurG
+        o/iKO3ovosaeGv2hBXORV+b5CzsLbgbIAAAA
+    http_version: 
+  recorded_at: Wed, 22 Oct 2014 22:55:09 GMT
 recorded_with: VCR 2.9.2

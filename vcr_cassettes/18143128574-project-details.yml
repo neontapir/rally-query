@@ -195,4 +195,57 @@ http_interactions:
         F6NP8s+C5E79xNq+f3z/4Z41acu8vOm/n57+APZK7jxsCQAA
     http_version: 
   recorded_at: Tue, 21 Oct 2014 20:35:59 GMT
+- request:
+    method: get
+    uri: https://cdurfee%40ghx.com:%26%265T%2A4pZBfaB@rally1.rallydev.com/slm/webservice/v2.0/project/18143128574?pagesize=1000&workspace=https://rally1.rallydev.com/slm/webservice/v2.0/workspace/true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Rallyrequestid:
+      - qs-app-0311wvt30352wsa1gmmsfjbbpyl0.qs-app-03809825
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Content-Type:
+      - text/javascript;  charset=utf-8
+      Etag:
+      - '"0203b14e8ed4cc7ba13dd3c45eee58bb9"'
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      P3p:
+      - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
+      Cache-Control:
+      - private,max-age=0,must-revalidate
+      Content-Length:
+      - '131'
+      Date:
+      - Wed, 22 Oct 2014 22:55:10 GMT
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - JSESSIONID=qs-app-0311wvt30352wsa1gmmsfjbbpyl0.qs-app-03;Path=/;Secure;HttpOnly
+      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c0745525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - SUBBUCKETID=175;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
+      - ZSESSIONID=MWkGdj2iTvm7K8ptQjE2CdWy9gKkl1vZiXegMcd7M;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA03LsQoCMRBF0V8ZprYQy+1ELCxEsbGQRQYdlmicCS8JIsv+
+        u1Eby3vgjrxLCinB7aC5xsIdjXyGxPha7jdbuTka8YJn9MfBfjz/8Bpw5JYn
+        XnmNVzIvlARZSTDUh1rp6Om45yQX5b4tR4EFG75TP01vr8ZgyIYAAAA=
+    http_version: 
+  recorded_at: Wed, 22 Oct 2014 22:55:10 GMT
 recorded_with: VCR 2.9.2
