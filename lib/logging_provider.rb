@@ -11,6 +11,7 @@ module LoggingProvider
         on :d, :debug
       end
       $log.level = options.debug? ? Logger::DEBUG : Logger::INFO
+      $log.debug "Logger started, will log #{$log.level} and below"
     end
     $log
   end

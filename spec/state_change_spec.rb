@@ -5,7 +5,7 @@ require_relative '../lib/work_item'
 require_relative '../lib/work_item_detailer'
 require_relative '../lib/state_change'
 
-# These tests were added afterward, so I create StateChanges using the WorkItem.create_state_changes method
+# These tests were added afterward, so I create StateChanges piggybacking off the WorkItem.create_state_changes method
 
 describe 'State changes for work item US53364' do
   before :all do
@@ -23,6 +23,10 @@ describe 'State changes for work item US53364' do
 
   it 'should have last state change with a release' do
     expect(@work_item.state_changes.last.release).to eq('INSX BETA')
+  end
+
+  it 'should have last state change with a schedule state' do
+    expect(@work_item.state_changes.last.schedule_state).to eq('Accepted')
   end
 
   it 'should have two users' do

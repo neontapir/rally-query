@@ -36,6 +36,6 @@ describe 'Rally lookback query object' do
   end
 
   it 'should raise an error if project is unknown' do
-    expect { @query.get_kanban_field_name 'xyzzy' }.to raise_error
+    expect(@query.get_kanban_field_name 'xyzzy').to be_nil
   end
 end

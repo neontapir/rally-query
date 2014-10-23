@@ -16,6 +16,7 @@ class WorkItemScreenFormat < WorkItemBaseFormat
           tags: w.tags,
           keywords: w.keywords,
           state_changes: state_changes(w),
+          schedule_state_changes: schedule_state_changes(w),
           state_change_violations: w.state_change_violations,
           user_count: w.users,
           defect_count: w.defect_count,
@@ -36,6 +37,17 @@ class WorkItemScreenFormat < WorkItemBaseFormat
           valid_to: format_date(sc.valid_to),
           blocked: blocked(sc.blocked_flag),
           ready: ready(sc.ready_flag),
+      }
+    end
+  end
+
+  def schedule_state_changes(work_item)
+    work_item.state_changes.map do |sc|
+      {
+          user: (sc.user or 'None').ljust(20),
+          state: sc.schedule_state.ljust(12),
+          valid_from: format_date(sc.valid_from),
+          valid_to: format_date(sc.valid_to),
       }
     end
   end

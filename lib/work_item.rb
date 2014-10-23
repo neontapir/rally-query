@@ -14,7 +14,7 @@ class WorkItem
 
   attr_accessor :id, :name, :title, :project, :feature, :release, :tags, :state_changes,
                 :defect_count, :defects_status, :story_points, :current_state, :kanban_field,
-                :creation_date
+                :creation_date, :schedule_dates
 
   def keywords
     # note: spaces are escaped in a %w string
@@ -184,7 +184,39 @@ class WorkItem
   end
 
   def story_dates
-    @dates ||= Hash[%w(Ready Design Development Validation Accepted Rejected).map { |s| [s, from_date_for_state(@state_changes.find { |x| x.state == s })] }]
+    valid_states = %w(Ready Design Development Validation Accepted Rejected)
+    transitions = valid_states.map do |s|
+      [s, from_date_for_state(@state_changes.find { |x| x.state == s })]
+    end
+    @dates ||= Hash[transitions]
+  end
+
+  def schedule_requested_date
+    schedule_state_dates['Requested']
+  end
+
+  def schedule_defined_date
+    schedule_state_dates['Defined']
+  end
+
+  def schedule_in_progress_date
+    schedule_state_dates['In Progress']
+  end
+
+  def schedule_completed_date
+    schedule_state_dates['Completed']
+  end
+
+  def schedule_accepted_date
+    schedule_state_dates['Accepted']
+  end
+
+  def schedule_state_dates
+    valid_schedule_state = ['Requested', 'Design', 'In Progress', 'Completed', 'Accepted']
+    transitions = valid_schedule_state.map do |s|
+      [s, from_date_for_state(@state_changes.find { |x| x.schedule_state == s })]
+    end
+    @schedule_dates ||= Hash[transitions]
   end
 
   def from_date_for_state(state)
@@ -205,9 +237,9 @@ class WorkItem
   # extract into factory, will need to set all these variables though
 
   def create_item(raw_data)
-    raise "rawData is not a Hash, it's a #{raw_data.class}" unless raw_data.is_a? Hash
+    raise "raw_data is not a Hash, it's a #{raw_data.class}" unless raw_data.is_a? Hash
 
-    # log.debug "Raw data: #{JSON.pretty_generate(rawData)}"
+    log.debug "Raw data: #{JSON.pretty_generate(raw_data)}"
 
     parsed_data = JSON.dump(raw_data.fetch(:detail))
     data = JSON.parse(parsed_data).first
@@ -215,7 +247,7 @@ class WorkItem
     @id = data.fetch 'FormattedID'
     @name = data.fetch '_refObjectName'
     @story_points = data.fetch 'PlanEstimate'
-    @kanban_field = raw_data.fetch :kanban_field_name
+    @kanban_field = raw_data.fetch(:kanban_field_name) || 'ScheduleState'
     @creation_date = data.fetch 'CreationDate'
     @current_state = data.fetch @kanban_field
 
@@ -259,9 +291,27 @@ class WorkItem
       sc.blocked_flag = change['Blocked']
       sc.ready_flag = change['Ready']
       sc.user = change['_User'].to_s
+      sc.schedule_state = map_schedule_state(change['ScheduleState'])
       sc.state = change[@kanban_field].to_s
 
       sc #TODO: get rid of this temporary 'sc' object, maybe take a hash of options
+    end
+  end
+
+  def map_schedule_state(state)
+    case state
+      when 208717799
+        'Requested'
+      when 208717800
+        'Defined'
+      when 208717801
+        'In Progress'
+      when 208717802
+        'Completed'
+      when 208717803
+        'Accepted'
+      else
+        state.to_s
     end
   end
 

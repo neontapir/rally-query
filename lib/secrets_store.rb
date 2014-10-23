@@ -23,6 +23,9 @@ class SecretsStore
     return nil unless File.file? @filename
 
     contents = YAML.load_file(@filename)
+
+    raise "No entry found for #{system}" if contents[system].nil?
+
     encrypted_value = contents[system][key]
     #puts "Encrypted value for #{system} #{key} is #{encrypted_value}"
 

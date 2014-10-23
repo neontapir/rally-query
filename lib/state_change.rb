@@ -7,11 +7,7 @@ class StateChange
   include LoggingProvider
 
   attr_reader :release, :user, :valid_from, :valid_to
-  attr_accessor :object_id, :blocked_flag, :ready_flag, :state
-
-  # def to_s
-  #   "#{@state}: #{@valid_from} to #{@valid_to} by #{@user}"
-  # end
+  attr_accessor :object_id, :blocked_flag, :ready_flag, :state, :schedule_state
 
   def initialize(pstore_location = 'data.pstore')
     @@store ||= PStore.new(pstore_location)

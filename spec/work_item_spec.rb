@@ -4,7 +4,7 @@ require 'vcr'
 require_relative '../lib/work_item_detailer'
 require_relative '../lib/work_item'
 
-describe 'Work item US53364' do
+describe 'Work item with Kanban board' do
   before :all do
     detailer = WorkItemDetailer.new
     id = 'US53364'
@@ -43,6 +43,11 @@ describe 'Work item US53364' do
     expect(@work_item.status_counts.length).to eq(5)
   end
 
+  it 'should have schedule states' do
+    expect(@work_item.schedule_state_dates.length).to eql(5)
+    expect(@work_item.schedule_state_dates['Requested'].to_s).to eql("2014-06-06 16:07:12 UTC")
+  end
+
   it 'should have two users' do
     expect(@work_item.users).to eq(2)
   end
@@ -56,7 +61,7 @@ describe 'Work item US53364' do
   end
 end
 
-describe 'Work item US52746' do
+describe 'GUI board Work item' do
   before :all do
     detailer = WorkItemDetailer.new
     @id = 'US52746'
@@ -78,7 +83,7 @@ describe 'Work item US52746' do
   end
 end
 
-describe 'Work item US51735' do
+describe 'Work item with blocked hours' do
   before :all do
     detailer = WorkItemDetailer.new
     @id = 'US51735'

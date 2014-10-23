@@ -13,7 +13,7 @@ class RallyQuery
   include LoggingProvider
 
   def initialize
-    if log.level == Logger::DEBUG
+    if configuration.log_level == Logger::DEBUG
       RestClient.log = log
     end
   end
@@ -67,6 +67,8 @@ class RallyQuery
       log.error e
       raise e
     end
+
+    log.debug "GET Results: #{JSON.pretty_generate (JSON.load(results))}"
     results
   end
 
@@ -86,6 +88,8 @@ class RallyQuery
       log.error e
       raise e
     end
+
+    log.debug "POST Results: #{JSON.pretty_generate (JSON.load(results))}"
     results
   end
 end

@@ -11,9 +11,10 @@ module ConfigurationProvider
     attr_accessor :options, :credentials, :rally_workspace, :stories
 
     def initialize
-      @options = Slop.parse!(:help => true) do
+      @options = Slop.parse(:help => true) do
         on :analysis, 'Export to CSV for Frank Vega\'s analysis script'
         # noinspection RubyQuotedStringsInspection
+        on :b, :basic, 'Export basic data to CSV'
         on "c=", :credentials, 'Write credentials for system to secret store'
         on :d, :debug, 'Print debug messages'
         on :f, :feature, 'Display list of features'
@@ -102,6 +103,8 @@ module ConfigurationProvider
           'WorkItemAnalysisFormat'
         when @options.feature?
           'WorkItemFeatureFormat'
+        when @options.basic?
+          'WorkItemBasicFormat'
         else
           'WorkItemScreenFormat'
       end

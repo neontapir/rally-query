@@ -14,13 +14,17 @@ class RallyLookbackQuery < RallyQuery
     story = canonize work_item_id
     url = "#{workspace_url}/artifact/snapshot/query.json"
 
+    kanban_field_spec = ''
     kanban_field = get_kanban_field_name project
+    unless kanban_field.nil?
+      kanban_field_spec = ",\"#{kanban_field}\""
+    end
 
     raise 'Bad story ID' if story.empty?
-    raise 'Bad kanban field ID' if kanban_field.empty?
+    #raise 'Bad kanban field ID' if kanban_field.empty?
 
     filter = %({ "find" : { "FormattedID": "#{story}" }, \
-                 "fields" : ["ObjectID", "_ValidFrom", "_ValidTo", "Release", "Blocked", "Ready", "#{kanban_field}", "_User"], \
+                 "fields" : ["ObjectID", "_ValidFrom", "_ValidTo", "Release", "Blocked", "Ready", "_User", "ScheduleState" #{kanban_field_spec}], \
                  "compress" : true,
                  "start": 0,
                  "pagesize": 1000 })
@@ -35,7 +39,7 @@ class RallyLookbackQuery < RallyQuery
       when /GUI/
         'c_EGXGUIKanbanState'
       else
-        raise "Unknown project '#{project}'"
+        nil # raise "Unknown project '#{project}'"
     end
   end
 end

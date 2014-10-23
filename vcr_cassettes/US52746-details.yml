@@ -2,648 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: https://cdurfee%40ghx.com:rlySh1ny%21@rally1.rallydev.com/slm/webservice/v2.0/hierarchicalrequirement?fetch=true&query=(FormattedID%20=%20US52746)&workspace=https://rally1.rallydev.com/slm/webservice/v2.0/workspace/208717725
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Rallyrequestid:
-      - qs-app-08e2kbvfsf6i9k1vdnjgfvl045x.qs-app-08717446
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Content-Type:
-      - text/javascript;  charset=utf-8
-      Etag:
-      - '"00d12444ca87968aad37f1aaa1d043bfa"'
-      Vary:
-      - Accept-Encoding
-      Content-Encoding:
-      - gzip
-      P3p:
-      - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
-      Cache-Control:
-      - private,max-age=0,must-revalidate
-      Content-Length:
-      - '2726'
-      Date:
-      - Wed, 25 Jun 2014 22:44:50 GMT
-      Connection:
-      - keep-alive
-      Set-Cookie:
-      - JSESSIONID=qs-app-08e2kbvfsf6i9k1vdnjgfvl045x.qs-app-08;Path=/;Secure;HttpOnly
-      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c3145525d5f4f58455e445a4a42378b;path=/;secure;httponly
-      - SUBBUCKETID=175;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
-      - ZSESSIONID=PCgZWGKiTNWGafDR9a07U1938OGoYkPiucwSNOhoOU;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        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
-        GI+cA6pDPmnAPntfufv57u4PoNXlU3MuAAA=
-    http_version: 
-  recorded_at: Wed, 25 Jun 2014 22:44:50 GMT
-- request:
-    method: post
-    uri: https://cdurfee%40ghx.com:rlySh1ny%21@rally1.rallydev.com/analytics/v2.0/service/rally/workspace/208717725/artifact/snapshot/query.json
-    body:
-      encoding: UTF-8
-      string: '{ "find" : { "FormattedID": "US52746" }, "fields" : ["ObjectID", "_ValidFrom",
-        "_ValidTo", "Release", "Blocked", "Ready", "c_EGXKanbanState", "_User"], "compress"
-        : true }'
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '171'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Jetty(8.0.y.z-SNAPSHOT)
-      Cache-Control:
-      - private,max-age=0,must-revalidate
-      Expires:
-      - Tue, 24 Jun 2014 22:44:51 GMT
-      Pragma:
-      - no-cache
-      Content-Type:
-      - application/json;charset=utf-8
-      Vary:
-      - Accept-Encoding
-      Content-Encoding:
-      - gzip
-      P3p:
-      - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
-      Date:
-      - Wed, 25 Jun 2014 22:44:51 GMT
-      Content-Length:
-      - '957'
-      Connection:
-      - keep-alive
-      Set-Cookie:
-      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c0645525d5f4f58455e445a4a42378b;path=/;secure;httponly
-      - ZSESSIONID=Oyd6Z7JWQ0KGlKHLm2PwqUSNm6AqHE2NgopXxri7fg;Path=/;Domain=rally1.rallydev.com;HttpOnly
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAAA8yWbW/bNhDHvwuxl44gPumB79Ima4N1a5ao3dCiMBiJddTK
-        okdJ61zD331HWomfRC9D0zqBAYuXO97/d0fRt0BjI6tqfnp58av8pA0SiKDR
-        hrGsnTEE47kx2jRIvP8wQn9IU5f1pF9lt0bJ4rqVLRgWKJ91WTlVEIbDwEZ+
-        kWXbW+zyptL5Z1VsWKzDc93V7bbH2rSEJOV0lXGBZkZdGp2rBlaQYYQ+lnVx
-        3lZnsoUdaWJNAKC/qOKtrDrVnJWNnN6Uk062pa6RwC5qquuJ/r1TZn5nkV17
-        q0359c7N7a3NVLatKi6KPlvTzUBB0/ym6yv1F2wP/+ydt7K+nBem38nF5Xrq
-        4q5rOWtudXunPnudnb5CIoIFcL5QtYIwVfTKFo7Ofv8k7ff7BRq/qdeqzpDg
-        JGYRdC2bz9TLEqJNfguRJExiHKckWkKPxqCpLH42euq2qmylEAkxOwmjE8Iz
-        QgRmgtOAx+k7tAQhFRS8tZWxyJ/LGai1lVZV4Zrw+uaTylubHm/vfr/MtFtc
-        qUrJRrnnZ6vG9nZZzN1TPj5/8ecvsr6RtT1EK9fxm0YZ9wS9tqngebkuIhKt
-        6ZQ9F7qV1ZVquuruCBE6QrCPaS/qQv3jZF/Kibouv6oe5zx7tTor/gqM0PM+
-        kyq2dseJlW4NjWvGPdJHWTVqtFmXBGrPMKc0uqftndY1ScAjwhFj4RqZ0jjG
-        EU0J265sr5afYJJhLhgWmAfQZat2XfJ7LwJeqSCxIGnAYma99iuNXNzqmC5H
-        3wOHRUkUcUpS7qEZ0DlMQ7AIQ/gEmCcempWu44HsShwCSTIcC0oEDYMoCd8d
-        Te2ujgG1kTtqTDAuKA94coyy44SwNArBHg6SDGo8RMJYED86ib2NHg9kLfEQ
-        CIdfDOJ7r59IS9Yah0hoFqaCxXCVBZxiD8mZasrJzu20KvcPIdnXOEyCI8Go
-        4HFACDkCyX+874MS/SCx4CzgmD7Vluxq9JMkMAfByxT+D5If+Z7sizyIwgIa
-        xY+N8jh3177GQyQU5uXVnPWEm7IW6UdJYWoMCPWj/K0qPZsqmB2P25lNoUM4
-        MA7ALBDD+Bkw7D9j34LzsPZQnkAw3Gc+nn2lHh4maCRwGqSJ77flm6bfB3Xn
-        ITQ7Oj00FlhwmJGprzvffZaHoJTTJPEetX2ZfhgmwjjgzPdjeaWsWpBvUQ5l
-        29xnI1sKfychhk/mRnI7lYehu2I9hdiH3C7Nbj2HSzWAcprnauZQPiz/BQAA
-        //8DAFwTKhpzEQAA
-    http_version: 
-  recorded_at: Wed, 25 Jun 2014 22:44:51 GMT
-- request:
-    method: get
-    uri: https://cdurfee%40ghx.com:rlySh1ny%21@rally1.rallydev.com/slm/webservice/v2.0/releases/18641616440?workspace=https://rally1.rallydev.com/slm/webservice/v2.0/workspace/208717725
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Rallyrequestid:
-      - qs-app-021nbqapa0mlpwz1mikxaosfnwp8.qs-app-0218638643
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Content-Type:
-      - text/javascript;  charset=utf-8
-      Etag:
-      - '"086b81775ea61e7940b32f60d65c69b07"'
-      Vary:
-      - Accept-Encoding
-      Content-Encoding:
-      - gzip
-      P3p:
-      - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
-      Cache-Control:
-      - private,max-age=0,must-revalidate
-      Content-Length:
-      - '648'
-      Date:
-      - Thu, 11 Sep 2014 16:22:23 GMT
-      Connection:
-      - keep-alive
-      Set-Cookie:
-      - JSESSIONID=qs-app-021nbqapa0mlpwz1mikxaosfnwp8.qs-app-02;Path=/;Secure;HttpOnly
-      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c0445525d5f4f58455e445a4a42378b;path=/;secure;httponly
-      - SUBBUCKETID=175;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
-      - ZSESSIONID=5zLNAVTTRoKohSVkECrYBuN2sjg0PUgzqyhK1PXdyUM;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAAA71UW0/bMBT+K1GeNmlubMex474VqEofxhAUhjZNk+3YNJAm
-        lWMKFeK/z064NFN5rWTJ8rmfz985z/GFrrRodTyOnuO/VlTVdnI+/y7uGutF
-        MY6/RTvisu7FsBdrEx5L59btOEk6KzTqrkJvRqpZJW21Sh61bLXdlEonGzyC
-        ie0zJiinBFFECXkP90PeaeWuruYnIbASisi0kIAZIQCBVAKJGQKSKEiZzpDm
-        eefZdG7X2rZlUwdPNgx4JlahwXh+dnkTHU0Xk6A+tlo4b38iXKfEEBEACcB8
-        geE45WOERhzSX12ozlgXExcsJ2sbYR7kffiu2p1uvOK1lnnxXs3lg2yVLdeu
-        L/FQYLc7aRNEcpIzwtF+vAtC8rwwDJhUc0BUbgAviAGpkFrpDGcIfgLs7PQm
-        +jKrGimq6FSLyi2VsDqaPqmlqG/1187Lbded8QCJF6/52dj7di3UIUn4+JYz
-        wTBniDGc7QclNZwoaQgwXBpAhEgBlwQClUOjUZYhnONPQRn0/dFmaHpmm7ad
-        tq5ceWIdN/WmZ8xF4GSg0yjQaC9xzxqn2yANj/NK1LUurnXVqNJtvbh+qKqg
-        sE0o5oCQrvuMfq4RSTGhjPH9kCJFBCScAmT8vJECQSCNhIClnBphIMwKsh/S
-        6ewmAtGRUPe6LgbgvrUboH1dacPBpgCjBczGGfdnBCHsBvvV9NIJ64b2mT8L
-        SMcQ+rNjvynDN52WrWvs9qBbs8+87DPvbM9PphkyTFNGBVAZTAHxIwyE4BpQ
-        T+gCZxwJigYQ/t9bgNID04MyUUqv/QYMHoul7r8j/th0H8SbWtvYwM/ff8Js
-        C1uX9W3/fnn5B4z+NJZwBgAA
-    http_version: 
-  recorded_at: Thu, 11 Sep 2014 16:22:23 GMT
-- request:
-    method: get
-    uri: https://cdurfee%40ghx.com:rlySh1ny%21@rally1.rallydev.com/slm/webservice/v2.0/users/18249604160?workspace=https://rally1.rallydev.com/slm/webservice/v2.0/workspace/208717725
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Rallyrequestid:
-      - qs-app-076d2wvpi67svj157lkganow3fa.qs-app-0719251468
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Content-Type:
-      - text/javascript;  charset=utf-8
-      Etag:
-      - '"0191f324c3fce5bc84cac5e144964aaa6"'
-      Vary:
-      - Accept-Encoding
-      Content-Encoding:
-      - gzip
-      P3p:
-      - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
-      Cache-Control:
-      - private,max-age=0,must-revalidate
-      Content-Length:
-      - '749'
-      Date:
-      - Thu, 11 Sep 2014 16:22:23 GMT
-      Connection:
-      - keep-alive
-      Set-Cookie:
-      - JSESSIONID=qs-app-076d2wvpi67svj157lkganow3fa.qs-app-07;Path=/;Secure;HttpOnly
-      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c0c45525d5f4f58455e445a4a42378b;path=/;secure;httponly
-      - SUBBUCKETID=175;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
-      - ZSESSIONID=SmKjwExBRVGJMRQoN7Xu0rMfwVlxEOhgRkAn6WbNXg;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAAA8VVbW/TMBD+K1U/gUQa23WapJ+o2GCT9lLBCgiE0CW+LGZJ
-        HNnexoT237GdbkoL4+OQIrW+l+fuHj+5/JpuDOrpcvJr+l1D09yt1sen8EN5
-        05RNX01GZtkNZjKYsfKH2treLOM4RNFZ+BF4MytVG5umjW+xcAVuZInxDZuR
-        +NqdYpoxni8Ip4tHrPPiB5Z2szk+8KhiniRVAkWEBeQRpxWJMoIiyitWZpCQ
-        BFgVMlVI+4jaSNWFngndhTyDFr1j1eCVgU7oycUVlLW88mFvNIJ1mQdgcZvN
-        I8IjSi8oX3KyJPks5exLgAzBKFY2wPV6QkOpoUzoezSXc2y7Ohajvj5cF6bU
-        srdDu8/FuhmVjSnPeJbynD7BPedZJqo0qubouC+zKsoFr6I5FFhiwhJK0r9T
-        /O7o8+TFu0YV0EyOEBpbl6BxcvizrKG7xJchy971IXiHiXt/F8rYN9jZIMfp
-        merQxx9gD9q2zr5jlQaKBj2zFTQGB1PfwN0/r/uwBdmshNBojA8CO/he408Q
-        2Hj6fNhbqc2fuvGeE/dHdpdruAy+WICpCwVaDE5jT9Sl3FNTHtREl+7hZEay
-        xZeH4IcSow69eQ3G3CotNr1wQPvSZMkFJUv3zNMZJfMAdiqFaHAL1103jbOd
-        oXUgV+FOt6bzqnKKOFElbOX3yOd512tsTwT0fh10O0Dr2gc9Ht/jjfSyPpLG
-        Kn33jCLW28r1UHm0RZ5Q8hwZVnNCozljJOLFwi0QLoqIAXLBioWjdLGjyf3Z
-        vCzfqwbHVH2olba7YtsyM1b0SrSyG6nzAqE9xbZwK6GWvXlG1jZ7Czfeb2VM
-        wForT2BYjeo6vHOUeBY8yoNcn3hrfMgadSuNp/C/jrjfynjEXd94UpY+TOpo
-        qGS49uf8LPZD1dEk7O+6LkjKF2UJUYFpGfG8TKI8Y1mESYaUY8YETf+ceTuT
-        n/FQa6X9DX395k6fQHduqQ3n+/vfY/PmmRMIAAA=
-    http_version: 
-  recorded_at: Thu, 11 Sep 2014 16:22:23 GMT
-- request:
-    method: get
-    uri: https://cdurfee%40ghx.com:rlySh1ny%21@rally1.rallydev.com/slm/webservice/v2.0/users/18358189468?workspace=https://rally1.rallydev.com/slm/webservice/v2.0/workspace/208717725
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Rallyrequestid:
-      - qs-app-10pqsueuo7fdey15a804n62ztqi.qs-app-1014598577
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Content-Type:
-      - text/javascript;  charset=utf-8
-      Etag:
-      - '"03f2da7fe217bfc27dff1cf4c38dbe650"'
-      Vary:
-      - Accept-Encoding
-      Content-Encoding:
-      - gzip
-      P3p:
-      - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
-      Cache-Control:
-      - private,max-age=0,must-revalidate
-      Content-Length:
-      - '753'
-      Date:
-      - Thu, 11 Sep 2014 16:22:23 GMT
-      Connection:
-      - keep-alive
-      Set-Cookie:
-      - JSESSIONID=qs-app-10pqsueuo7fdey15a804n62ztqi.qs-app-10;Path=/;Secure;HttpOnly
-      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c3445525d5f4f58455e445a4a42378b;path=/;secure;httponly
-      - SUBBUCKETID=175;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
-      - ZSESSIONID=uTxwOgRZRZqD76b94QchKP7kHpWUsUflmrXBIz5oSC8;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAAA8VVXW+bMBT9K1GeNmkEbAyYPC1qu7ZSP6I22aZO02TwpdAB
-        Rrb7par/fbZJWpJlr9lLIp97fXzv8fHlZbxUIMfT0cv4l2R1/Tybn56zO2Gh
-        MR5/Gg3gqu3hoIehsItS605Nfd9loYn74/AwyUXjq7rxHyEzBzxUOfgPeBL4
-        92blIxpGFNGUxHTNdZndQa6Xy9NDyxojnOEcx15CMfZISKlH45B7YcgyiFiU
-        4rxwO4Xb9hWkqkTraiZblBesARuYtVq0o0upStOvyTiQwLTZdMi0i+MAES8g
-        HooXKJkiPCVkQtPgxrG5ZOAz7Zg6OUKxxfsTXMmDlkxgVdApH5R0fZ+pXFad
-        7ivdl+BqcKyPCCU0ISnaLTsnhFJeJF4RQuqRnBZeyknhWdVziHCEgmS3uscn
-        30cfjmuRsXp0AqzWZc4kjI6e8pK1t/DR7dLPnUveUOLV3oVQ+gBa7Zw4vhAt
-        2PxD6JjUjcE30EqxrAarbMFqBT3U1ez5Xzd91LCqnnEuQSkbZ8KFPsMT41Bb
-        4WzWl0qqTbNY9Iy1vGpv5+zW4T5nqswEk7wPKn0mbqstD6UeQosgnYbRFNNJ
-        GuCbdfKa/r02i86ZUo9C8mXHDc+2H3G4QME0iKdhPCE0dlznFec1rNja+7o2
-        2AVoQ/LbXeQKuiwKY4MzkbOV595EvGw7Cc0ZZ519/u0G0by0SW/LK3iorJdP
-        KqWFfN6jc+Xq5LI/eTA10t32TZM8ijKeeebH2jc29g3y2MMRMM6CJEx5sWHE
-        7d6sF69EDUOprksh9abDVsoMbTzjTdUOLLkA1pxDk5k5UFad2qNqy60B62+X
-        MhRgLoUV0M1Dce8eGgqsCpZl7dbd78VmzEE2lbIK/tcOt0sZdrgZGzaKo3Wj
-        RoWicre+z69g15/63kkS7LY1zdIswDjxcGEGMgGMvLQwwwERXKCswCEtsr97
-        XvVkezyS0lyhifz4aVbfmGzNSOvXr69/AC7pVXACCAAA
-    http_version: 
-  recorded_at: Thu, 11 Sep 2014 16:22:23 GMT
-- request:
-    method: get
-    uri: https://cdurfee%40ghx.com:rlySh1ny%21@rally1.rallydev.com/slm/webservice/v2.0/users/264953880?workspace=https://rally1.rallydev.com/slm/webservice/v2.0/workspace/208717725
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Rallyrequestid:
-      - qs-app-0417ppn3d2lgm3ei8tvc0d17vf1.qs-app-0418101162
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Content-Type:
-      - text/javascript;  charset=utf-8
-      Etag:
-      - '"05ebef54c703bd8d0e8a1e010e4850926"'
-      Vary:
-      - Accept-Encoding
-      Content-Encoding:
-      - gzip
-      P3p:
-      - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
-      Cache-Control:
-      - private,max-age=0,must-revalidate
-      Content-Length:
-      - '775'
-      Date:
-      - Thu, 11 Sep 2014 16:22:24 GMT
-      Connection:
-      - keep-alive
-      Set-Cookie:
-      - JSESSIONID=qs-app-0417ppn3d2lgm3ei8tvc0d17vf1.qs-app-04;Path=/;Secure;HttpOnly
-      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c0645525d5f4f58455e445a4a42378b;path=/;secure;httponly
-      - SUBBUCKETID=175;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
-      - ZSESSIONID=cfTeqKV7SU6Pk6B5NWRDDT3Vn8qkKgR3Uqf44lV0;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAAA8VVXW/bNhT9K4KfVqC0RImyJD8taLImQJwabbwWHYbhSryy
-        2UqiQNL5QJH/XpKyPSlLX7Mnged+Hx5e/ZhtNKrZMvgx+0dB0zyera9W8E06
-        aBbP3gYjWHQDHA0w1u6wM6bXyzD0XnTuPxzv5pVsQ9204T2WtsCdqDC8i+dR
-        uLenMF6wIk3y/JTpQ/kNK7PZXJ37uqxmaZLGpEKWEEYZJXmNnKRJjVm+yCCL
-        Kx8pfdifqLSQnYtkcTxNeQMtOsMK1Pfgs2gq+eAc3ikEY2POwXhzHEU5oTGh
-        +S3Nl0myZNE8iqKvPpl3Rn5mnOc5VgHN3wYuwlmHMr7v01QWPvR0xUddfdqX
-        ulKiN0Ozr8W4HpUNKctZnrGCvsw8ZyzPeZ2ROsGCsCqvScFZTRIoscI0TmmU
-        vUzw+8svwW/vG1lCE1wiNGZXgcLg4qHaQbfFNz7KPPbeecLEk7sPqc077IyX
-        4uxGduj8z7EHZVqLO3StJN9XJlhBB1v0qPMRGsoGHc81NBoHqG/g8RdXf9GC
-        aM44V6i1M7f33vT7dvfgKHQufwilJ8px4DV0XHTbta3t4FAK260XkTZg9nrw
-        0eZabsVIV5SRqCCU3lIrKrqM6Dxl6dej87HIv+05dA1a30vFNz23eaa5GInT
-        W5ouk2wZF/OCFT7XSnDe4DFbwgoH3qCxWb77m+32TePUWtdWF9eygoMIT1x/
-        6HqF7TWH3i2Ebsh0iFrvnNPp+BHvhBP3pdBGqsdXlLI6VN4NlU97hP1ijyBQ
-        uypywrO6IixKGCniJCIIEaZ1SSliPtHl88mcND/KBsdEfdpJZaYSO/AyVvUZ
-        b0U30uQtQrvCtrRrYSd6/YqcbSYLN3zeyHh8+8IcfX5Byr1/dTRzHLgcR3G9
-        8F6ceY2qFdqR9z8O97yR8XBT22TGIj4OaRmohb/v1/wf9kPV0yDxy3KmNGYl
-        q4AALYGwLC8IwKIk9SItICtTTBflf0c+TOQmvFBKKnc9f/1tT59BdXahDeen
-        p58tLBrJCggAAA==
-    http_version: 
-  recorded_at: Thu, 11 Sep 2014 16:22:24 GMT
-- request:
-    method: get
-    uri: https://cdurfee%40ghx.com:%26%265T%2A4pZBfaB@rally1.rallydev.com/slm/webservice/v2.0/hierarchicalrequirement?fetch=true&query=(FormattedID%20=%20US52746)&workspace=https://rally1.rallydev.com/slm/webservice/v2.0/workspace/208717725
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding:
-      - gzip, deflate
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Rallyrequestid:
-      - qs-app-021b1nqwml3uiliruibbjz3b6au.qs-app-027268011
-      Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
-      Content-Type:
-      - text/javascript;  charset=utf-8
-      Etag:
-      - '"008d69dca9ef2372a62705c26c37d2a8f"'
-      Vary:
-      - Accept-Encoding
-      Content-Encoding:
-      - gzip
-      P3p:
-      - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
-      Cache-Control:
-      - private,max-age=0,must-revalidate
-      Content-Length:
-      - '2754'
-      Date:
-      - Tue, 21 Oct 2014 16:06:42 GMT
-      Connection:
-      - keep-alive
-      Set-Cookie:
-      - JSESSIONID=qs-app-021b1nqwml3uiliruibbjz3b6au.qs-app-02;Path=/;Secure;HttpOnly
-      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c0445525d5f4f58455e445a4a42378b;path=/;secure;httponly
-      - SUBBUCKETID=175;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
-      - ZSESSIONID=KHBYbc3URxCgoxMbbN4x1eNiAk0k7TjfpqrvBFsqc;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        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
-        Asw6+YrWLgAA
-    http_version: 
-  recorded_at: Tue, 21 Oct 2014 16:06:42 GMT
-- request:
-    method: post
-    uri: https://cdurfee%40ghx.com:%26%265T%2A4pZBfaB@rally1.rallydev.com/analytics/v2.0/service/rally/workspace/208717725/artifact/snapshot/query.json
-    body:
-      encoding: UTF-8
-      string: '{ "find" : { "FormattedID": "US52746" },                  "fields"
-        : ["ObjectID", "_ValidFrom", "_ValidTo", "Release", "Blocked", "Ready", "c_EGXKanbanState",
-        "_User"],                  "compress" : true }'
-    headers:
-      Accept:
-      - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '205'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Jetty(8.0.y.z-SNAPSHOT)
-      Cache-Control:
-      - private,max-age=0,must-revalidate
-      Expires:
-      - Mon, 20 Oct 2014 16:06:42 GMT
-      Pragma:
-      - no-cache
-      Content-Type:
-      - application/json;charset=utf-8
-      Vary:
-      - Accept-Encoding
-      Content-Encoding:
-      - gzip
-      P3p:
-      - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
-      Date:
-      - Tue, 21 Oct 2014 16:06:42 GMT
-      Content-Length:
-      - '979'
-      Connection:
-      - keep-alive
-      Set-Cookie:
-      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c3545525d5f4f58455e445a4a42378b;path=/;secure;httponly
-      - ZSESSIONID=fFLIGaBdTWKoih90U6L6kTue1SElb0KJlhYuX4MmJP4;Path=/;Domain=rally1.rallydev.com;HttpOnly
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAAA8yXbW/bNhDHvwuxl47AR1Hiu6zJ2mDdmiXqNrQoDEZiHbWy
-        5OlhnWv4u+9Iq5Fji16GpnUMA5bOd+T/d8fHFZrWuiiWp5cXv+gPVY0Uomiy
-        ZcxLZ8RgPK/rqm6Qevtugv7QdZmXs/4tua2Nzq5b3YJhhdJFl+RzA2EEBzby
-        k87b3mJfb4oq/WiyLYt1eFZ1ZXvfYzCtoZN8vulxhRa1uayr1DTwBj1M0Pu8
-        zM7b4ky30CILrQkAqk8m+10XnWnO8kbPb/JZp9u8KpEixLrMq3JW/daZeokU
-        FS6oa2+rOv/cu1HXdlXPddua7CLre2u6BShoml+r8sr8Bc3Dn9DmXq8vllnd
-        t+Ti0mru4q5LvWhuK5ssF5S8Sk5fIiVBN3A+N6WBMJP1ylaOzv7+oO3v2xWa
-        vi4HVWdICSp5CFVLlgvzIofoOr21TDiSRMY0XEONpqApz36qq7lrqrCZQhQT
-        fkLwCSUJCRUWivNAMvkGrUFIAQmH7BNskT/mC6CwmTZF5orw6uaDSVvbPbnf
-        +t1rUrmXK1MY3Rj3/OOmsL1dZ0v3lE7Pn//5sy5vdGkH0cZ1+roxtXuCWtuu
-        4Hk9JBGptu6MHRdVq4sr03TFlyFE+QRBO3V7UWbmHyf7Us/Mdf7Z9DjnycvN
-        WPFnYIKe9T2Z7F7rJLbSraFxxbhDeq+Lxky28xJB7jkRjIV3tL3TkJMIPEIS
-        co4HZMakJCGLLch2ZjdqsTghNCEglSgiAqiyVTuk/M6LglesqFQ0Drjk1ms/
-        08jFbYbpevItcHgYhaFgNBYemhGd4zSUKIzhGxAReWg2uo4HsitxDCRKiFSM
-        KoaDMMJvjqZ2V8eI2tANNa64UEwEIjpG2klEeRxisONRklGNh0jsFH90Ersa
-        PR7IIPEQiIBthfrm9RMpyaBxjIQlOFZcwlIWCEY8JGemyWc7q9Mm3d+FZF/j
-        OAnsH5wpIQNK6RFI/mO+j0r0g0gleCAIe6ol2dXoJ4ngHASTCf8Pku85T/ZF
-        HkThAQvlY6M8ztq1r/EQCYOjr4yfeFEGkX6UWBEeUOZH+dsU1WJu4Ox43Mps
-        Cx3DgeMAnAUkHD8DTvxj7GtwHlYeJiIIhvXMx7Ov1MPD4TIIB/Ygjnx7y1ed
-        fh9UnYfQ7Oj00FhgJeCMzHzV+eZneQiKBYsi71Dbl+mH4QrLQHDfZnllrFqQ
-        f1SUbZF7KNJ6UXsNUzQKMPFtMqdpahZfUEZ6G21nq7cYPieYwDdxtwt7wcDY
-        eXkSMXaVvJ+c3YyOJ+sgzLv1vwAAAP//AwCljbrVQBIAAA==
-    http_version: 
-  recorded_at: Tue, 21 Oct 2014 16:06:42 GMT
-- request:
-    method: get
     uri: https://cdurfee%40ghx.com:%26%265T%2A4pZBfaB@rally1.rallydev.com/slm/webservice/v2.0/hierarchicalrequirement?fetch=true&pagesize=1000&query=(FormattedID%20=%20US52746)&workspace=https://rally1.rallydev.com/slm/webservice/v2.0/workspace/208717725
     body:
       encoding: US-ASCII
@@ -661,7 +19,7 @@ http_interactions:
       message: OK
     headers:
       Rallyrequestid:
-      - qs-app-02bwaq0pl7a9xv10lvunoj65khy.qs-app-029754179
+      - qs-app-0379pdhua1gz0v1vs1hsyb3a06w.qs-app-036949111
       Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
       Content-Type:
@@ -679,14 +37,14 @@ http_interactions:
       Content-Length:
       - '2794'
       Date:
-      - Tue, 21 Oct 2014 20:36:01 GMT
+      - Thu, 23 Oct 2014 17:42:50 GMT
       Connection:
       - keep-alive
       Set-Cookie:
-      - JSESSIONID=qs-app-02bwaq0pl7a9xv10lvunoj65khy.qs-app-02;Path=/;Secure;HttpOnly
-      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c0445525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - JSESSIONID=qs-app-0379pdhua1gz0v1vs1hsyb3a06w.qs-app-03;Path=/;Secure;HttpOnly
+      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c0745525d5f4f58455e445a4a42378b;path=/;secure;httponly
       - SUBBUCKETID=175;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
-      - ZSESSIONID=vPnf594R1SnNOUqi7X2NqiyQn7sUDCiQx63CH4fbk;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
+      - ZSESSIONID=0lGZBMMvRK6VNxzACjM8P3WJM2uzwUYlvD9aZaf6ZJg;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -754,18 +112,25 @@ http_interactions:
         7S2U4HnK69JhljKwpLBxlYYZv0OWopRxz2kRHSJQA/a7V537H+7vfwV7XIKp
         FC8AAA==
     http_version: 
-  recorded_at: Tue, 21 Oct 2014 20:36:00 GMT
+  recorded_at: Thu, 23 Oct 2014 17:42:49 GMT
 - request:
-    method: get
-    uri: https://cdurfee%40ghx.com:%26%265T%2A4pZBfaB@rally1.rallydev.com/slm/webservice/v2.0/hierarchicalrequirement?fetch=true&pagesize=1000&query=(FormattedID%20=%20US52746)&workspace=https://rally1.rallydev.com/slm/webservice/v2.0/workspace/true
+    method: post
+    uri: https://cdurfee%40ghx.com:%26%265T%2A4pZBfaB@rally1.rallydev.com/analytics/v2.0/service/rally/workspace/208717725/artifact/snapshot/query.json
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: |-
+        { "find" : { "FormattedID": "US52746" },                  "fields" : ["ObjectID", "_ValidFrom", "_ValidTo", "Release", "Blocked", "Ready", "_User", "ScheduleState" ,"c_EGXKanbanState"],                  "compress" : true,
+                         "start": 0,
+                         "pagesize": 1000 }
     headers:
       Accept:
-      - "*/*; q=0.5, application/xml"
+      - application/json
       Accept-Encoding:
       - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '286'
       User-Agent:
       - Ruby
   response:
@@ -773,40 +138,58 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Rallyrequestid:
-      - qs-app-0512c3zr224i0yxw97umi5b785c.qs-app-05955246
+      Server:
+      - Jetty(8.0.y.z-SNAPSHOT)
+      Cache-Control:
+      - private,max-age=0,must-revalidate
       Expires:
-      - Thu, 01 Jan 1970 00:00:00 GMT
+      - Wed, 22 Oct 2014 17:42:50 GMT
+      Pragma:
+      - no-cache
       Content-Type:
-      - text/javascript;  charset=utf-8
-      Etag:
-      - '"05dcecee69e6cbd36953a8ce113072cec"'
+      - application/json;charset=utf-8
       Vary:
       - Accept-Encoding
       Content-Encoding:
       - gzip
       P3p:
       - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
-      Cache-Control:
-      - private,max-age=0,must-revalidate
-      Content-Length:
-      - '162'
       Date:
-      - Wed, 22 Oct 2014 22:55:09 GMT
+      - Thu, 23 Oct 2014 17:42:50 GMT
+      Content-Length:
+      - '1041'
       Connection:
       - keep-alive
       Set-Cookie:
-      - JSESSIONID=qs-app-0512c3zr224i0yxw97umi5b785c.qs-app-05;Path=/;Secure;HttpOnly
-      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c0d45525d5f4f58455e445a4a42378b;path=/;secure;httponly
-      - SUBBUCKETID=175;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
-      - ZSESSIONID=RQzrZROOSf2Uu50uUwIs5KS1vEzPWEzrs2hKMmLmvn4;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
+      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c3445525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - ZSESSIONID=ov0YIEpjTWyzXhHr89AZ2J7rsfYcUsJpyNbg8GFAYM;Path=/;Domain=rally1.rallydev.com;HttpOnly
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        H4sIAAAAAAAAA02OMQvCMBBG/0q42aE4dhNx6CBUW3AQkcMeJRov5ZKgtfS/
-        m5gOju/B+/gmOASS8UguGA+lmuAqaMy4qas93q1EBWtYqT+tOesi6Z2IFRfx
-        DFsbTKfYejWgOFIofXgS+1K9rDzcgDeCS0xOKKy5/0WJW+vR5ANxgtOLIurG
-        o/iKO3ovosaeGv2hBXORV+b5CzsLbgbIAAAA
+        H4sIAAAAAAAAA8yX+0/bMBDH/xdrP5bIr7z8GwM20F4MwjaBJmQa0wbSuHOS
+        sVL1f985CU1LE/bQHpUqJb7c+b6fO8dx5+jSyDSd7R4fvZE32iCBKBqsGJOs
+        MmIwHhijTY7ExecB+ihNlmSjZhSNjZLxaSELMMzRcFpGyURBGMGOjbyTSdFY
+        7PAq1cNbFa9YrMOeLrNi3aM1LSBJMqkzztHUqGOjhyqHEWQYoOskiw+KdF8W
+        MCPj1gQA+k7FH2Raqnw/yeXkKhmVskh0hkRgPSY6G+n3pTIzJAipYspirE1y
+        33jRamptJrIoVHwUN8nycgoC8vytzk7UF5gdHjaP1pIezmLTzFQ9HOpJFXea
+        yWk+1rZWVdboXbT7GgnXczBgvlSZgjAVN8rmFZy9PpP2ejFHl2dZq2ofIqnP
+        PWhaNJuqwwSizXAMkRQHPvFD6i2gRZegKYlfGD2ppkptoRDFhO8QvENZRHzB
+        saDEoX54jhYgJIV6Q/EJxpb5NpkChq20SuOqCe+ubtSwsPnJ+vTLYaSrwYlK
+        lcxVdf+8bmxjl/Gsdj/LlanuTodjFZepsmupjhheHrz89EpmVzJrjdB9mxzu
+        F21dkShMqexK0YVMT1Repg+LinKYupCmOMpi9a0COZYjdZrcqwfCg+h1vXz6
+        qzJAe00qFa9NT0JLYw151aAl5bVMczVYLVUA/eDEZcxbFqBxassUgIdHPM7x
+        RkHqngZ4pWiM+T7xWGgZV9tQc2B3h9CIuIITQVwH4i1H25+lFwWvUFBf0NDh
+        Prdem6VHVVy9qBeDvw/qh+ESlHuB57mMhm4PZwdBNyclAmP4OcQNejhrxduI
+        +Fh8F2JgFy6jgmHHC/D5FnI8VtjB4VULlwvuCuY6brBdrSIB5aGHIQJ3Mnaq
+        f4qRc8f/44x2Q/wXiK34pxBd+AzSvp1l69vYqu9iZBEOBYfPBXFcRnoY91We
+        jB7tnHWL/jPjpvpuRuIJzoTrO5TSrWL8wY7TKb4f0Rcud1zCtgrxp9r4WH0/
+        YwAp4KXFv8C4He/jpvwnIbnDPP9PQ/7tfXVT/VOMDP5G1OfT/9vItWPpz0O2
+        8vshQ0G4Q1k/5FeV6ulEwWn8H3Tzt0BXEbpA4UgE5yFffAcAAP//vJjBCsMg
+        DIafaBKNttHbXmHsulPpvS+wd19S2Oiq/1gRKh5D4pcE469nFz3u2B7Q3pJy
+        EnWrdy0irRkAaSw8qGxyWdCs7FIanRX9h3NHADgtFSWpHmFU0ZMVlRB/QNVd
+        TiwCG7cGwJix0OhSRM+C22wcCnYOZDgKuT1+BTmaVTABXYI48mhoXqdpXt6Q
+        jWhNP5toWdeFvO77qvFM5hGtViBFrU+A77Ttc320V35iPp4vAAAA//8DAHW3
+        5vpBFAAA
     http_version: 
-  recorded_at: Wed, 22 Oct 2014 22:55:09 GMT
+  recorded_at: Thu, 23 Oct 2014 17:42:49 GMT
 recorded_with: VCR 2.9.2
