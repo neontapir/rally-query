@@ -1,16 +1,15 @@
 require 'logger'
-require 'slop'
 
 module LoggingProvider
   def log(log_location = nil)
     unless $log
+      require_relative 'options_provider'
+
       log_location = log_location || STDERR
       $log = Logger.new log_location
 
-      options = Slop.parse do
-        on :d, :debug
-      end
-      $log.level = options.debug? ? Logger::DEBUG : Logger::INFO
+      options_provider = OptionsProvider.new
+      $log.level = options_provider.options.debug? ? Logger::DEBUG : Logger::INFO
       $log.debug "Logger started, will log #{$log.level} and below"
     end
     $log

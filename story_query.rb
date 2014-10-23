@@ -4,7 +4,7 @@
 
 require_relative 'lib/configuration_provider'
 require_relative 'lib/work_item_detailer'
-require_relative 'lib/work_item_formatter'
+require_relative 'lib/formatters/work_item_formatter'
 
 class QueryEngine
   include ConfigurationProvider
