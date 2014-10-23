@@ -1,4 +1,4 @@
-require_relative '../lib/work_item_export_format'
+require_relative '../../lib/formatters/work_item_export_format'
 
 describe 'Work Item Export Format' do
   before :each do

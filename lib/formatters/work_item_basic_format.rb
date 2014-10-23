@@ -1,7 +1,7 @@
 require 'mustache'
 require_relative 'work_item_base_format'
 require_relative 'work_item_export_format'
-require_relative 'work_item'
+require_relative '../work_item'
 
 class WorkItemBasicFormat < WorkItemExportFormat
   def format_date(value)

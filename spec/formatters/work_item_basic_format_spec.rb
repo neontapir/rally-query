@@ -1,4 +1,4 @@
-require_relative '../lib/work_item_basic_format'
+require_relative '../../lib/formatters/work_item_basic_format'
 
 describe 'Work Item Basic Format' do
   before :each do

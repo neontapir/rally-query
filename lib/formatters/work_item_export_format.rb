@@ -1,10 +1,10 @@
 require 'mustache'
 require 'set'
 
-require_relative 'configuration_provider'
-require_relative 'work_item'
+require_relative '../configuration_provider'
+require_relative '../work_item'
 require_relative 'work_item_base_format'
-require_relative 'work_item_export_extensions'
+require_relative '../work_item_export_extensions'
 
 class WorkItemExportFormat < WorkItemBaseFormat
   include ConfigurationProvider

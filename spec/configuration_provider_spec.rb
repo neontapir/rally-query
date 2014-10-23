@@ -1,7 +1,7 @@
 require 'rspec'
 require_relative 'capture'
 require_relative '../lib/configuration_provider'
-require_relative '../lib/work_item_export_format'
+require_relative '../lib/formatters/work_item_export_format'
 
 include ConfigurationProvider
 

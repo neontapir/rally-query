@@ -1,6 +1,6 @@
 require 'mustache'
 require_relative 'work_item_base_format'
-require_relative 'work_item'
+require_relative '../work_item'
 
 class WorkItemScreenFormat < WorkItemBaseFormat
   attr_accessor :work_items

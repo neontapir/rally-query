@@ -1,5 +1,5 @@
-require_relative 'configuration_provider'
-require_relative 'work_item'
+require_relative '../configuration_provider'
+require_relative '../work_item'
 require_relative 'work_item_analysis_format'
 require_relative 'work_item_base_format'
 require_relative 'work_item_basic_format'

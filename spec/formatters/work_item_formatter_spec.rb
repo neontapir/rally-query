@@ -1,13 +1,13 @@
 require 'rspec'
 require 'vcr'
 
-require_relative '../lib/work_item_export_format'
-require_relative '../lib/work_item_detailer'
-require_relative '../lib/work_item_formatter'
-require_relative '../lib/work_item'
-require_relative 'vcr_setup'
-require_relative 'capture'
-require_relative 'spec_helper'
+require_relative '../../lib/formatters/work_item_export_format'
+require_relative '../../lib/work_item_detailer'
+require_relative '../../lib/formatters/work_item_formatter'
+require_relative '../../lib/work_item'
+require_relative '../vcr_setup'
+require_relative '../capture'
+require_relative '../spec_helper'
 
 describe 'Work item formatter' do
   describe 'with screen format' do
