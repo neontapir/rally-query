@@ -1,10 +1,9 @@
 require 'logger'
+require_relative 'options_provider'
 
 module LoggingProvider
   def log(log_location = nil)
     unless $log
-      require_relative 'options_provider'
-
       log_location = log_location || STDERR
       $log = Logger.new log_location
 

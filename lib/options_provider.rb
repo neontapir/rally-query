@@ -1,6 +1,4 @@
-require 'logger'
 require 'slop'
-require_relative 'secrets_store'
 
 class OptionsProvider
   attr_accessor :options
