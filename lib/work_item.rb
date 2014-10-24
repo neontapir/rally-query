@@ -1,5 +1,5 @@
 require 'json'
-
+require 'forwardable'
 require_relative 'configuration_provider'
 require_relative 'logging_provider'
 require_relative 'state_changes_array'
@@ -7,6 +7,9 @@ require_relative 'state_changes_array'
 class WorkItem
   include ConfigurationProvider
   include LoggingProvider
+  extend Forwardable
+  def_delegators :@state_changes, :blocked_hours, :state_change_violations, :status_counts, :dev_lead, :qa_lead,
+                 :made_ready_in_validation
 
   attr_accessor :id, :name, :title, :project, :feature, :release, :tags, :state_changes,
                 :defect_count, :defects_status, :story_points, :current_state, :kanban_field,
@@ -37,7 +40,6 @@ class WorkItem
 
     defects = data.fetch('Defects', nil)
     @defect_count = defects ? defects.fetch('Count') : 0
-
     @defects_status = defects ? data.fetch('DefectStatus') : nil
 
     create_tags data
@@ -64,9 +66,7 @@ class WorkItem
        Broker DREV TPM Jmeter Performance IAM AMI Test Build Smooks Deploy UE Implementation QoS \
        eInvoicing LDAP EB Alerts ETL Activity Framework DocSim Tika Environment Data-Commons \
        Rule\ Type Metrics Data\ Poller)
-    keys = @keyword_items.select do |w|
-      /#{w}/i =~ @name
-    end
+    keys = @keyword_items.select { |w| /#{w}/i =~ @name }
     keys.join(',')
   end
 
@@ -80,30 +80,6 @@ class WorkItem
 
   def users
     @state_changes.map(&:user).uniq.length
-  end
-
-  def blocked_hours
-    @state_changes.blocked_hours
-  end
-
-  def state_change_violations
-    @state_changes.state_change_violations
-  end
-
-  def status_counts
-    @state_changes.status_counts
-  end
-
-  def dev_lead
-    @state_changes.dev_lead
-  end
-
-  def qa_lead
-    @state_changes.qa_lead
-  end
-
-  def made_ready_in_validation
-    @state_changes.made_ready_in_validation
   end
 
   def ready_date
