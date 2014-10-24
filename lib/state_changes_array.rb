@@ -22,7 +22,8 @@ class StateChangeArray < Array
       sc.blocked_flag = change['Blocked']
       sc.ready_flag = change['Ready']
       sc.user = change['_User'].to_s
-      sc.schedule_state = map_schedule_state(change['ScheduleState'])
+      state = change['ScheduleState']
+      sc.schedule_state = SCHEDULE_STATE_STRING[state] || state.to_s
       sc.state = change[kanban_field].to_s
 
       sc #TODO: get rid of this temporary 'sc' object, maybe take a hash of options
@@ -31,33 +32,8 @@ class StateChangeArray < Array
     super(changes)
   end
 
-  def map_schedule_state(state)
-    case state
-      when 208717799
-        'Requested'
-      when 208717800
-        'Defined'
-      when 208717801
-        'In Progress'
-      when 208717802
-        'Completed'
-      when 208717803
-        'Accepted'
-      else
-        state.to_s
-    end
-  end
-
-  def extract_state_changes_data(target_state, extract)
-    state_work = self.select { |x| x.state == target_state }
-    if state_work.empty?
-      result = 'N/A'
-    else
-      result = extract.call state_work
-      log.debug "Got #{result} as #{target_state} date/user"
-    end
-    result
-  end
+  SCHEDULE_STATE_STRING = { 208717799 => 'Requested', 208717800 => 'Defined', 208717801 => 'In Progress',
+                         208717802 => 'Completed', 208717803 => 'Accepted' }.freeze
 
   # mode -> most common result
   Enumerable.class_eval do
@@ -81,20 +57,29 @@ class StateChangeArray < Array
     extract_state_changes_data('Validation', proc { |x| x.last.user })
   end
 
+  def extract_state_changes_data(target_state, extract)
+    state_work = self.select { |x| x.state == target_state }
+    if state_work.empty?
+      result = 'N/A'
+    else
+      result = extract.call state_work
+      log.debug "Got #{result} as #{target_state} date/user"
+    end
+    result
+  end
+
   def story_dates
     valid_states = %w(Ready Design Development Validation Accepted Rejected)
-    transitions = valid_states.map do |s|
-      [s, from_date_for_state(self.find { |x| x.state == s })]
-    end
-    @dates ||= Hash[transitions]
+    @story_dates ||= date_set(valid_states, proc { |x,s| x.state == s })
   end
 
   def schedule_state_dates
-    valid_schedule_state = ['Requested', 'Design', 'In Progress', 'Completed', 'Accepted']
-    transitions = valid_schedule_state.map do |s|
-      [s, from_date_for_state(self.find { |x| x.schedule_state == s })]
-    end
-    @schedule_dates ||= Hash[transitions]
+    group = ['Requested', 'Design', 'In Progress', 'Completed', 'Accepted']
+    @schedule_state_dates ||= date_set(group, proc { |x,s| x.schedule_state == s })
+  end
+
+  def date_set(group, match)
+    Hash[ group.map { |s| [s, from_date_for_state(self.find { |x| match.call x, s })] } ]
   end
 
   def from_date_for_state(state)
@@ -107,84 +92,44 @@ class StateChangeArray < Array
 
   def create_aggregated_statuses
     status_map = {}
+
     self.each do |sc|
-      status_group = get_canonical_state(get_state_weighting(sc.state))
+      state_weighting = STATE_WEIGHTING[sc.state] || 0
+      status_group = CANONICAL_STATES[state_weighting] || 'RallyCreate'
       next if %w(None Accepted Rejected).member? status_group
+
       status_map[status_group] ||= 0
-      status_map[status_group] += (sc.valid_to - sc.valid_from) / 3600.0
+      status_map[status_group] += (sc.valid_to - sc.valid_from) / 1.hour
     end
+
     status_map
   end
 
-  def get_canonical_state(weight)
-    case weight
-      when 1
-        'Ready'
-      when 2
-        'Design'
-      when 3
-        'Development'
-      when 4
-        'Validation'
-      when 5
-        'Accepted'
-      when -100
-        'Rejected'
-      else
-        'Rally Create'
-    end
-  end
+  CANONICAL_STATES = { 1 => 'Ready', 2 => 'Design', 3 => 'Development', 4 => 'Validation', 5 => 'Accepted',
+                       -100 => 'Rejected'}.freeze
 
-  def get_state_weighting(state)
-    case state
-      when 'Ready', 'Requirements'
-        1
-      when 'Design', 'Wireframes', 'Contracts'
-        2
-      when 'Development', 'Proof of Concept', 'Production Ready'
-        3
-      when 'Validation', 'Deployment'
-        4
-      when 'Accepted'
-        5
-      when 'Rejected'
-        -100
-      else
-        0
-    end
-  end
 
-  # TODO: use a map to create this rather than loop manually
+  STATE_WEIGHTING = { 'Ready' => 1, 'Requirements' => 1,
+                      'Design' => 2, 'Wireframes' => 2, 'Contracts' => 2,
+                      'Development' => 3, 'Proof of Concepts' => 3, 'Production Ready' => 3,
+                      'Validation' => 4, 'Deployment' => 4,
+                      'Accepted' => 5, 'Rejected' => -100}.freeze
+
+
   def status_counts
-    status_map = aggregate_statuses
-
-    statuses = []
-    status_map.keys.each do |key|
-      s = OpenStruct.new
-      s.name = key
-      s.value = format_number(status_map[key])
-
-      statuses << s
-    end
-    statuses
+    aggregate_statuses.map { |k,v| OpenStruct.new(:name => k, :value => format_number(v)) }.to_a
   end
 
   def state_change_violations
-    changes = self.map { |x| get_state_weighting(x.state) }
+    changes = self.map { |x| STATE_WEIGHTING[x.state] || 0 }
     change_deltas = changes.each_cons(2).map { |a, b| b - a }
-    result = change_deltas.reject { |x| (0..1).member? x || x == -100 }
-    result.length
+    changes_counting_as_violations = change_deltas.reject{|x| [-100,0,1].member? x}
+    changes_counting_as_violations.length
   end
 
   def blocked_hours
-    blocked = 0
-    self.each do |sc|
-      if sc.blocked_flag
-        blocked += sc.valid_to - sc.valid_from
-      end
-    end
-
-    format_number blocked / (60 * 60)
+    blocked = self.find_all{|x| x.blocked_flag}.sum{|sc| sc.valid_to - sc.valid_from}
+    format_number blocked / 1.hour
   end
 
   def format_number(value)
