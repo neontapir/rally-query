@@ -3,6 +3,7 @@ require 'ostruct'
 
 require_relative 'logging_provider'
 require_relative 'state_change'
+require_relative 'work_item_state'
 
 class StateChangeArray < Array
   include LoggingProvider
@@ -93,34 +94,24 @@ class StateChangeArray < Array
     status_map = {}
 
     self.each do |sc|
-      state_weighting = STATE_WEIGHTING[sc.state] || 0
-      status_group = CANONICAL_STATES[state_weighting] || 'RallyCreate'
-      next if %w(None Accepted Rejected).member? status_group
+      state = WorkItemState.find_by_name sc.state
+      canonical_state_name = state.to_s
+      next if %w(None Accepted Rejected).member? canonical_state_name
 
-      status_map[status_group] ||= 0
-      status_map[status_group] += (sc.valid_to - sc.valid_from) / 1.hour
+      status_map[canonical_state_name] ||= 0
+      status_map[canonical_state_name] += (sc.valid_to - sc.valid_from) / 1.hour
     end
 
     status_map
   end
-
-  CANONICAL_STATES = { 1 => 'Ready', 2 => 'Design', 3 => 'Development', 4 => 'Validation', 5 => 'Accepted',
-                       -100 => 'Rejected'}.freeze
-
-
-  STATE_WEIGHTING = { 'Ready' => 1, 'Requirements' => 1,
-                      'Design' => 2, 'Wireframes' => 2, 'Contracts' => 2,
-                      'Development' => 3, 'Proof of Concepts' => 3, 'Production Ready' => 3,
-                      'Validation' => 4, 'Deployment' => 4,
-                      'Accepted' => 5, 'Rejected' => -100}.freeze
-
 
   def status_counts
     aggregate_statuses.map { |k,v| OpenStruct.new(:name => k, :value => format_number(v)) }.to_a
   end
 
   def state_change_violations
-    changes = self.map { |x| STATE_WEIGHTING[x.state] || 0 }
+    changes = self.map { |x| state = WorkItemState.find_by_name x.state
+    state.weight }
     change_deltas = changes.each_cons(2).map { |a, b| b - a }
     changes_counting_as_violations = change_deltas.reject{|x| [-100,0,1].member? x}
     changes_counting_as_violations.length

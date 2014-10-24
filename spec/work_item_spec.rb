@@ -40,7 +40,8 @@ describe 'Work item with Kanban board' do
 
   it 'should have statuses' do
     #expected = "[#<struct name=\"Ready\", value=2.76>, #<struct name=\"Design\", value=2.302>, #<struct name=\"Development\", value=269041.526>, #<struct name=\"Validation\", value=2008.868>"
-    expect(@work_item.status_counts.length).to eq(5)
+    #expect(@work_item.status_counts).to be_nil
+    expect(@work_item.status_counts.length).to eq(4)
   end
 
   it 'should have schedule state dates' do

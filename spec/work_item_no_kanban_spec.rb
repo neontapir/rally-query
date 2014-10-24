@@ -40,7 +40,8 @@ describe 'Work item without Kanban board' do
 
   it 'should have statuses' do
     # should have Rally Create
-    expect(@work_item.status_counts.length).to eql(1)
+    #expect(@work_item.status_counts).to be_nil
+    expect(@work_item.status_counts.length).to eql(0)
   end
 
   it 'should have schedule state dates' do

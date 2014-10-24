@@ -62,6 +62,18 @@ class WorkItemState
     end
   end
 
+  def self.find_by_weight(weight)
+    case weight
+      when 1 then ready
+      when 2 then design
+      when 3 then development
+      when 4 then validation
+      when 5 then accepted
+      when -100 then rejected
+      else none
+    end
+  end
+
   def initialize (state, weight)
     @state = state
     @weight = weight
