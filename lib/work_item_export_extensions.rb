@@ -66,26 +66,26 @@ class WorkItem
   end
 
   def ready_date
-    @state_changes.story_dates['Ready'] || design_date
+    @state_changes.kanban_state_dates['Ready'] || design_date
   end
 
   def design_date
-    @state_changes.story_dates['Design'] || development_date
+    @state_changes.kanban_state_dates['Design'] || development_date
   end
 
   def development_date
-    @state_changes.story_dates['Development'] || validation_date
+    @state_changes.kanban_state_dates['Development'] || validation_date
   end
 
   def validation_date
-    @state_changes.story_dates['Validation'] || accepted_date
+    @state_changes.kanban_state_dates['Validation'] || accepted_date
   end
 
   def accepted_date
-    @state_changes.story_dates['Accepted']
+    @state_changes.kanban_state_dates['Accepted']
   end
 
   def rejected_date
-    @state_changes.story_dates['Rejected']
+    @state_changes.kanban_state_dates['Rejected']
   end
 end

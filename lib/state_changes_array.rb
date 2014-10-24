@@ -68,9 +68,9 @@ class StateChangeArray < Array
     result
   end
 
-  def story_dates
+  def kanban_state_dates
     valid_states = %w(Ready Design Development Validation Accepted Rejected)
-    @story_dates ||= date_set(valid_states, proc { |x,s| x.state == s })
+    @kanban_state_dates ||= date_set(valid_states, proc { |x,s| x.state == s })
   end
 
   def schedule_state_dates

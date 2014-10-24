@@ -83,27 +83,27 @@ class WorkItem
   end
 
   def ready_date
-    @state_changes.story_dates['Ready']
+    @state_changes.kanban_state_dates['Ready']
   end
 
   def design_date
-    @state_changes.story_dates['Design']
+    @state_changes.kanban_state_dates['Design']
   end
 
   def development_date
-    @state_changes.story_dates['Development']
+    @state_changes.kanban_state_dates['Development']
   end
 
   def validation_date
-    @state_changes.story_dates['Validation']
+    @state_changes.kanban_state_dates['Validation']
   end
 
   def accepted_date
-    @state_changes.story_dates['Accepted']
+    @state_changes.kanban_state_dates['Accepted']
   end
 
   def rejected_date
-    @state_changes.story_dates['Rejected']
+    @state_changes.kanban_state_dates['Rejected']
   end
 
   def schedule_requested_date
