@@ -45,16 +45,15 @@ class StateChangeArray < Array
   end
 
   def dev_lead
-    extract_state_changes_data('Development', proc { |x| x.mode.user })
+    extract_state_changes_data('Development', proc { |sc| sc.mode.user })
   end
 
   def qa_lead
-    extract_state_changes_data('Validation', proc { |x| x.mode.user })
+    extract_state_changes_data('Validation', proc { |sc| sc.mode.user })
   end
 
-  # TODO: make sure ready=true in last validation state
   def made_ready_in_validation
-    extract_state_changes_data('Validation', proc { |x| x.last.user })
+    extract_state_changes_data('Validation', proc { |sc| sc.last.user if sc.last.ready_flag })
   end
 
   def extract_state_changes_data(target_state, extract)
@@ -79,7 +78,7 @@ class StateChangeArray < Array
   end
 
   def date_set(group, match)
-    Hash[ group.map { |s| [s, from_date_for_state(self.find { |x| match.call x, s })] } ]
+    Hash[ group.map { |state| [state, from_date_for_state(self.find { |x| match.call x, state })] } ]
   end
 
   def from_date_for_state(state)
