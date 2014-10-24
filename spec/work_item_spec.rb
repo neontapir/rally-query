@@ -43,9 +43,8 @@ describe 'Work item with Kanban board' do
     expect(@work_item.status_counts.length).to eq(5)
   end
 
-  it 'should have schedule states' do
-    expect(@work_item.schedule_state_dates.length).to eql(5)
-    expect(@work_item.schedule_state_dates['Requested'].to_s).to eql("2014-06-06 16:07:12 UTC")
+  it 'should have schedule state dates' do
+    expect(@work_item.schedule_requested_date.to_s).to eql("2014-06-06 16:07:12 UTC")
   end
 
   it 'should have two users' do

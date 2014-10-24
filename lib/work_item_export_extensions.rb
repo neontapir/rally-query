@@ -37,6 +37,10 @@ class WorkItem
     hours_between validation_date, (accepted_date || rejected_date || Time.now)
   end
 
+  def hours_between(time1, time2)
+    (time2 - time1) / 1.hour
+  end
+
   def adjusted_design_hours
     return 0 if design_date.nil?
     design_date.business_time_until(development_date || Time.now) / 1.hour
@@ -62,26 +66,26 @@ class WorkItem
   end
 
   def ready_date
-    story_dates['Ready'] || design_date
+    @state_changes.story_dates['Ready'] || design_date
   end
 
   def design_date
-    story_dates['Design'] || development_date
+    @state_changes.story_dates['Design'] || development_date
   end
 
   def development_date
-    story_dates['Development'] || validation_date
+    @state_changes.story_dates['Development'] || validation_date
   end
 
   def validation_date
-    story_dates['Validation'] || accepted_date
+    @state_changes.story_dates['Validation'] || accepted_date
   end
 
   def accepted_date
-    story_dates['Accepted']
+    @state_changes.story_dates['Accepted']
   end
 
   def rejected_date
-    story_dates['Rejected']
+    @state_changes.story_dates['Rejected']
   end
 end
