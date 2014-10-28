@@ -1,7 +1,7 @@
 require 'rspec/core/rake_task'
 
 RSpec::Core::RakeTask.new(:spec) do |t|
-  t.rspec_opts = '--order rand'
+  t.rspec_opts = %q[--order rand]
 end
 
 task default: :spec

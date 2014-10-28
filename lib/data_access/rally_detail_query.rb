@@ -11,14 +11,14 @@ class RallyDetailQuery < RallyQuery
     WEBSERVICE_ROOT
   end
 
-  def standardQueryString
+  def standard_query_string
     "workspace=#{workspace_url}&pagesize=1000"
   end
 
   def get_raw_details(work_item_id)
     story = canonize work_item_id
     item_type = item_type_identifier story
-    make_get_rest_call "#{WEBSERVICE_ROOT}/#{item_type}?query=(FormattedID = #{story})&fetch=true&#{standardQueryString}"
+    make_get_rest_call "#{WEBSERVICE_ROOT}/#{item_type}?query=(FormattedID = #{story})&fetch=true&#{standard_query_string}"
   end
 
   def get_story_details(object_id)
@@ -32,26 +32,26 @@ class RallyDetailQuery < RallyQuery
   end
 
   def get_raw_release(release_id)
-    make_get_rest_call "#{WEBSERVICE_ROOT}/releases/#{release_id}?#{standardQueryString}"
+    make_get_rest_call "#{WEBSERVICE_ROOT}/releases/#{release_id}?#{standard_query_string}"
   end
 
   def get_raw_user(user_id)
-    make_get_rest_call "#{WEBSERVICE_ROOT}/users/#{user_id}?#{standardQueryString}"
+    make_get_rest_call "#{WEBSERVICE_ROOT}/users/#{user_id}?#{standard_query_string}"
   end
 
   def get_raw_project(project_id)
-    make_get_rest_call "#{WEBSERVICE_ROOT}/project/#{project_id}?#{standardQueryString}"
+    make_get_rest_call "#{WEBSERVICE_ROOT}/project/#{project_id}?#{standard_query_string}"
   end
 
   def get_raw_feature(feature_id)
-    make_get_rest_call "#{WEBSERVICE_ROOT}/portfolioitem/feature/#{feature_id}?#{standardQueryString}"
+    make_get_rest_call "#{WEBSERVICE_ROOT}/portfolioitem/feature/#{feature_id}?#{standard_query_string}"
   end
 
   def get_project_children(project_id)
-    make_get_rest_call "#{WEBSERVICE_ROOT}/project/#{project_id}/children?#{standardQueryString}"
+    make_get_rest_call "#{WEBSERVICE_ROOT}/project/#{project_id}/children?#{standard_query_string}"
   end
 
   def get_details_by_id(item_type, object_id)
-    make_get_rest_call "#{WEBSERVICE_ROOT}/#{item_type}/#{object_id}?fetch=true&#{standardQueryString}"
+    make_get_rest_call "#{WEBSERVICE_ROOT}/#{item_type}/#{object_id}?fetch=true&#{standard_query_string}"
   end
 end
