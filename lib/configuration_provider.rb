@@ -9,7 +9,7 @@ module ConfigurationProvider
   end
 
   class Configuration
-    attr_accessor :options, :credentials, :rally_workspace, :stories
+    attr_accessor :options, :credentials, :rally_workspace
 
     def initialize
       options_provider = OptionsProvider.new
@@ -24,26 +24,6 @@ module ConfigurationProvider
       #if @options.key? :input
       unless @options[:input].nil?
         read_file @options[:input]
-      end
-
-      if @options[:release].nil? && @options[:project].nil?
-        @stories = ARGV
-      else
-        unless @options[:release].nil?
-          if @options.feature?
-            @stories = populate_features_from_releases
-          else
-            @stories = populate_stories_from_releases
-          end
-        end
-
-        unless @options[:project].nil?
-          if @options.feature?
-            @stories = populate_features_from_projects
-          else
-            @stories = populate_stories_from_projects
-          end
-        end
       end
     end
 
@@ -101,6 +81,31 @@ module ConfigurationProvider
         else
           Logger::INFO
       end
+    end
+
+    def stories
+      unless @stories
+        if @options[:release].nil? && @options[:project].nil?
+          @stories = ARGV
+        else
+          unless @options[:release].nil?
+            if @options.feature?
+              @stories = populate_features_from_releases
+            else
+              @stories = populate_stories_from_releases
+            end
+          end
+
+          unless @options[:project].nil?
+            if @options.feature?
+              @stories = populate_features_from_projects
+            else
+              @stories = populate_stories_from_projects
+            end
+          end
+        end
+      end
+      @stories
     end
 
     private

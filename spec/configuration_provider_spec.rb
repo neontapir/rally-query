@@ -37,6 +37,41 @@ describe 'Configuration provider with arguments' do
     end
   end
 
+  it 'should allow feature specification' do
+    Capture.argv(%w(--feature)) do
+      configuration = Configuration.new
+      expect(configuration.formatter).to eq('WorkItemFeatureFormat')
+    end
+  end
+
+  it 'should allow project specification' do
+    Capture.argv(%w(--project "EGX Teams")) do
+      configuration = Configuration.new
+      expect(configuration.formatter).to eq('WorkItemScreenFormat')
+    end
+  end
+
+  it 'should allow release specification' do
+    Capture.argv(%w(--release ODAP)) do
+      configuration = Configuration.new
+      expect(configuration.formatter).to eq('WorkItemScreenFormat')
+    end
+  end
+
+  it 'should allow feature specification with project' do
+    Capture.argv(%w(--feature --project "EGX Teams")) do
+      configuration = Configuration.new
+      expect(configuration.formatter).to eq('WorkItemFeatureFormat')
+    end
+  end
+
+  it 'should allow feature specification with release' do
+    Capture.argv(%w(--feature --release ODAP)) do
+      configuration = Configuration.new
+      expect(configuration.formatter).to eq('WorkItemFeatureFormat')
+    end
+  end
+
   it 'should allow analysis render capability' do
     Capture.argv(%w(--analysis)) do
       configuration = Configuration.new
@@ -54,7 +89,6 @@ describe 'Configuration provider with arguments' do
   it 'should get list of stories' do
     Capture.argv(%w(--debug 12345 DE9876)) do
       configuration = Configuration.new
-      # expect(configuration.options.to_hash.to_s).to eq(nil)
       expect(configuration.log_level).to eq(Logger::DEBUG)
       expect(configuration.stories).to match_array(%w(12345 DE9876))
     end
