@@ -2,11 +2,14 @@ require 'json'
 require 'forwardable'
 require_relative 'configuration_provider'
 require_relative 'logging_provider'
-require_relative 'state_changes_array'
+require_relative 'state_change_array'
+require_relative 'kanban_board'
+require_relative 'class_of_service'
 
 class WorkItem
   include ConfigurationProvider
   include LoggingProvider
+
   extend Forwardable
   def_delegators :@state_changes, :blocked_hours, :state_change_violations, :status_counts, :dev_lead, :qa_lead,
                  :made_ready_in_validation
