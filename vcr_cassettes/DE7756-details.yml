@@ -1,0 +1,166 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://cdurfee%40ghx.com:%26%265T%2A4pZBfaB@rally1.rallydev.com/slm/webservice/v2.0/defect?fetch=true&pagesize=1000&query=(FormattedID%20=%20DE7756)&workspace=https://rally1.rallydev.com/slm/webservice/v2.0/workspace/208717725
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Rallyrequestid:
+      - qs-app-05179ieqbqdsg76kuos2ycyjr73.qs-app-0523533368
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Content-Type:
+      - text/javascript;  charset=utf-8
+      Etag:
+      - '"0bb2fa9e86d6c9c9476e76baba9e3e217"'
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      P3p:
+      - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
+      Cache-Control:
+      - private,max-age=0,must-revalidate
+      Content-Length:
+      - '1932'
+      Date:
+      - Mon, 10 Nov 2014 20:18:56 GMT
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - JSESSIONID=qs-app-05179ieqbqdsg76kuos2ycyjr73.qs-app-05;Path=/;Secure;HttpOnly
+      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c0d45525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - SUBBUCKETID=175;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
+      - ZSESSIONID=Fwg2KEwRjylFmIF3uwFdSocu1Cdd0TulsjiAxqcZI;Path=/;Domain=rally1.rallydev.com;Secure;HttpOnly
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    http_version: 
+  recorded_at: Mon, 10 Nov 2014 20:18:55 GMT
+- request:
+    method: post
+    uri: https://cdurfee%40ghx.com:%26%265T%2A4pZBfaB@rally1.rallydev.com/analytics/v2.0/service/rally/workspace/208717725/artifact/snapshot/query.json
+    body:
+      encoding: UTF-8
+      string: |-
+        { "find" : { "FormattedID": "DE7756" },                  "fields" : ["ObjectID", "_ValidFrom", "_ValidTo", "Release", "Blocked", "Ready", "_User", "ScheduleState" ,"c_EGXKanbanState"],                  "compress" : true,
+                         "start": 0,
+                         "pagesize": 1000 }
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '285'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Jetty(8.0.y.z-SNAPSHOT)
+      Cache-Control:
+      - private,max-age=0,must-revalidate
+      Expires:
+      - Sun, 09 Nov 2014 20:18:56 GMT
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      P3p:
+      - CP="NON DSP COR CURa PSAa PSDa OUR NOR BUS PUR COM NAV STA"
+      Date:
+      - Mon, 10 Nov 2014 20:18:56 GMT
+      Content-Length:
+      - '656'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - NSC_vt1.sbmmzefw.dpn!-!IUUQT=ffffffff090a1c0c45525d5f4f58455e445a4a42378b;path=/;secure;httponly
+      - ZSESSIONID=cdGeCV2mRLSxYJCkzxzR0ciEamXNoUzVhawAlF2tKB4;Path=/;Domain=rally1.rallydev.com;HttpOnly
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA7xSXW/TMBT9LxaPbWQ7H27yNrayTQw21gwQ01S5yV2bLYmL
+        42h0Vf8710natIyBxAORpfge369z7l2TqZZ5vjq6Ov8gH5QmEeFksAdmZQNS
+        BMdaK12R6PZuQL5IXWblvLPihQaZTow0CKxJsqzjrAAMY9SxkU8yMx1izVmu
+        kkdI9xDrcKzq0hx69NAGi2RFW3FNlhqutEqgQgsrDMh9VqZjk59IgxldYSEk
+        oJ4g/SzzGqqTrJLFLJvX0mSqJBFrogpVztWnGvRqi8jaLJTOnjs33uRWupDG
+        QHqedtWqeokdVNVHVV7Dd0yPj93TQdWzVaq7TM1jooomblLKZbVQZtt9fBkf
+        XZDIDx2KPE+hBAyDtOts3bCz/zfS/m/XZHpT9l2dkEgIP8ChxaslnGUYrJMF
+        BnI6EkyEbLTBEU2xpSx9p1XRZMqtUIRT5g0ZGzIacxpRHjHmBCH/RjbYR456
+        GysMtZQfsyV2a5WGPG2GcDl7gMTY8uww/c6MVWNcQw6ygub+th1sh8t01brf
+        VKCb2yRZQFrnYHepjUim49Ov72U5k2UP4vRtcbxvellJZHQNdlOUkfk1VHW+
+        XSoPMxupzXmZwo+Gx5WcwyR7hi3BcXzRbs/rogzIcVcJ0oPsruVi7aqZzo7j
+        vcwrGOwJxWlAOffoyOU7+p1TL1LoCeHRkDPvhRztREUY7iTzglEQ+C4P/cMZ
+        tCyoGDIvZiLiIvK54zJmWfTD6b2CmHmR60WcOdy3CzD4zzyYz0NGcZFf4/Fr
+        h7/nIWLmR0iYuQ4V1Hq93J+u43+m+FcyzHWFYIEbcu81Ni/73GMT4jekDE9M
+        cQPtcXBJ/8zmbvMTAAD//wMAN8cCJ8wFAAA=
+    http_version: 
+  recorded_at: Mon, 10 Nov 2014 20:18:55 GMT
+recorded_with: VCR 2.9.2

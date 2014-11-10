@@ -38,27 +38,27 @@ class WorkItem
   end
 
   def hours_between(time1, time2)
-    (time2 - time1) / 1.hour
+    (time2 - time1).abs / 1.hour
   end
 
   def adjusted_design_hours
     return 0 if design_date.nil?
-    design_date.business_time_until(development_date || Time.now) / 1.hour
+    design_date.business_time_until(development_date || Time.now).abs / 1.hour
   end
 
   def adjusted_development_hours
     return 0 if development_date.nil?
-    development_date.business_time_until(validation_date || Time.now) / 1.hour
+    development_date.business_time_until(validation_date || Time.now).abs / 1.hour
   end
 
   def adjusted_ready_hours
     return 0 if ready_date.nil?
-    ready_date.business_time_until(design_date || Time.new(creation_date) || Time.now) / 1.hour
+    ready_date.business_time_until(design_date || Time.new(creation_date) || Time.now).abs / 1.hour
   end
 
   def adjusted_validation_hours
     return 0 if validation_date.nil?
-    validation_date.business_time_until(accepted_date || rejected_date || Time.now) / 1.hour
+    validation_date.business_time_until(accepted_date || rejected_date || Time.now).abs / 1.hour
   end
 
   def adjusted_cycle_time
