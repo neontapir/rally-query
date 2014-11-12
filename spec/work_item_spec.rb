@@ -2,7 +2,7 @@ require 'rspec'
 require 'spec_helper'
 require 'vcr'
 require_relative '../lib/data_access/rally_work_item_detailer'
-require_relative '../lib/work_item_factory'
+require_relative '../lib/rally_work_item_factory'
 
 describe 'Work item with Kanban board' do
   before :all do
@@ -11,7 +11,7 @@ describe 'Work item with Kanban board' do
     VCR.use_cassette("#{id}-details", :record => :new_episodes) do
       @results = detailer.get_data id
     end
-    @work_item = WorkItemFactory.create(@results)
+    @work_item = RallyWorkItemFactory.create(@results)
   end
 
   it 'should have the story ID' do
@@ -69,7 +69,7 @@ describe 'GUI board Work item' do
     VCR.use_cassette("#{@release_id}-release-details", :record => :new_episodes) do
       VCR.use_cassette("#{@id}-details", :record => :new_episodes) do
         @results = detailer.get_data @id
-        @work_item = WorkItemFactory.create(@results)
+        @work_item = RallyWorkItemFactory.create(@results)
       end
     end
   end
@@ -89,7 +89,7 @@ describe 'Work item with blocked hours' do
     @id = 'US51735'
     VCR.use_cassette("#{@id}-details", :record => :new_episodes) do
       @results = detailer.get_data @id
-      @work_item = WorkItemFactory.create(@results)
+      @work_item = RallyWorkItemFactory.create(@results)
     end
   end
 
@@ -104,7 +104,7 @@ describe 'Work item DE7477' do
     @id = 'DE7477'
     VCR.use_cassette("#{@id}-details", :record => :new_episodes) do
       @results = detailer.get_data @id
-      @work_item = WorkItemFactory.create(@results)
+      @work_item = RallyWorkItemFactory.create(@results)
     end
   end
 

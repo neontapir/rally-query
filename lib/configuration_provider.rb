@@ -9,7 +9,7 @@ module ConfigurationProvider
   end
 
   class Configuration
-    attr_accessor :options, :credentials, :rally_workspace
+    attr_accessor :options, :credentials, :rally_workspace, :system
 
     def initialize
       options_provider = OptionsProvider.new
@@ -28,33 +28,33 @@ module ConfigurationProvider
     end
 
     def establish_secret_store_data
-      system = @options[:system] || 'Rally'
+      @system = @options[:system] || 'Rally'
       store_location = File.expand_path('../your_credentials.yml', File.dirname(__FILE__))
-      secrets_store = SecretsStore.new store_location, system
+      secrets_store = SecretsStore.new store_location, @system
 
       unless @options[:credentials].nil?
         new_creds = @options[:credentials]
-        puts "Creating credentials for #{system} at #{secrets_store.filename}"
+        puts "Creating credentials for #{@system} at #{secrets_store.filename}"
         secrets_store.set_password new_creds
         exit
       end
 
       unless @options[:workspace].nil?
         new_workspace = @options[:workspace]
-        puts "Adding workspace for #{system} at #{secrets_store.filename}"
+        puts "Adding workspace for #{@system} at #{secrets_store.filename}"
         secrets_store.set 'workspace', new_workspace
         exit
       end
 
       @credentials = secrets_store.get_password
       if @credentials.empty?
-        raise "#{system} credentials file missing (#{secrets_store.filename}). Run this script with '-c username:password' to set."
+        raise "#{@system} credentials file missing (#{secrets_store.filename}). Run this script with '-c username:password' to set."
       end
 
-      if system == 'Rally'
+      if @system == 'Rally'
         @rally_workspace = secrets_store.get 'workspace'
         if @rally_workspace.empty?
-          raise "#{system} workspace value missing (#{secrets_store.filename}). Run this script with '--workspace ID' to set."
+          raise "#{@system} workspace value missing (#{secrets_store.filename}). Run this script with '--workspace ID' to set."
         end
       end
     end

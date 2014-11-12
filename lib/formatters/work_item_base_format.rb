@@ -1,5 +1,5 @@
 require 'mustache'
-require_relative '../work_item_factory'
+require_relative '../rally_work_item_factory'
 
 class WorkItemBaseFormat < Mustache
   attr_accessor :work_items

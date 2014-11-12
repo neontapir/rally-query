@@ -4,7 +4,7 @@ require 'vcr'
 require 'business_time'
 
 require_relative '../lib/data_access/rally_work_item_detailer'
-require_relative '../lib/work_item_factory'
+require_relative '../lib/rally_work_item_factory'
 require_relative '../lib/work_item_export_extensions'
 
 describe 'Work item DE7756' do
@@ -13,7 +13,7 @@ describe 'Work item DE7756' do
     @id = 'DE7756'
     VCR.use_cassette("#{@id}-details", :record => :new_episodes) do
       @results = detailer.get_data @id
-      @work_item = WorkItemFactory.create(@results)
+      @work_item = RallyWorkItemFactory.create(@results)
     end
   end
 

@@ -6,7 +6,7 @@ require_relative 'kanban_board'
 require_relative 'class_of_service'
 require_relative 'work_item'
 
-class WorkItemFactory
+class RallyWorkItemFactory
   extend LoggingProvider
 
   def self.create(raw_data)
