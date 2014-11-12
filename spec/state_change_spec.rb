@@ -1,15 +1,15 @@
 require 'rspec'
 require 'spec_helper'
 
-require_relative '../lib/work_item'
-require_relative '../lib/work_item_detailer'
+require_relative '../lib/data_access/rally_work_item_detailer'
 require_relative '../lib/state_change'
+require_relative '../lib/work_item'
 
 # These tests were added afterward, so I create StateChanges piggybacking off the WorkItem.create_state_changes method
 
 describe 'State changes for work item US53364' do
   before :all do
-    work_item_detailer = WorkItemDetailer.new
+    work_item_detailer = RallyWorkItemDetailer.new
     id = 'US53364'
     VCR.use_cassette("#{id}-details", :record => :new_episodes) do
       @results = work_item_detailer.get_data id
@@ -36,7 +36,7 @@ end
 
 describe 'State changes for work item DE7477' do
   before :all do
-    work_item_detailer = WorkItemDetailer.new
+    work_item_detailer = RallyWorkItemDetailer.new
     @id = 'DE7477'
     VCR.use_cassette("#{@id}-details", :record => :new_episodes) do
       @results = work_item_detailer.get_data @id

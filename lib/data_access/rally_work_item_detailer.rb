@@ -1,9 +1,9 @@
 require 'logger'
 require 'json'
-require_relative 'data_access/rally_detail_query'
-require_relative 'data_access/rally_lookback_query'
+require_relative 'rally_detail_query'
+require_relative 'rally_lookback_query'
 
-class WorkItemDetailer
+class RallyWorkItemDetailer
   include LoggingProvider
 
   def initialize(detail_query = RallyDetailQuery.new, lookback_query = RallyLookbackQuery.new)

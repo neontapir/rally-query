@@ -1,12 +1,12 @@
 require 'rspec'
 require 'spec_helper'
 require 'vcr'
-require_relative '../lib/work_item_detailer'
+require_relative '../lib/data_access/rally_work_item_detailer'
 require_relative '../lib/work_item'
 
 describe 'Work item without Kanban board' do
   before :all do
-    detailer = WorkItemDetailer.new
+    detailer = RallyWorkItemDetailer.new
     id = 'US56682'
     VCR.use_cassette("#{id}-details", :record => :new_episodes) do
       @results = detailer.get_data id

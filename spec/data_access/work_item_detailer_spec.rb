@@ -1,12 +1,13 @@
 require 'rspec'
-require 'spec_helper'
 require 'vcr'
-require_relative '../lib/work_item_detailer'
-require_relative 'vcr_setup'
+
+require_relative '../../lib/data_access/rally_work_item_detailer'
+require_relative '../../spec/spec_helper'
+require_relative '../vcr_setup'
 
 describe 'Get story details' do
   before :each do
-    @work_item_detailer = WorkItemDetailer.new
+    @work_item_detailer = RallyWorkItemDetailer.new
   end
 
   it 'should get details of a user story' do

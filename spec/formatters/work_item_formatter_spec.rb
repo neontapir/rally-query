@@ -1,18 +1,18 @@
 require 'rspec'
 require 'vcr'
 
+require_relative '../../lib/data_access/rally_work_item_detailer'
 require_relative '../../lib/formatters/work_item_export_format'
-require_relative '../../lib/work_item_detailer'
 require_relative '../../lib/formatters/work_item_formatter'
 require_relative '../../lib/work_item'
-require_relative '../vcr_setup'
 require_relative '../capture'
 require_relative '../spec_helper'
+require_relative '../vcr_setup'
 
 describe 'Work item formatter' do
   describe 'with screen format' do
     before :all do
-      work_item_detailer = WorkItemDetailer.new
+      work_item_detailer = RallyWorkItemDetailer.new
       id = 'US53364'
       VCR.use_cassette("#{id}-details", :record => :new_episodes) do
         @results = work_item_detailer.get_data id
@@ -37,7 +37,7 @@ describe 'Work item formatter' do
 
   describe 'with export format' do
     before :all do
-      @work_item_detailer = WorkItemDetailer.new
+      @work_item_detailer = RallyWorkItemDetailer.new
     end
 
     it 'with backend story should have the expected output at time of cassette capture' do

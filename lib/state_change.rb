@@ -1,6 +1,6 @@
 require 'pstore'
 require 'time'
-require_relative 'work_item_detailer'
+require_relative 'data_access/rally_work_item_detailer'
 require_relative 'logging_provider'
 
 class StateChange
@@ -11,7 +11,7 @@ class StateChange
 
   def initialize(pstore_location = 'data.pstore')
     @@store ||= PStore.new(pstore_location)
-    @detailer = WorkItemDetailer.new
+    @detailer = RallyWorkItemDetailer.new
   end
 
   def release=(value)
