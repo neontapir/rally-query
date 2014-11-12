@@ -2,10 +2,12 @@ require 'business_time'
 
 class WorkItem
   def actual_story_points
+    raise 'Story points method missing' unless self.respond_to?(:story_points)
     @story_points
   end
 
   def state
+    raise 'Current state method missing' unless self.respond_to?(:current_state)
     if @current_state.nil? || @current_state == 'None'
       'Rally Create'
     else
@@ -14,6 +16,7 @@ class WorkItem
   end
 
   def in_progress
+    raise 'Current state method missing' unless self.respond_to?(:current_state)
     !(%w(None Accepted Rejected).include? @current_state)
   end
 

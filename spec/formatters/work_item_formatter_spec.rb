@@ -4,7 +4,7 @@ require 'vcr'
 require_relative '../../lib/data_access/rally_work_item_detailer'
 require_relative '../../lib/formatters/work_item_export_format'
 require_relative '../../lib/formatters/work_item_formatter'
-require_relative '../../lib/work_item'
+require_relative '../../lib/work_item_factory'
 require_relative '../capture'
 require_relative '../spec_helper'
 require_relative '../vcr_setup'
@@ -18,7 +18,7 @@ describe 'Work item formatter' do
         @results = work_item_detailer.get_data id
       end
 
-      work_item = WorkItem.new(@results)
+      work_item = WorkItemFactory.create(@results)
       # puts "Work item story changes: #{work_item.state_changes}"
 
       @work_item_formatter = WorkItemFormatter.new(work_item)
@@ -44,7 +44,7 @@ describe 'Work item formatter' do
       id = 'US53364'
       VCR.use_cassette("#{id}-details", :record => :new_episodes) do
         @results = @work_item_detailer.get_data id
-        work_item = WorkItem.new(@results)
+        work_item = WorkItemFactory.create(@results)
 
         export_format = WorkItemExportFormat.new
         export_format.show_header = true
@@ -73,7 +73,7 @@ describe 'Work item formatter' do
           @results = @work_item_detailer.get_data id
         end
 
-        work_item = WorkItem.new(@results)
+        work_item = WorkItemFactory.create(@results)
         export_format = WorkItemExportFormat.new
         export_format.show_header = true
         formatter = WorkItemFormatter.new(work_item, export_format)

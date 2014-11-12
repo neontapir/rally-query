@@ -2,9 +2,6 @@ require 'json'
 require 'forwardable'
 require_relative 'configuration_provider'
 require_relative 'logging_provider'
-require_relative 'state_change_array'
-require_relative 'kanban_board'
-require_relative 'class_of_service'
 
 class WorkItem
   include ConfigurationProvider
@@ -17,49 +14,6 @@ class WorkItem
   attr_accessor :id, :name, :title, :project, :feature, :release, :tags, :state_changes,
                 :defect_count, :defects_status, :story_points, :current_state, :kanban_field,
                 :creation_date, :schedule_dates
-
-  def initialize(raw_data)
-    create_item raw_data
-  end
-
-  def create_item(raw_data)
-    raise "raw_data is not a Hash, it's a #{raw_data.class}" unless raw_data.is_a? Hash
-
-    log.debug "Raw data: #{JSON.pretty_generate(raw_data)}"
-
-    parsed_data = JSON.dump(raw_data.fetch(:detail))
-    data = JSON.parse(parsed_data).first
-
-    @id = data.fetch 'FormattedID'
-    @name = data.fetch '_refObjectName'
-    @story_points = data.fetch 'PlanEstimate'
-    @kanban_field = raw_data.fetch(:kanban_field_name) || 'ScheduleState'
-    @creation_date = data.fetch 'CreationDate'
-    @current_state = data.fetch @kanban_field
-
-    @project = get_item_name_or_nil data, 'Project'
-    @release = get_item_name_or_nil data, 'Release'
-    @feature = get_item_name_or_nil data, 'PortfolioItem'
-
-    defects = data.fetch('Defects', nil)
-    @defect_count = defects ? defects.fetch('Count') : 0
-    @defects_status = defects ? data.fetch('DefectStatus') : nil
-
-    create_tags data
-    @state_changes = StateChangeArray.new raw_data, @kanban_field
-  end
-
-  def get_item_name_or_nil(data, item_name)
-    item = data.fetch(item_name, nil)
-    log.debug "Found no #{item_name} for #{@id}" if item.nil?
-    item ? item.fetch('_refObjectName') : nil
-  end
-
-  def create_tags(data)
-    the_tags = data.fetch('Tags').fetch('_tagsNameArray')
-    tags = the_tags.map { |x| x['Name'] }
-    @tags = tags.join(',')
-  end
 
   def keywords
     # note: spaces are escaped in a %w string
@@ -119,13 +73,5 @@ class WorkItem
 
   def schedule_in_progress_date
     @state_changes.schedule_state_dates['In Progress']
-  end
-
-  def schedule_completed_date
-    @state_changes.schedule_state_dates['Completed']
-  end
-
-  def schedule_accepted_date
-    @state_changes.schedule_state_dates['Accepted']
   end
 end

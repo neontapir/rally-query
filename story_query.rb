@@ -3,7 +3,7 @@
 # example: ./story_query.rb -i input.txt -x >> output.csv
 
 require_relative 'lib/configuration_provider'
-require_relative 'lib/rally_work_item_detailer'
+require_relative 'lib/data_access/rally_work_item_detailer'
 require_relative 'lib/formatters/work_item_formatter'
 
 class QueryEngine
@@ -20,7 +20,7 @@ class QueryEngine
       work_items = configuration.stories.map do |s|
         log.info "Build work item object for #{s}"
         begin
-          work_item = WorkItem.new(detailer.get_data s)
+          work_item = WorkItemFactory.create(detailer.get_data s)
         rescue => e
           log.warn "#{e.message}, skipping item..."
         end
