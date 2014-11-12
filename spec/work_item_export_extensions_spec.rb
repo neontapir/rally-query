@@ -7,6 +7,8 @@ require_relative '../lib/data_access/rally_work_item_detailer'
 require_relative '../lib/rally_work_item_factory'
 require_relative '../lib/work_item_export_extensions'
 
+include WorkItemExportExtensions
+
 describe 'Work item DE7756' do
   before :all do
     detailer = RallyWorkItemDetailer.new

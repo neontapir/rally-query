@@ -19,6 +19,11 @@ class RallyQuery < RestQuery
     end
   end
 
+  def workspace_url
+    raise "Missing webservice_root method in #{self.class}" unless respond_to? :webservice_root
+    "#{webservice_root}/workspace/#{configuration.rally_workspace}"
+  end
+
   def canonize(work_item_id)
     case work_item_id
       when /^(US|DE)\d+$/ then
