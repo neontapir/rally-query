@@ -1,1 +1,1 @@
-./story_query.rb -s=Rally "$@"
+./query_engine.rb -s=Rally "$@"

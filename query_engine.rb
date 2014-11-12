@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-# example: ./story_query.rb -i input.txt -x >> output.csv
+# example: ./query_engine.rb -i input.txt -x >> output.csv
 
 require_relative 'lib/configuration_provider'
 require_relative 'lib/data_access/rally_work_item_detailer'

@@ -1,1 +1,1 @@
-./story_query.rb -s=Jira "$@"
+./query_engine.rb -s=Jira "$@"
