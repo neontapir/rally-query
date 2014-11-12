@@ -23,11 +23,14 @@ if $LOADED_FEATURES.grep(/spec\/spec_helper\.rb/).any?
   end
 end
 
-# if ENV["COVERAGE"] == 'yes'
-#   require 'simplecov'
-#   SimpleCov.start do
-#   end
-# end
+if ENV["COVERAGE"] == 'yes'
+  require 'simplecov'
+  SimpleCov.start do
+    add_filter "/spec/"
+    rescue LoadError => e 
+      puts "Could not load SimpleCov, continuing without code coverage"
+  end
+end
 
 RSpec.configure do |c|
   # declare an exclusion filter
