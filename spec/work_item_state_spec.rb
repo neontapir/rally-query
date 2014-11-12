@@ -1,4 +1,4 @@
-require 'rspec'
+require_relative 'spec_helper'
 require_relative '../lib/work_item_state'
 
 describe 'Work item state' do

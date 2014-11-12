@@ -1,9 +1,6 @@
-require 'rspec'
-require 'vcr'
-
-require_relative '../../lib/data_access/rally_release_query'
-require_relative '../vcr_setup'
 require_relative '../spec_helper'
+require_relative '../vcr_setup'
+require_relative '../../lib/data_access/rally_release_query'
 
 describe 'Rally release query object' do
   before :each do

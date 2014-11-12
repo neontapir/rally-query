@@ -1,3 +1,4 @@
+require_relative '../spec_helper'
 require_relative '../../lib/formatters/work_item_screen_format'
 
 describe 'Work Item Screen Format' do

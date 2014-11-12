@@ -1,3 +1,4 @@
+require_relative '../spec_helper'
 require_relative '../../lib/formatters/work_item_export_format'
 
 describe 'Work Item Export Format' do

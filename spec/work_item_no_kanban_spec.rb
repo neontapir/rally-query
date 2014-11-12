@@ -1,6 +1,4 @@
-require 'rspec'
-require 'spec_helper'
-require 'vcr'
+require_relative 'spec_helper'
 require_relative '../lib/data_access/rally_work_item_detailer'
 require_relative '../lib/rally_work_item_factory'
 

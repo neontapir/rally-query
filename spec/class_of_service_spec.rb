@@ -1,5 +1,5 @@
-require 'rspec'
-require_relative('../lib/class_of_service')
+require_relative 'spec_helper'
+require_relative '../lib/class_of_service'
 
 class ClassOfServiceSpec
   describe 'construction' do

@@ -1,3 +1,5 @@
+require_relative 'spec_helper'
+
 require 'ostruct'
 require 'csv'
 require 'business_time'

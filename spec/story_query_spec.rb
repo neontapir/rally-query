@@ -1,5 +1,4 @@
-require 'rspec'
-
+require_relative 'spec_helper'
 require_relative '../query_engine'
 
 describe 'Story query' do

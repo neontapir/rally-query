@@ -1,8 +1,6 @@
-require 'rspec'
-require 'spec_helper'
-require 'vcr'
-require 'business_time'
+require_relative 'spec_helper'
 
+require 'business_time'
 require_relative '../lib/data_access/rally_work_item_detailer'
 require_relative '../lib/rally_work_item_factory'
 require_relative '../lib/work_item_export_extensions'

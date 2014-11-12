@@ -1,5 +1,5 @@
-require 'rspec'
 require_relative 'capture'
+require_relative 'spec_helper'
 require_relative '../lib/configuration_provider'
 require_relative '../lib/formatters/work_item_export_format'
 

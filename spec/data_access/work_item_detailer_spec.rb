@@ -1,8 +1,6 @@
-require 'rspec'
-require 'vcr'
+require_relative '../../spec/spec_helper'
 
 require_relative '../../lib/data_access/rally_work_item_detailer'
-require_relative '../../spec/spec_helper'
 require_relative '../vcr_setup'
 
 describe 'Get story details' do

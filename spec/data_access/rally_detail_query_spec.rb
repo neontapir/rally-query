@@ -1,6 +1,3 @@
-require 'rspec'
-require 'vcr'
-
 require_relative '../spec_helper'
 require_relative '../../lib/data_access/rally_detail_query'
 require_relative '../vcr_setup'

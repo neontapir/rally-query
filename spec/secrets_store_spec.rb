@@ -1,5 +1,4 @@
-require 'rspec'
-
+require_relative 'spec_helper'
 require_relative '../lib/secrets_store'
 
 describe 'Secrets store' do

@@ -1,5 +1,5 @@
-require 'rspec'
-require_relative('../lib/kanban_board')
+require_relative 'spec_helper'
+require_relative '../lib/kanban_board'
 
 class KanbanBoardSpec
   describe 'construction' do
