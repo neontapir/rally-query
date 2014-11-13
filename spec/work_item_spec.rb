@@ -6,17 +6,19 @@ require_relative '../lib/rally_work_item_factory'
 describe 'Work item' do
   before :all do
     ConfigurationFactory.create
+    @detailer = RallyWorkItemDetailer.new
+  end
+
+  def fetch_work_item(id)
+    VCR.use_cassette("#{id}-details", :record => :new_episodes) do
+      results = @detailer.get_data id
+      @work_item = RallyWorkItemFactory.create(results)
+    end
   end
 
   context 'Work item with Kanban board' do
     before :all do
-      ConfigurationFactory.create
-      detailer = RallyWorkItemDetailer.new
-      id = 'US53364'
-      VCR.use_cassette("#{id}-details", :record => :new_episodes) do
-        @results = detailer.get_data id
-      end
-      @work_item = RallyWorkItemFactory.create(@results)
+      fetch_work_item 'US53364'
     end
 
     it 'should have the story ID' do
@@ -44,8 +46,6 @@ describe 'Work item' do
     end
 
     it 'should have statuses' do
-      #expected = "[#<struct name=\"Ready\", value=2.76>, #<struct name=\"Design\", value=2.302>, #<struct name=\"Development\", value=269041.526>, #<struct name=\"Validation\", value=2008.868>"
-      #expect(@work_item.status_counts).to be_nil
       expect(@work_item.status_counts.length).to eq(4)
     end
 
@@ -66,15 +66,52 @@ describe 'Work item' do
     end
   end
 
+  context 'without Kanban board' do
+    before :all do
+      fetch_work_item 'US56682'
+    end
+
+    it 'should have the story ID' do
+      expect(@work_item.id).to eq('US56682')
+    end
+
+    it 'should have the story name' do
+      expect(@work_item.name).to eq('Support - Vendor Pool Adds Not Functioning')
+    end
+
+    it 'should have the project name' do
+      expect(@work_item.project).to eq('CCX Team')
+    end
+
+    it 'should not have a release name' do
+      expect(@work_item.release).to be_nil
+    end
+
+    it 'should have no tags' do
+      expect(@work_item.tags).to eq('')
+    end
+
+    it 'should have zero blocked hours' do
+      expect(@work_item.blocked_hours.to_f).to be(0.0)
+    end
+
+    it 'should have statuses' do
+      expect(@work_item.status_counts.length).to eql(0)
+    end
+
+    it 'should have schedule state dates' do
+      expect(@work_item.schedule_requested_date.to_s).to eql("2014-10-16 18:05:11 UTC")
+    end
+  end
+
   context 'on GUI board' do
     before :all do
-      detailer = RallyWorkItemDetailer.new
       @id = 'US52746'
-      @release_id = '18641616440'
-      VCR.use_cassette("#{@release_id}-release-details", :record => :new_episodes) do
+      release_id = '18641616440'
+      VCR.use_cassette("#{release_id}-release-details", :record => :new_episodes) do
         VCR.use_cassette("#{@id}-details", :record => :new_episodes) do
-          @results = detailer.get_data @id
-          @work_item = RallyWorkItemFactory.create(@results)
+          results = @detailer.get_data @id
+          @work_item = RallyWorkItemFactory.create(results)
         end
       end
     end
@@ -90,12 +127,7 @@ describe 'Work item' do
 
   context 'with blocked hours' do
     before :all do
-      detailer = RallyWorkItemDetailer.new
-      @id = 'US51735'
-      VCR.use_cassette("#{@id}-details", :record => :new_episodes) do
-        @results = detailer.get_data @id
-        @work_item = RallyWorkItemFactory.create(@results)
-      end
+      fetch_work_item 'US51735'
     end
 
     it 'should have some blocked hours' do
@@ -105,12 +137,7 @@ describe 'Work item' do
 
   context 'defect in ready state' do
     before :all do
-      detailer = RallyWorkItemDetailer.new
-      @id = 'DE7477'
-      VCR.use_cassette("#{@id}-details", :record => :new_episodes) do
-        @results = detailer.get_data @id
-        @work_item = RallyWorkItemFactory.create(@results)
-      end
+      fetch_work_item 'DE7477'
     end
 
     it 'should have no blocked hours' do

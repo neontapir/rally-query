@@ -1,13 +1,10 @@
 require_relative '../spec_helper'
+require_relative '../../lib/configuration_factory'
 require_relative '../../lib/data_access/rally_lookback_query'
-require_relative '../vcr_setup'
 
-describe 'Rally lookback query object' do
+describe 'Rally lookback query' do
   before :all do
-    VCR.configure do |c|
-      c.cassette_library_dir = 'vcr_cassettes'
-      c.hook_into :webmock
-    end
+    ConfigurationFactory.create
   end
 
   before :each do
@@ -23,17 +20,19 @@ describe 'Rally lookback query object' do
     end
   end
 
-  it 'should get the right kanban field for each project' do
-    test_cases = {
-        'EGX - Backend' => 'c_EGXKanbanState',
-        'EGX - GUI' => 'c_EGXGUIKanbanState',
-    }
-    test_cases.keys.each do |testCase|
-      expect(@query.get_kanban_field_name(testCase)).to eq(test_cases[testCase])
+  context 'kanban field name' do
+    it 'should get the right one for each project' do
+      test_cases = {
+          'EGX - Backend' => 'c_EGXKanbanState',
+          'EGX - GUI' => 'c_EGXGUIKanbanState',
+      }
+      test_cases.keys.each do |testCase|
+        expect(@query.get_kanban_field_name(testCase)).to eq(test_cases[testCase])
+      end
     end
-  end
 
-  it 'should raise an error if project is unknown' do
-    expect(@query.get_kanban_field_name 'xyzzy').to be_nil
+    it 'should raise an error if project is unknown' do
+      expect(@query.get_kanban_field_name 'xyzzy').to be_nil
+    end
   end
 end

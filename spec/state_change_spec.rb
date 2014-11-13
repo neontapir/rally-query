@@ -4,33 +4,38 @@ require_relative '../lib/data_access/rally_work_item_detailer'
 require_relative '../lib/state_change'
 require_relative '../lib/rally_work_item_factory'
 
+def fetch_work_item(id)
+  work_item_detailer = RallyWorkItemDetailer.new
+  VCR.use_cassette("#{id}-details", :record => :new_episodes) do
+    results = work_item_detailer.get_data id
+    @work_item = RallyWorkItemFactory.create(results)
+  end
+end
+
 # These tests were added afterward, so I create StateChanges piggybacking off the WorkItem.create_state_changes method
 
-describe 'State change' do
+describe 'State changes' do
   before :all do
     ConfigurationFactory.create
   end
 
   context 'for work item US53364' do
     before :all do
-      work_item_detailer = RallyWorkItemDetailer.new
-      id = 'US53364'
-      VCR.use_cassette("#{id}-details", :record => :new_episodes) do
-        @results = work_item_detailer.get_data id
-      end
-      @work_item = RallyWorkItemFactory.create(@results)
+      fetch_work_item('US53364')
     end
 
+    subject(:state_changes) { @work_item.state_changes }
+
     it 'should have state changes' do
-      expect(@work_item.state_changes).not_to be_empty
+      expect(state_changes).not_to be_empty
     end
 
     it 'should have last state change with a release' do
-      expect(@work_item.state_changes.last.release).to eq('INSX BETA')
+      expect(state_changes.last.release).to eq('INSX BETA')
     end
 
     it 'should have last state change with a schedule state' do
-      expect(@work_item.state_changes.last.schedule_state).to eq('Accepted')
+      expect(state_changes.last.schedule_state).to eq('Accepted')
     end
 
     it 'should have two users' do
@@ -40,12 +45,7 @@ describe 'State change' do
 
   context 'for work item DE7477' do
     before :all do
-      work_item_detailer = RallyWorkItemDetailer.new
-      @id = 'DE7477'
-      VCR.use_cassette("#{@id}-details", :record => :new_episodes) do
-        @results = work_item_detailer.get_data @id
-        @work_item = RallyWorkItemFactory.create(@results)
-      end
+      fetch_work_item('DE7477')
     end
 
     it 'should have one state change violation' do

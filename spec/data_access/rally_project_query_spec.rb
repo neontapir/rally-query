@@ -1,7 +1,7 @@
 require_relative '../spec_helper'
 require_relative '../../lib/configuration_factory'
 require_relative '../../lib/data_access/rally_project_query'
-require_relative '../vcr_setup'
+
 
 describe 'Rally project query object' do
   before :all do

@@ -2,7 +2,7 @@ require_relative '../../spec/spec_helper'
 
 require_relative '../../lib/configuration_factory'
 require_relative '../../lib/data_access/rally_work_item_detailer'
-require_relative '../vcr_setup'
+
 
 describe 'Get story details' do
   before :all do
@@ -22,10 +22,11 @@ describe 'Get story details' do
   end
 
   it 'should get details of a user story with no prefix' do
-    id = 'US53364'
-    VCR.use_cassette("#{id}-details", :record => :new_episodes) do
+    id = '53364'
+    expected = 'US'+id
+    VCR.use_cassette("#{expected}-details", :record => :new_episodes) do
       results = @work_item_detailer.get_detail id
-      expect(results.to_s).to match /#{id}/
+      expect(results.to_s).to match /#{expected}/
     end
   end
 

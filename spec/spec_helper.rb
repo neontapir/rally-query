@@ -11,10 +11,15 @@ end
 
 require 'rspec'
 require 'vcr'
+require_relative 'vcr_setup'
 
-RSpec.configure do |c|
+RSpec.configure do |config|
   # declare an exclusion filter
-  c.filter_run_excluding broken: true
+  config.filter_run_excluding broken: true
+  # force expect syntax
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
+  end
 end
 
 # figure out where we are being loaded from

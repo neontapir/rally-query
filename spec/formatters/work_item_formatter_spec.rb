@@ -1,6 +1,5 @@
 require_relative '../spec_helper'
 require_relative '../capture'
-require_relative '../vcr_setup'
 
 require_relative '../../lib/configuration_factory'
 require_relative '../../lib/data_access/rally_work_item_detailer'

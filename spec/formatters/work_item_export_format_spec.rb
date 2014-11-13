@@ -1,12 +1,8 @@
 require_relative '../spec_helper'
 require_relative '../../lib/formatters/work_item_export_format'
 
-describe 'Work Item Export Format' do
-  before :each do
-    @format = WorkItemExportFormat.new
-  end
-
+describe WorkItemExportFormat do
   it 'should not be nil' do
-    expect(@format).not_to be_nil
+    expect(subject).not_to be_nil
   end
 end
