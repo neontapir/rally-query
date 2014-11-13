@@ -1,7 +1,14 @@
-require_relative '../../lib/configuration_provider'
+require 'base64'
+require 'configatron'
+require 'json'
+require 'logger'
+require 'net/http'
+require 'open-uri'
+require 'rest-client'
 
 class RestQuery
-  include ConfigurationProvider
+  HTTP_OK = 200
+  APP_JSON = 'application/json'
 
   protected
 
@@ -9,8 +16,8 @@ class RestQuery
     begin
       location = URI.encode url
       resource = RestClient::Resource.new(location,
-                                          user: credentials[0],
-                                          password: credentials[1])
+                                          user: configatron.credentials[0],
+                                          password: configatron.credentials[1])
       results = resource.post body,
                               content_type: APP_JSON,
                               accept: APP_JSON
@@ -30,8 +37,8 @@ class RestQuery
     begin
       location = URI.encode url
       resource = RestClient::Resource.new(location,
-                                          user: credentials[0],
-                                          password: credentials[1],
+                                          user: configatron.credentials[0],
+                                          password: configatron.credentials[1],
                                           content_type: :json,
                                           accept: :json)
       results = resource.get
@@ -46,11 +53,4 @@ class RestQuery
 
     results
   end
-
-  def credentials
-    configuration.credentials
-  end
-
-  HTTP_OK = 200
-  APP_JSON = 'application/json'
 end

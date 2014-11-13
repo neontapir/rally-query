@@ -2,25 +2,27 @@
 
 # example: ./query_engine.rb -i input.txt -x >> output.csv
 
-require_relative 'lib/configuration_provider'
+require 'configatron'
+require_relative 'lib/configuration_factory'
 require_relative 'lib/data_access/rally_work_item_detailer'
 require_relative 'lib/formatters/work_item_formatter'
 require_relative 'lib/rally_work_item_factory'
 
 class QueryEngine
-  include ConfigurationProvider
   include LoggingProvider
 
-  def execute
-    detailer = create_detailer configuration.system
+  def initialize
+    ConfigurationFactory.create
+  end
 
-    if configuration.options.feature?
-      formatter = WorkItemFormatter.new configuration.stories
+  def execute
+    if configatron.options.feature?
+      formatter = WorkItemFormatter.new configatron.stories
       formatter.dump
     else
-      detailer = create_detailer configuration.system
-      log.info "Processing #{configuration.stories.length} items"
-      work_items = configuration.stories.map do |s|
+      detailer = create_detailer configatron.system
+      log.info "Processing #{configatron.stories.length} items"
+      work_items = configatron.stories.map do |s|
         log.info "Build work item object for #{s}"
         begin
           data = detailer.get_data s

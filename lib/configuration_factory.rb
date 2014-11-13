@@ -1,14 +1,24 @@
+require 'configatron'
 require 'logger'
-require 'slop'
 require_relative 'secrets_store'
 require_relative 'options_provider'
 
-module ConfigurationProvider
-  def configuration
-    $configuration ||= Configuration.new
+class ConfigurationFactory
+  def self.create
+    config = ConfigurationObject.new
+
+    configatron.options = config.options
+    configatron.credentials = config.credentials
+    configatron.system = config.system
+    configatron.rally_workspace = config.rally_workspace
+    configatron.formatter = config.formatter
+    configatron.stories = config.stories
+    configatron.log_level = config.log_level
+
+    configatron
   end
 
-  class Configuration
+  class ConfigurationObject
     attr_accessor :options, :credentials, :rally_workspace, :system
 
     def initialize
@@ -32,8 +42,8 @@ module ConfigurationProvider
       store_location = File.expand_path('../your_credentials.yml', File.dirname(__FILE__))
       secrets_store = SecretsStore.new store_location, @system
 
-      unless @options[:credentials].nil?
-        new_creds = @options[:credentials]
+      unless @options[configatron.credentials].nil?
+        new_creds = @options[configatron.credentials]
         puts "Creating credentials for #{@system} at #{secrets_store.filename}"
         secrets_store.set_password new_creds
         exit

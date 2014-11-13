@@ -2,14 +2,24 @@ require_relative '../spec_helper'
 require_relative '../capture'
 require_relative '../vcr_setup'
 
+require_relative '../../lib/configuration_factory'
 require_relative '../../lib/data_access/rally_work_item_detailer'
 require_relative '../../lib/formatters/work_item_export_format'
 require_relative '../../lib/formatters/work_item_formatter'
 require_relative '../../lib/rally_work_item_factory'
 
 describe 'Work item formatter' do
-  describe 'with screen format' do
+  context 'configuration' do
+    it 'should get the right formatter class' do
+      formatter = WorkItemFormatter.new nil
+      expect(formatter.formatter_class).to eq(WorkItemScreenFormat)
+    end
+  end
+
+  context 'with screen format' do
     before :all do
+      ConfigurationFactory.create
+
       work_item_detailer = RallyWorkItemDetailer.new
       id = 'US53364'
       VCR.use_cassette("#{id}-details", :record => :new_episodes) do
@@ -33,7 +43,7 @@ describe 'Work item formatter' do
     end
   end
 
-  describe 'with export format' do
+  context 'with export format' do
     before :all do
       @work_item_detailer = RallyWorkItemDetailer.new
     end

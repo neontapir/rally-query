@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'business_time', '0.7.3'
+gem 'configatron', '4.2.1'
 gem 'encryptor', '1.3.0'
 gem 'json', '1.8.1'
 gem 'logger', '1.2.8'

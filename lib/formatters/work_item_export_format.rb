@@ -1,20 +1,18 @@
 require 'mustache'
 require 'set'
 
-require_relative '../configuration_provider'
 require_relative '../rally_work_item_factory'
 require_relative 'work_item_base_format'
 require_relative '../work_item_export_extensions'
 
 class WorkItemExportFormat < WorkItemBaseFormat
-  include ConfigurationProvider
   include LoggingProvider
   include WorkItemExportExtensions
 
   attr_accessor :work_items, :show_header
 
   def initialize
-    @show_header = configuration.options.header?
+    @show_header = configatron.options.header?
   end
 
   def stories

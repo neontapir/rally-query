@@ -1,10 +1,9 @@
+require 'configatron'
 require 'json'
 require 'forwardable'
-require_relative 'configuration_provider'
 require_relative 'logging_provider'
 
 class WorkItem
-  include ConfigurationProvider
   include LoggingProvider
 
   extend Forwardable
