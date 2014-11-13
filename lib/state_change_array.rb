@@ -1,12 +1,12 @@
 require 'json'
 require 'ostruct'
 
-require_relative 'logging_provider'
+
 require_relative 'state_change'
 require_relative 'work_item_state'
 
 class StateChangeArray < Array
-  include LoggingProvider
+
 
   def initialize(raw_data, kanban_field)
     lookback_data = raw_data[:lookback]
@@ -63,7 +63,7 @@ class StateChangeArray < Array
       result = 'N/A'
     else
       result = extract.call state_work
-      log.debug "Got #{result} as #{target_state} date/user"
+      configatron.logger.debug "Got #{result} as #{target_state} date/user"
     end
     result
   end

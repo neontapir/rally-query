@@ -3,7 +3,7 @@ require_relative '../lib/release_detailer'
 
 describe 'Release detailer' do
   before :all do
-    ConfigurationFactory.create
+    ConfigurationFactory.ensure
   end
 
   def detailer

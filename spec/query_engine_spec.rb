@@ -10,7 +10,7 @@ describe QueryEngine do
   end
 
   it 'displays data' do
-    ConfigurationFactory.create
+    ConfigurationFactory.ensure
     configatron.temp do
       configatron.stories = []
       c = Capture.capture do

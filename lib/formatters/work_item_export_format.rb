@@ -6,7 +6,7 @@ require_relative 'work_item_base_format'
 require_relative '../work_item_export_extensions'
 
 class WorkItemExportFormat < WorkItemBaseFormat
-  include LoggingProvider
+
   include WorkItemExportExtensions
 
   attr_accessor :work_items, :show_header

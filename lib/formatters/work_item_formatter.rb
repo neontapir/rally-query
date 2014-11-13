@@ -8,13 +8,13 @@ require_relative 'work_item_feature_format'
 require_relative 'work_item_screen_format'
 
 class WorkItemFormatter
-  include LoggingProvider
+
 
   attr_reader :format
 
   def initialize(work_items, formatter = nil)
     if formatter.nil?
-      log.debug "Format using #{formatter_class}"
+      configatron.logger.debug "Format using #{formatter_class}"
       @format = formatter_class.new
     else
       @format = formatter

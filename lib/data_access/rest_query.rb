@@ -24,9 +24,9 @@ class RestQuery
 
       raise "REST call failed, got #{results.code} status" unless results.code == HTTP_OK
 
-      log.debug "POST Results: #{JSON.pretty_generate (JSON.load(results))}"
+      configatron.logger.debug "POST Results: #{JSON.pretty_generate (JSON.load(results))}"
     rescue => e
-      log.error e
+      configatron.logger.error e
       raise e
     end
 
@@ -45,9 +45,9 @@ class RestQuery
 
       raise "REST call failed, got #{results.code} status" unless results.code == HTTP_OK
 
-      log.debug "GET Results: #{JSON.pretty_generate (JSON.load(results))}"
+      configatron.logger.debug "GET Results: #{JSON.pretty_generate (JSON.load(results))}"
     rescue => e
-      log.error e
+      configatron.logger.error e
       raise e
     end
 

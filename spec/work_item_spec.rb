@@ -5,7 +5,7 @@ require_relative '../lib/rally_work_item_factory'
 
 describe 'Work item' do
   before :all do
-    ConfigurationFactory.create
+    ConfigurationFactory.ensure
     @detailer = RallyWorkItemDetailer.new
   end
 

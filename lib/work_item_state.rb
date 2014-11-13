@@ -1,7 +1,6 @@
-require_relative('logging_provider')
+require_relative '../lib/configuration_factory'
 
 class WorkItemState
-  extend LoggingProvider
 
   # weight reflects the order of Kanban states
   attr_reader :state, :weight
@@ -57,7 +56,8 @@ class WorkItemState
       when 'Rejected' then
         self.rejected
       else
-        log.debug "Unrecognized Kanban state #{name}"
+        ConfigurationFactory.ensure
+        configatron.logger.debug "Unrecognized Kanban state #{name}"
         self.none
     end
   end

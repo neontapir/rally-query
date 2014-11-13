@@ -6,7 +6,7 @@ require_relative '../../lib/data_access/rally_work_item_detailer'
 
 describe 'Get story details' do
   before :all do
-    ConfigurationFactory.create
+    ConfigurationFactory.ensure
   end
 
   before :each do

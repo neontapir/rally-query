@@ -16,7 +16,7 @@ end
 
 describe 'State changes' do
   before :all do
-    ConfigurationFactory.create
+    ConfigurationFactory.ensure
   end
 
   context 'for work item US53364' do

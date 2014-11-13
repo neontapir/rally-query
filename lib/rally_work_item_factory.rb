@@ -1,14 +1,12 @@
 require 'json'
 
-require_relative 'logging_provider'
+require_relative 'configuration_factory'
 require_relative 'state_change_array'
 require_relative 'kanban_board'
 require_relative 'class_of_service'
 require_relative 'work_item'
 
 class RallyWorkItemFactory
-  extend LoggingProvider
-
   def self.create(raw_data)
     create_item raw_data
   end
@@ -20,7 +18,8 @@ class RallyWorkItemFactory
 
     raise "raw_data is not a Hash, it's a #{raw_data.class}" unless raw_data.is_a? Hash
 
-    log.debug "Raw data: #{JSON.pretty_generate(raw_data)}"
+    ConfigurationFactory.ensure
+    configatron.logger.debug "Raw data: #{JSON.pretty_generate(raw_data)}"
 
     parsed_data = JSON.dump(raw_data.fetch(:detail))
     data = JSON.parse(parsed_data).first
@@ -48,7 +47,7 @@ class RallyWorkItemFactory
 
   def self.get_item_name_or_nil(id, data, item_name)
     item = data.fetch(item_name, nil)
-    log.debug "Found no #{item_name} for #{id}" if item.nil?
+    configatron.logger.debug "Found no #{item_name} for #{id}" if item.nil?
     item ? item.fetch('_refObjectName') : nil
   end
 

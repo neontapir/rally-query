@@ -1,17 +1,19 @@
 require 'base64'
 require 'encryptor'
 require 'yaml'
-require_relative('logging_provider')
+
+require_relative 'configuration_factory'
 
 class SecretsStore
-  include LoggingProvider
   attr_reader :filename, :system
 
   def initialize(yaml_file = File.expand_path('../your_credentials.yml', File.dirname(__FILE__)), system = 'Rally')
     @system = system
     @filename = yaml_file
     @secret_key = 'xyzzy-unicorn'
-    log.debug("Starting SecretsStore with parameters yaml_file=#{yaml_file}, system=#{system}")
+
+    ConfigurationFactory.ensure
+    configatron.logger.debug("Starting SecretsStore with parameters yaml_file=#{yaml_file}, system=#{system}")
   end
 
   def get_password(system = @system)

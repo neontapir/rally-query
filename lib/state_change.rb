@@ -1,10 +1,10 @@
 require 'pstore'
 require 'time'
 require_relative 'data_access/rally_work_item_detailer'
-require_relative 'logging_provider'
+
 
 class StateChange
-  include LoggingProvider
+
 
   attr_reader :release, :user, :valid_from, :valid_to
   attr_accessor :object_id, :blocked_flag, :ready_flag, :state, :schedule_state

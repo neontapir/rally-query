@@ -1,10 +1,10 @@
 require 'configatron'
 require 'json'
 require 'forwardable'
-require_relative 'logging_provider'
+
 
 class WorkItem
-  include LoggingProvider
+
 
   extend Forwardable
   def_delegators :@state_changes, :blocked_hours, :state_change_violations, :status_counts, :dev_lead, :qa_lead,

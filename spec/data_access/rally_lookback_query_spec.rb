@@ -4,7 +4,7 @@ require_relative '../../lib/data_access/rally_lookback_query'
 
 describe 'Rally lookback query' do
   before :all do
-    ConfigurationFactory.create
+    ConfigurationFactory.ensure
   end
 
   before :each do

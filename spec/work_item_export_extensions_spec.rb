@@ -9,7 +9,7 @@ include WorkItemExportExtensions
 
 describe 'Work item DE7756' do  
   let(:work_item) do
-    ConfigurationFactory.create
+    ConfigurationFactory.ensure
     detailer = RallyWorkItemDetailer.new
     id = 'DE7756'
     VCR.use_cassette("#{id}-details", :record => :new_episodes) do

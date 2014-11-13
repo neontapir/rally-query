@@ -5,7 +5,7 @@ require_relative '../lib/project_detailer'
 
 describe 'Project detailer' do
   before :all do
-    ConfigurationFactory.create
+    ConfigurationFactory.ensure
   end
 
   def detailer

@@ -5,7 +5,7 @@ require_relative '../lib/rally_work_item_factory'
 
 describe 'Work item without Kanban board' do
   let(:work_item) do
-    ConfigurationFactory.create
+    ConfigurationFactory.ensure
     detailer = RallyWorkItemDetailer.new
     id = 'US56682'
     VCR.use_cassette("#{id}-details", :record => :new_episodes) do

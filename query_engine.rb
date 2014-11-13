@@ -9,10 +9,10 @@ require_relative 'lib/formatters/work_item_formatter'
 require_relative 'lib/rally_work_item_factory'
 
 class QueryEngine
-  include LoggingProvider
+
 
   def initialize
-    ConfigurationFactory.create
+    ConfigurationFactory.ensure
   end
 
   def execute
@@ -21,14 +21,14 @@ class QueryEngine
       formatter.dump
     else
       detailer = create_detailer configatron.system
-      log.info "Processing #{configatron.stories.length} items"
+      configatron.logger.info "Processing #{configatron.stories.length} items"
       work_items = configatron.stories.map do |s|
-        log.info "Build work item object for #{s}"
+        configatron.logger.info "Build work item object for #{s}"
         begin
           data = detailer.get_data s
           work_item = RallyWorkItemFactory.create(data)
         rescue => e
-          log.warn "#{e.message}, skipping item..."
+          configatron.logger.warn "#{e.message}, skipping item..."
         end
         work_item # nil if not retrieved, filtered out later
       end

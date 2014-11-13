@@ -9,7 +9,7 @@ require_relative '../../lib/rally_work_item_factory'
 
 describe 'Work item formatter' do
   before :all do
-    ConfigurationFactory.create
+    ConfigurationFactory.ensure
   end
 
   context 'configuration' do

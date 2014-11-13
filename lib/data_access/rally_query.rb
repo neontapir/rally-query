@@ -1,12 +1,11 @@
 require 'configatron'
 
-require_relative '../logging_provider'
+require_relative '../configuration_factory'
 require_relative 'rest_query'
 
 class RallyQuery < RestQuery
-  include LoggingProvider
-
   def initialize
+    ConfigurationFactory.ensure
     if configatron.log_level == Logger::DEBUG
       RestClient.log = log
     end

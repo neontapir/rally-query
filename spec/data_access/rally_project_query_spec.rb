@@ -5,7 +5,7 @@ require_relative '../../lib/data_access/rally_project_query'
 
 describe 'Rally project query object' do
   before :all do
-    ConfigurationFactory.create
+    ConfigurationFactory.ensure
   end
 
   before :each do
