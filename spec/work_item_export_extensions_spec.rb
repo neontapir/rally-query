@@ -1,6 +1,6 @@
-require_relative 'spec_helper'
-
 require 'business_time'
+require_relative 'spec_helper'
+require_relative '../lib/configuration_factory'
 require_relative '../lib/data_access/rally_work_item_detailer'
 require_relative '../lib/rally_work_item_factory'
 require_relative '../lib/work_item_export_extensions'
@@ -9,6 +9,7 @@ include WorkItemExportExtensions
 
 describe 'Work item DE7756' do
   before :all do
+    ConfigurationFactory.create
     detailer = RallyWorkItemDetailer.new
     @id = 'DE7756'
     VCR.use_cassette("#{@id}-details", :record => :new_episodes) do

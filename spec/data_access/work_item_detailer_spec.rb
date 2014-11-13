@@ -1,9 +1,14 @@
 require_relative '../../spec/spec_helper'
 
+require_relative '../../lib/configuration_factory'
 require_relative '../../lib/data_access/rally_work_item_detailer'
 require_relative '../vcr_setup'
 
 describe 'Get story details' do
+  before :all do
+    ConfigurationFactory.create
+  end
+
   before :each do
     @work_item_detailer = RallyWorkItemDetailer.new
   end

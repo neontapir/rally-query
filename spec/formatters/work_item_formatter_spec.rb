@@ -9,6 +9,10 @@ require_relative '../../lib/formatters/work_item_formatter'
 require_relative '../../lib/rally_work_item_factory'
 
 describe 'Work item formatter' do
+  before :all do
+    ConfigurationFactory.create
+  end
+
   context 'configuration' do
     it 'should get the right formatter class' do
       formatter = WorkItemFormatter.new nil
@@ -18,8 +22,6 @@ describe 'Work item formatter' do
 
   context 'with screen format' do
     before :all do
-      ConfigurationFactory.create
-
       work_item_detailer = RallyWorkItemDetailer.new
       id = 'US53364'
       VCR.use_cassette("#{id}-details", :record => :new_episodes) do

@@ -1,8 +1,13 @@
 require_relative 'spec_helper'
-require_relative '../lib/project_detailer'
 require_relative 'vcr_setup'
+require_relative '../lib/configuration_factory'
+require_relative '../lib/project_detailer'
 
 describe 'Project detailer' do
+  before :all do
+    ConfigurationFactory.create
+  end
+
   before :each do
     @detailer = ProjectDetailer.new
   end
