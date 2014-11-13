@@ -1,9 +1,22 @@
+require 'logger'
 require_relative 'spec_helper'
+require_relative '../lib/configuration_factory'
 require_relative '../query_engine'
+require_relative 'capture'
 
-describe 'Story query' do
+describe QueryEngine do
   it 'is not nil' do
-    story_query = QueryEngine.new
-    expect(story_query).not_to be_nil
+    expect(subject).not_to be_nil
+  end
+
+  it 'displays data' do
+    ConfigurationFactory.create
+    configatron.temp do
+      configatron.stories = []
+      c = Capture.capture do
+        subject.execute
+      end
+      expect(c.stdout).not_to be_nil
+    end
   end
 end

@@ -8,5 +8,6 @@ describe 'Configuration factory' do
     [:options, :credentials, :system, :rally_workspace, :formatter, :stories, :log_level].each do |m|
       expect(configatron.has_key? m).to be_truthy
     end
+    expect(configatron.stories).is_a? Array
   end
 end

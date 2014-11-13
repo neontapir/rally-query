@@ -1,14 +1,11 @@
 require 'configatron'
-require 'logger'
 require_relative 'secrets_store'
 require_relative 'options_provider'
 
 class ConfigurationFactory
   def self.create
-    setup = ConfigatronSetup.new
-    # configatron.formatter = setup.formatter
-    # configatron.stories = setup.stories
-    # configatron.log_level = setup.log_level
+    ConfigatronSetup.new unless (configatron.has_key? 'options')
+    configatron
   end
 
   class ConfigatronSetup
