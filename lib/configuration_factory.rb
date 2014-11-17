@@ -2,10 +2,21 @@ require 'configatron'
 require 'logger'
 require_relative 'secrets_store'
 require_relative 'options_provider'
+require_relative 'project_detailer'
+require_relative 'release_detailer'
 
 class ConfigurationFactory
+  def self.reset
+    configatron.reset!
+    $configatron_initialized = false
+    self.ensure
+  end
+
   def self.ensure
-    ConfigatronSetup.new unless (configatron.has_key? 'options')
+    unless $configatron_initialized
+      $configatron_initialized = true
+      ConfigatronSetup.new
+    end
     configatron
   end
 
@@ -18,6 +29,8 @@ class ConfigurationFactory
         raise 'Project and release cannot both be selected'
       end
 
+      configatron.log_level = log_level
+      logger
       establish_secret_store_data
 
       unless configatron.options[:input].nil?
@@ -26,7 +39,6 @@ class ConfigurationFactory
 
       configatron.formatter = formatter
       configatron.stories = stories
-      configatron.log_level = log_level
     end
 
     def logger
@@ -43,8 +55,8 @@ class ConfigurationFactory
       store_location = File.expand_path('../your_credentials.yml', File.dirname(__FILE__))
       secrets_store = SecretsStore.new store_location, configatron.system
 
-      unless configatron.options[configatron.credentials].nil?
-        new_creds = configatron.options[configatron.credentials]
+      unless configatron.options[:credentials].nil?
+        new_creds = configatron.options[:credentials]
         puts "Creating credentials for #{configatron.system} at #{secrets_store.filename}"
         secrets_store.set_password new_creds
         exit
@@ -130,7 +142,7 @@ class ConfigurationFactory
     end
 
     def populate_stories_from_releases
-      require_relative 'release_detailer'
+
       detailer = ReleaseDetailer.new
 
       stories = []
@@ -141,7 +153,6 @@ class ConfigurationFactory
     end
 
     def populate_features_from_releases
-      require_relative 'release_detailer'
       detailer = ReleaseDetailer.new
 
       features = []
@@ -152,7 +163,6 @@ class ConfigurationFactory
     end
 
     def populate_stories_from_projects
-      require_relative 'project_detailer'
       detailer = ProjectDetailer.new
 
       stories = []
@@ -163,7 +173,6 @@ class ConfigurationFactory
     end
 
     def populate_features_from_projects
-      require_relative 'project_detailer'
       detailer = ProjectDetailer.new
 
       features = []
