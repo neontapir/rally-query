@@ -27,11 +27,29 @@ class JiraWorkItemFactory
     result.creation_date = fields.fetch 'created'
 
     histories = (data.fetch 'changelog').fetch 'histories'
-    valid_from = result.creation_date
-    histories.each do |change|
-      get_state_changes
-    end
+
+    result.state_changes = get_state_changes histories
 
     result
+  end
+
+  def get_state_changes(data)
+    changes = data.map do |change|
+      sc = StateChange.new
+      sc.object_id = change['key'].to_s
+      # sc.release = change['Release'].to_s
+      # sc.valid_from = change['_ValidFrom'].to_s
+      # sc.valid_to = change['_ValidTo'].to_s
+      # sc.blocked_flag = change['Blocked']
+      # sc.ready_flag = change['Ready']
+      # sc.user = change['_User'].to_s
+      # state = change['ScheduleState']
+      # sc.schedule_state = SCHEDULE_STATE_STRING[state] || state.to_s
+      # sc.state = change[kanban_field].to_s
+
+      sc #TODO: get rid of this temporary 'sc' object, maybe take a hash of options
+    end
+
+    StateChangeArray.new(changes)
   end
 end

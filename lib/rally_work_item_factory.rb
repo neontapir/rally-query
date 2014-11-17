@@ -40,9 +40,37 @@ class RallyWorkItemFactory
     result.defects_status = defects ? data.fetch('DefectStatus') : nil
 
     result.tags = create_tags data
-    result.state_changes = StateChangeArray.new raw_data, result.kanban_field
+    result.state_changes = create_changes_array raw_data, result.kanban_field
 
     result
+  end
+
+  SCHEDULE_STATE_STRING = { 208717799 => 'Requested', 208717800 => 'Defined', 208717801 => 'In Progress',
+                            208717802 => 'Completed', 208717803 => 'Accepted' }.freeze
+
+  def create_changes_array(raw_data, kanban_field)
+    lookback_data = raw_data[:lookback]
+
+    parsed_data = JSON.dump(lookback_data)
+    data = JSON.parse(parsed_data)
+
+    changes = data.map do |change|
+      sc = StateChange.new
+      sc.object_id = change['ObjectId'].to_s
+      sc.release = change['Release'].to_s
+      sc.valid_from = change['_ValidFrom'].to_s
+      sc.valid_to = change['_ValidTo'].to_s
+      sc.blocked_flag = change['Blocked']
+      sc.ready_flag = change['Ready']
+      sc.user = change['_User'].to_s
+      state = change['ScheduleState']
+      sc.schedule_state = SCHEDULE_STATE_STRING[state] || state.to_s
+      sc.state = change[kanban_field].to_s
+
+      sc #TODO: get rid of this temporary 'sc' object, maybe take a hash of options
+    end
+
+    StateChangeArray.new(changes)
   end
 
   def get_item_name_or_nil(id, data, item_name)

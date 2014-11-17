@@ -22,14 +22,14 @@ describe 'Jira work item factory' do
       lookup_data = @lookup.get_data id
       work_item = @factory.create lookup_data
       expect(work_item.id).to eql(id)
-      [:name, :title, :project, :current_state, :kanban_field,
-       :creation_date, :schedule_dates, :state_changes].each do |i|
+      [:name, :title, :project, :current_state,
+       :creation_date, :state_changes].each do |i|
         value = work_item.send(i)
         expect(value).not_to be_nil, "expected work item property '#{i}' to have a value ('#{value}'), but got nil"
       end
 
       # feature -- sub-tasks?
-      [:feature, :release, :tags, :defect_count, :defects_status, :story_points].each do |i|
+      [:feature, :release, :tags, :defect_count, :defects_status, :story_points, :kanban_field ].each do |i|
         value = work_item.send(i)
         expect(value).to be_nil, "expected work item property '#{i}' to be nil, but got #{value}"
       end

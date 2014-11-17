@@ -9,7 +9,7 @@ class WorkItem
 
   attr_accessor :id, :name, :title, :project, :feature, :release, :tags, :state_changes,
                 :defect_count, :defects_status, :story_points, :current_state, :kanban_field,
-                :creation_date, :schedule_dates
+                :creation_date
 
   def keywords
     # note: spaces are escaped in a %w string
