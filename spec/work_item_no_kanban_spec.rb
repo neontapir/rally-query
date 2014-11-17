@@ -1,12 +1,12 @@
 require_relative 'spec_helper'
 require_relative '../lib/configuration_factory'
-require_relative '../lib/data_access/rally_work_item_detailer'
+require_relative '../lib/data_access/rally_work_item_lookup'
 require_relative '../lib/rally_work_item_factory'
 
 describe 'Work item without Kanban board' do
   let(:work_item) do
     ConfigurationFactory.ensure
-    detailer = RallyWorkItemDetailer.new
+    detailer = RallyWorkItemLookup.new
     id = 'US56682'
     VCR.use_cassette("#{id}-details", :record => :new_episodes) do
       @results = detailer.get_data id

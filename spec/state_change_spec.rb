@@ -1,11 +1,11 @@
 require_relative 'spec_helper'
 require_relative '../lib/configuration_factory'
-require_relative '../lib/data_access/rally_work_item_detailer'
+require_relative '../lib/data_access/rally_work_item_lookup'
 require_relative '../lib/state_change'
 require_relative '../lib/rally_work_item_factory'
 
 def fetch_work_item(id)
-  work_item_detailer = RallyWorkItemDetailer.new
+  work_item_detailer = RallyWorkItemLookup.new
   VCR.use_cassette("#{id}-details", :record => :new_episodes) do
     results = work_item_detailer.get_data id
     @work_item = RallyWorkItemFactory.create(results)

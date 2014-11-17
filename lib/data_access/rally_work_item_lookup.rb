@@ -3,9 +3,7 @@ require 'json'
 require_relative 'rally_detail_query'
 require_relative 'rally_lookback_query'
 
-class RallyWorkItemDetailer
-
-
+class RallyWorkItemLookup
   def initialize(detail_query = RallyDetailQuery.new, lookback_query = RallyLookbackQuery.new)
     @detail_query = detail_query
     @lookback_query = lookback_query

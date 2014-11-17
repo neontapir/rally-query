@@ -9,8 +9,8 @@ require_relative '../lib/configuration_factory'
 describe 'Configuration factory' do
   it 'should create a valid configuration' do
     ConfigurationFactory.ensure
-    [:logger, :options, :credentials, :system, :rally_workspace, :formatter, :stories, :log_level].each do |m|
-      expect(configatron.has_key? m).to be_truthy
+    [:logger, :options, :credentials, :system, :rally_workspace, :formatter, :stories, :log_level].each do |key|
+      expect(configatron.has_key? key).to be_truthy
     end
     expect(configatron.logger).is_a? Logger
     expect(configatron.stories).is_a? Array
@@ -25,6 +25,20 @@ describe 'Configuration factory' do
           ConfigurationFactory.reset
           expect(configatron.options.feature?).to be_truthy
         end
+      end
+    end
+  end
+
+  context 'with options' do
+    it 'should not allow project and release to be specified' do
+      begin
+        configatron.temp do
+          Capture.argv(%w(--project P --release R)) do
+            expect{ConfigurationFactory.reset}.to raise_error
+          end
+        end
+      ensure
+        ConfigurationFactory.reset
       end
     end
   end

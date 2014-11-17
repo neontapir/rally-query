@@ -1,7 +1,7 @@
 require_relative '../../spec/spec_helper'
 
 require_relative '../../lib/configuration_factory'
-require_relative '../../lib/data_access/rally_work_item_detailer'
+require_relative '../../lib/data_access/rally_work_item_lookup'
 
 
 describe 'Get story details' do
@@ -10,7 +10,7 @@ describe 'Get story details' do
   end
 
   before :each do
-    @work_item_detailer = RallyWorkItemDetailer.new
+    @work_item_detailer = RallyWorkItemLookup.new
   end
 
   it 'should get details of a user story' do
