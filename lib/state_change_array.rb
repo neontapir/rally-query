@@ -1,13 +1,10 @@
 require 'json'
 require 'ostruct'
 
-
 require_relative 'state_change'
 require_relative 'work_item_state'
 
 class StateChangeArray < Array
-
-
   def initialize(raw_data, kanban_field)
     lookback_data = raw_data[:lookback]
 

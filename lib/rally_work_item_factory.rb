@@ -7,13 +7,13 @@ require_relative 'class_of_service'
 require_relative 'work_item'
 
 class RallyWorkItemFactory
-  def self.create(raw_data)
+  def create(raw_data)
     create_item raw_data
   end
 
   private
 
-  def self.create_item(raw_data)
+  def create_item(raw_data)
     result = WorkItem.new
 
     raise "raw_data is not a Hash, it's a #{raw_data.class}" unless raw_data.is_a? Hash
@@ -45,13 +45,13 @@ class RallyWorkItemFactory
     result
   end
 
-  def self.get_item_name_or_nil(id, data, item_name)
+  def get_item_name_or_nil(id, data, item_name)
     item = data.fetch(item_name, nil)
     configatron.logger.debug "Found no #{item_name} for #{id}" if item.nil?
     item ? item.fetch('_refObjectName') : nil
   end
 
-  def self.create_tags(data)
+  def create_tags(data)
     the_tags = data.fetch('Tags').fetch('_tagsNameArray')
     tags = the_tags.map { |x| x['Name'] }
     tags.join(',')

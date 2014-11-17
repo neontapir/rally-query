@@ -8,7 +8,8 @@ def fetch_work_item(id)
   work_item_detailer = RallyWorkItemLookup.new
   VCR.use_cassette("#{id}-details", :record => :new_episodes) do
     results = work_item_detailer.get_data id
-    @work_item = RallyWorkItemFactory.create(results)
+    factory = RallyWorkItemFactory.new
+    @work_item = factory.create(results)
   end
 end
 

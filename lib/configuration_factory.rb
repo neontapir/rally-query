@@ -2,8 +2,8 @@ require 'configatron'
 require 'logger'
 require_relative 'secrets_store'
 require_relative 'options_provider'
-require_relative 'project_detailer'
-require_relative 'release_detailer'
+require_relative 'project_lookup'
+require_relative 'release_lookup'
 
 class ConfigurationFactory
   def self.reset
@@ -143,41 +143,41 @@ class ConfigurationFactory
 
     def populate_stories_from_releases
 
-      detailer = ReleaseDetailer.new
+      lookup = ReleaseLookup.new
 
       stories = []
       ARGV.each do |release|
-        stories += detailer.get_work_items release
+        stories += lookup.get_work_items release
       end
       stories
     end
 
     def populate_features_from_releases
-      detailer = ReleaseDetailer.new
+      lookup = ReleaseLookup.new
 
       features = []
       ARGV.each do |release|
-        features += detailer.get_portfolio_items release
+        features += lookup.get_portfolio_items release
       end
       features
     end
 
     def populate_stories_from_projects
-      detailer = ProjectDetailer.new
+      lookup = ProjectLookup.new
 
       stories = []
       ARGV.each do |project|
-        stories += detailer.get_work_items project
+        stories += lookup.get_work_items project
       end
       stories
     end
 
     def populate_features_from_projects
-      detailer = ProjectDetailer.new
+      lookup = ProjectLookup.new
 
       features = []
       ARGV.each do |project|
-        features += detailer.get_portfolio_items project
+        features += lookup.get_portfolio_items project
       end
       features
     end

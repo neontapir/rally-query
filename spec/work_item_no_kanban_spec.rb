@@ -6,12 +6,13 @@ require_relative '../lib/rally_work_item_factory'
 describe 'Work item without Kanban board' do
   let(:work_item) do
     ConfigurationFactory.ensure
-    detailer = RallyWorkItemLookup.new
+    lookup = RallyWorkItemLookup.new
     id = 'US56682'
     VCR.use_cassette("#{id}-details", :record => :new_episodes) do
-      @results = detailer.get_data id
+      @results = lookup.get_data id
     end
-    RallyWorkItemFactory.create(@results)
+    factory = RallyWorkItemFactory.new
+    factory.create @results
   end
 
   it 'should have the story ID' do

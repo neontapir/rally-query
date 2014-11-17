@@ -1,0 +1,174 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://cdurfee%40ghx.com:%26%265T%2A4pZBfaB@jira.exadel.com/rest/api/latest/issue/GT-4?-comments&expand=changelog
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Mon, 17 Nov 2014 17:33:38 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Arequestid:
+      - 573x5712058x1
+      X-Seraph-Loginreason:
+      - AUTHENTICATED_FAILED
+      Www-Authenticate:
+      - OAuth realm="https%3A%2F%2Fjira.exadel.com"
+      X-Content-Type-Options:
+      - nosniff
+      Content-Encoding:
+      - gzip
+      Vary:
+      - User-Agent
+      Set-Cookie:
+      - JSESSIONID=2AF3AEEFEC53978FD417EE534606F4AB; Path=/; Secure; HttpOnly
+      Content-Length:
+      - '1120'
+      Connection:
+      - close
+      Content-Type:
+      - text/html;charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAAFJBLb7H4sIAAAAAAAAAL1WW2+cRhR+96+Y8NC0SoFhuSzY
+        LFGVWK0jpYqSWH2wLeswc/DOhgUyDHbdJP+9M7C2sXfXm7RpWWmBM+f6nRt7
+        e8OVztWyzMwdgWd7RF+pEqrE7LiCTs1rKf5CTn4MqPdT6g4nPZeRfWLbJ6Ig
+        R4dnWfrkBCsuijPbzvbSlknRKKKuG5xZCv9U7gIuYaBa2SVIwurK0N+AmpMZ
+        efr0IHWH41vpbO9KVLy+cv54+3p29/j586cvB3evznlXNSBb5C9BwWzbQS+1
+        t0Y+sVi9dECV0LYCKmchJDjaLYdBqcMBua9EYxjfyPpScJSOfrfOZtanU6vt
+        mkZi274Xzam1X0DZ4hfrK2w0ZXchqvaOYq8o9hXmWmHdSYYr2v4KJrvRODnj
+        F+PEqf5piyPkSlF9GKPO2tYiEsuZ1arrEts5orLIXGIxs9zWnVIseDFBluQ0
+        jug0mSYhC4JJ5Ed5GBa5/eLl7y5W58fvgsV1UXZu5E8S15u63sQ9dzXQVVkD
+        dzUSKHNQbG4Muv2T05teIhcws6Asrey2XEqFumRIcvbtDvPA4zHjSVxQmk9o
+        gElMaZLEyIo4mEzxXzr8XCPMhRJ1BeWLernESs20t8+ODp8la8GM6/3/wj0q
+        aOQz6vOC0wRY7oeMT4FSyrxCd6g3DnJVLXdh6oJzLrBCCeXPfaFflHUO5fZ8
+        PdrFpJWsDyagNJ4mvGDBFPwk9JIYijyPi0kcB0jz6NtzsrhJyaJ9XtamFWdY
+        2cfvLJKtTYld3jHOcwpeEES0mHqBX4Q05jGP4iKahDRk3x/qxS6kv0NURQwQ
+        J5jzKMx9hnSKXEcW+9E0DP08ovb7zYg74djtVWncm07Al6ISrZJg2mA0pPoD
+        +2Mn2IcWQbK5bSLbXyePplj7nyp/FMivQ1LrUi40QiND3VYvO8U61Q54xf40
+        SSYBDX0vCpFFHnqgCweKBCI/8OCOXztijU0PW3SJCkgFS20dmqYUrA/aNhRr
+        WH96ulivjt7+YhGu94Q98JrAV4RLlK0WmVmR4zue6Uh32NJpXvNrIvgNNzM4
+        ajOdsEu4rjtFzGM/emyOBXSlIg1coG3AsJd6aekXi2y0QlYfAVxcjvX24g1U
+        qCfD9jNbVLrqrUHFzZW2yEzoW0RWUDwQuhU2EaNckx3IW3wZDjc6s6b/Efkl
+        iGqH+J2b3sYPJk3eKZ+62ofMbEfibHKBmBXzT4T7+I30UDcoN/Nt1f8Qm1Xh
+        kNGzfQWyEtUFWd13od1khxWrO51xqUECkrKaY/bDx65WBxoxYpMxigM9dXsm
+        glLWklzNRYnEzC9jVs1F25e2k7rNTtsp3O5gZJ1E9/X1K91Av9VL1D3cgJX9
+        WhNVE9OUZK6pqQvZo4pTLXWvsIUuZ2L+7FtE9GTQTNmQqTVNqbtqj4fJudcd
+        93K0Meej/htSvo2nV5W6ZoT0E6X//v8bP6FICg8MAAAGDdCrSQQAAA==
+    http_version: 
+  recorded_at: Mon, 17 Nov 2014 17:33:38 GMT
+- request:
+    method: get
+    uri: https://cdurfee:VS3KcMDf@jira.exadel.com/rest/api/latest/issue/GT-4?-comments&expand=changelog
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 17 Nov 2014 17:35:21 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Arequestid:
+      - 575x5712107x1
+      Set-Cookie:
+      - JSESSIONID=EC0CB3D5D1E55452B934137C03EA1780; Path=/; Secure; HttpOnly
+      - atlassian.xsrf.token=AUHV-L92U-M48I-UCT3|979e6ba67e3dd458b21abdf16e826c66e0462d4a|lin;
+        Path=/; Secure
+      X-Seraph-Loginreason:
+      - OK
+      X-Asessionid:
+      - 1wk16sc
+      X-Ausername:
+      - cdurfee
+      Cache-Control:
+      - no-cache, no-store, no-transform
+      Content-Encoding:
+      - gzip
+      Vary:
+      - User-Agent
+      X-Content-Type-Options:
+      - nosniff
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json;charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAOxa/2/bNhb/VwQf0G2AY5GSbMsChi1osS0/9HbYvO6AW3Fg
+        JMZmLYkaSTl2e/nf75H6bjt21ORwKyAgTUWK75EiP+/zvjCfRnSXkTQaBSNB
+        04gKGv3AaBzJcUoSKscyXNOEjJUgqWSK8VSOeUYFKR5pxFRCFRmHa5KuaMxX
+        o/GIaWXYW3jYgZak8R2010plMrDtD0yQCd2RiMaTkCe2oFLZJGN2TJR+ZFLm
+        1K6lN3QPwj8urzxo3JmFjYJPI5knCRH61Rsms5jsLfil7rhIrC0VEtZmZYIn
+        LKWpivcWNEEcelYwnVHQPKPxSHFFYnh6gEcGnyNIuGHpCsZBj1mQ2mfUzPvE
+        j3HsWsx2qy3RDxGVoWCZ3j3oubYUkRtLrYmyUkojaSlu3VIr4imdaLGQp7+J
+        +MyMLCErKm09UDZzSjul93eUqFzQSZbqQ9GnCXqWMJ8+lPxWzzwK7kgsKXxl
+        mEvFE7PB/8bIc/xRkOZxfPxi/tiLxekXUwdVL/TeygxOpOoQNONCUdFvZ3NJ
+        xXf6l/6kb8MoF3eUNl/YdABuWXwdRcU5Vy++X613WiUMIFuiiIANNpDAsx2e
+        nVmCpCFsp5m+EPxOso/0251MSBy/4vcpFTdRtZ5XxRDowI6zWMBkjrdzvP7q
+        n6jddXau0197AgacJ5fVe/7O83upv6ASIBcVlvv34ther/NwY72pzo6Eim2h
+        X4lcwzPPIqAHbUQOwt4VxvCzRE4AP543QQhdIR8hkAsF7QxEVw5aYidwUT1w
+        bgZmgnHB1L4f9iqpwqj7WWcpy6AjIR+46BrmW93VMMXDIVX8nAJNUAu0Zlyz
+        WsNzMMXYurHWZEs1fYAQj2PolspyRQQPQu0bOUMxklKj7Yg0DRPdE2lFNIv5
+        nkbW1/A5SRbTwKo+kq52VypLriK6xRMawzwsvKXgHoBEN+azY/AFNk0BFSrP
+        7FK3zcC77L75Q/yR6n83MJ6SCFb+VWTFbPPYggo+LKACy7lnas3zgi2BopsP
+        nliV5mqdAgxnjyfmP1irWdnfbOxjz8WOP517kR2B62KxgS1wltjbDp7O/NnU
+        9bDGiOHTmKUb4Id/va9Zs2op4FfZDz+FjI0RwvjIG/SHVKEOmmHMJY26iHoD
+        511743LCQuA1mMiKi57YL2TDUrZ2a27lpKNivpDHXJRGDS6Wps2KXnONJEVH
+        DwDvmNzSuNzKey42JqQYBVf40IM4jnPatTgOfuwF+JzRwnFcd+4gd+ZPvfl8
+        6qP56NhtPaLCayaFUOEDDVVfojBCNnZmaFqfQtmogppmZ3786Z+B9YbGilg/
+        cBFSa0lJYn29fPUWj61Sl4Xn33yu0ypVnPBbGdOUDOtqMXQJlid6rBO6L6p+
+        ors6obr0WGd0P9FXdXU/qk9DlaZbJniatEKXQ7TUQY7mw3eM3nedlbvEXoD8
+        AM8maDarnBVZgYGswKCeEpk2DF7YDLSLBX3SVi3UtTISCdn9QmUe62FOrcCp
+        x2vp3nFsGY/bpQ7bcX20cCpY1y2SAzkP0dwQzV2I5m55pAlwuWbSgh/t+CXI
+        FckQBB+//TqdItezWGr9or33xPp9TVOIce4Y+GmrjPFAzsgDPnX8E7Eo/UrB
+        kDSqFOgUqogcrwdkDsh8AjJPpA/eEs0Dbx6geTt9OExIHhn4MH4+13rIX/g1
+        11at53Mt4elebti2gXSr5wDT1ZvvG8UvjOuW28Wm8vMsHB9pex5uj9T1x+mB
+        iiNcXsd0I9NIWD/XZ3CaNW8UpHoSsiJgRB1yQ3wIgYcl6J85nHTzrmLJ29x0
+        am40/QkVK02eHHK8LY15Zt0KkoZra0/VSxLmAK8vC16H1PdoieWJtZiH92U5
+        lQu2YimJASiQvEL2dzKE9k3Ohv/z8eOfjkQBzLPlivZMrwsC1dViu5CutUBk
+        DEbwjpuFV0VPkORxXmTffaZp5HQmbzalyrJN4yitb2fkD7qOvXtX1DfKWL5R
+        GJkNOtxZdFjl6qa7uM4+zCEOgc4Q6FwKdOrU85yFRjmNHjVYNKtRd09UuH6G
+        rRbyQpureXzNc53YOroC97vuMJcx5cp1rUjfM53Le1uZcy1gTE1/uZRsldKe
+        1zmDb/uSfRtRioTrolxiaidd/kQ1kjtmcWgO2w5nd3XgOTptJtjF7fuvQ52d
+        CVuXY9oh11eqZ6Du10iHJ8iHgfwZLWo8pUtazBY+epGEIVmLfbrhDeibjgPM
+        ly8GyP+vIP+WbUhMmPVTdQCX89i5jiQcN/AW7TyWKZoUcDGA1WX8VvBSXrkX
+        t98jvWzdJeA4S/jq51+VMPw8XFFduqIaaWOt2YAPG/d/u9vTyUmHIfHAkAND
+        Gob0AjQ7z5B1BHmGHlsn3+HIo2VpQmhHjy1aOIpruqj1Pe9lUDtEs38l4Pav
+        1AB0/SVyA+wFzgXoln+zcA64+trTOYTtkltvarS6XZjepNY/qjvLLkIXru8O
+        CB0QqhG6WJr64EWEtmpyvaLPKqhqleFaGC0rb70MwT00gjbQm6nM3xwcTXVo
+        B9PBDgY7aNvBpTTsSUFG6/Q7SD2xMgPXppTbAmynUNgGLkaeN58NwB2Ai/EV
+        mi6RRm2AnPZNxOcSeE3SHdyWf7J4KkkuimK9Ixl8Zoqzgcy4pyk2ptWZ7qAK
+        /7nRPkbzxexlqniDKX7pplhfCrrovCm+YJDjdMFa5ANHCB3y0QGhZ66t/8rR
+        /uW090ys//7h4b8CAAAA//8DAI8tOMJINwAA
+    http_version: 
+  recorded_at: Mon, 17 Nov 2014 17:35:21 GMT
+recorded_with: VCR 2.9.2

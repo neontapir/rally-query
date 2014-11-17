@@ -10,6 +10,7 @@ require_relative '../../lib/rally_work_item_factory'
 describe 'Work item formatter' do
   before :all do
     ConfigurationFactory.ensure
+    @factory = RallyWorkItemFactory.new
   end
 
   context 'configuration' do
@@ -27,7 +28,7 @@ describe 'Work item formatter' do
         @results = work_item_detailer.get_data id
       end
 
-      work_item = RallyWorkItemFactory.create(@results)
+      work_item = @factory.create(@results)
       # puts "Work item story changes: #{work_item.state_changes}"
 
       @work_item_formatter = WorkItemFormatter.new(work_item)
@@ -46,14 +47,14 @@ describe 'Work item formatter' do
 
   context 'with export format' do
     before :all do
-      @work_item_detailer = RallyWorkItemLookup.new
+      @lookup = RallyWorkItemLookup.new
     end
 
     it 'with backend story should have the expected output at time of cassette capture' do
       id = 'US53364'
       VCR.use_cassette("#{id}-details", :record => :new_episodes) do
-        @results = @work_item_detailer.get_data id
-        work_item = RallyWorkItemFactory.create(@results)
+        @results = @lookup.get_data id
+        work_item = @factory.create(@results)
 
         export_format = WorkItemExportFormat.new
         export_format.show_header = true
@@ -79,10 +80,10 @@ describe 'Work item formatter' do
       id = 'US52586'
       VCR.use_cassette("#{id}-details", :record => :new_episodes) do
         VCR.use_cassette("#{id}-lookback", record: :new_episodes, match_requests_on: [:method, :uri, :body]) do
-          @results = @work_item_detailer.get_data id
+          @results = @lookup.get_data id
         end
 
-        work_item = RallyWorkItemFactory.create(@results)
+        work_item = @factory.create(@results)
         export_format = WorkItemExportFormat.new
         export_format.show_header = true
         formatter = WorkItemFormatter.new(work_item, export_format)

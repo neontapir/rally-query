@@ -2,28 +2,25 @@ require 'pstore'
 require 'time'
 require_relative 'data_access/rally_work_item_lookup'
 
-
 class StateChange
-
-
   attr_reader :release, :user, :valid_from, :valid_to
   attr_accessor :object_id, :blocked_flag, :ready_flag, :state, :schedule_state
 
   def initialize(pstore_location = 'data.pstore')
     @@store ||= PStore.new(pstore_location)
-    @detailer = RallyWorkItemLookup.new
+    @lookup = RallyWorkItemLookup.new
   end
 
   def release=(value)
     set_to = proc { |v| @release = v }
-    data_lookup = proc { |detailer, v| detailer.get_release v }
+    data_lookup = proc { |lookup, v| lookup.get_release v }
     name_lookup = proc { |release| release['Name'] }
     store_value(value, set_to, 'releases-', data_lookup, name_lookup)
   end
 
   def user=(value)
     set_to = proc { |v| @user = v }
-    data_lookup = proc { |detailer, v| detailer.get_user v }
+    data_lookup = proc { |lookup, v| lookup.get_user v }
     name_lookup = proc { |user| user['DisplayName'] || "#{user['FirstName']} #{user['LastName']}" }
     store_value(value, set_to, 'users-', data_lookup, name_lookup)
   end
@@ -48,7 +45,7 @@ class StateChange
         @@store[store_key]
       end
       if stored_item.to_s.empty?
-        item = data_lookup.call(@detailer, value)
+        item = data_lookup.call(@lookup, value)
         name = name_lookup.call item
         @@store.transaction do
           @@store[store_key] = name

@@ -61,9 +61,9 @@ class QueryEngine
   def get_work_item_factory(system)
     case system
       when 'Rally'
-        RallyWorkItemFactory
+        RallyWorkItemFactory.new
       when 'Jira'
-        JiraWorkItemFactory
+        JiraWorkItemFactory.new
       else
         nil
     end

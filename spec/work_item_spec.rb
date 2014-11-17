@@ -6,13 +6,14 @@ require_relative '../lib/rally_work_item_factory'
 describe 'Work item' do
   before :all do
     ConfigurationFactory.ensure
-    @detailer = RallyWorkItemLookup.new
+    @lookup = RallyWorkItemLookup.new
+    @factory = RallyWorkItemFactory.new
   end
 
   def fetch_work_item(id)
     VCR.use_cassette("#{id}-details", :record => :new_episodes) do
-      results = @detailer.get_data id
-      @work_item = RallyWorkItemFactory.create(results)
+      results = @lookup.get_data id
+      @work_item = @factory.create results
     end
   end
 
@@ -110,8 +111,8 @@ describe 'Work item' do
       release_id = '18641616440'
       VCR.use_cassette("#{release_id}-release-details", :record => :new_episodes) do
         VCR.use_cassette("#{@id}-details", :record => :new_episodes) do
-          results = @detailer.get_data @id
-          @work_item = RallyWorkItemFactory.create(results)
+          results = @lookup.get_data @id
+          @work_item = @factory.create(results)
         end
       end
     end
