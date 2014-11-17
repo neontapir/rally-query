@@ -1,6 +1,7 @@
 require 'json'
 
 require_relative 'configuration_factory'
+require_relative 'rally_state_change'
 require_relative 'state_change_array'
 require_relative 'kanban_board'
 require_relative 'class_of_service'
@@ -55,7 +56,7 @@ class RallyWorkItemFactory
     data = JSON.parse(parsed_data)
 
     changes = data.map do |change|
-      sc = StateChange.new
+      sc = RallyStateChange.new
       sc.object_id = change['ObjectId'].to_s
       sc.release = change['Release'].to_s
       sc.valid_from = change['_ValidFrom'].to_s

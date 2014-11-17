@@ -1,5 +1,7 @@
 require 'json'
 require_relative '../lib/work_item'
+require_relative '../lib/state_change'
+require_relative '../lib/state_change_array'
 
 class JiraWorkItemFactory
   def create(raw_data)
@@ -28,28 +30,67 @@ class JiraWorkItemFactory
 
     histories = (data.fetch 'changelog').fetch 'histories'
 
-    result.state_changes = get_state_changes histories
+    creator = (fields.fetch 'reporter').fetch 'displayName'
+    result.state_changes = get_state_changes histories, creator, result.creation_date
 
     result
   end
 
-  def get_state_changes(data)
-    changes = data.map do |change|
+  def get_state_changes(histories, issue_creator, create_date)
+    histories_with_state_changes = histories.find_all do |x|
+      x['items'].any? { |i| i['field'] == 'status' }
+    end
+
+    last_change_date = create_date
+    current_status = nil
+    changes = histories_with_state_changes.map do |change|
       sc = StateChange.new
       sc.object_id = change['key'].to_s
+      sc.blocked_flag = false
+      sc.ready_flag = false
+      sc.valid_from = last_change_date.to_s
+      sc.valid_to = change['created'].to_s
+      last_change_date = sc.valid_to
+      sc.user = change['author']['displayName'].to_s
+
+      items = change['items']
+      status_item = items.select { |i| i['field'] == 'status' }.first
+      sc.state = canonize_state status_item['fromString']
+      current_status = canonize_state status_item['toString']
+
       # sc.release = change['Release'].to_s
-      # sc.valid_from = change['_ValidFrom'].to_s
-      # sc.valid_to = change['_ValidTo'].to_s
       # sc.blocked_flag = change['Blocked']
       # sc.ready_flag = change['Ready']
-      # sc.user = change['_User'].to_s
+
       # state = change['ScheduleState']
       # sc.schedule_state = SCHEDULE_STATE_STRING[state] || state.to_s
-      # sc.state = change[kanban_field].to_s
 
       sc #TODO: get rid of this temporary 'sc' object, maybe take a hash of options
     end
 
+    current = StateChange.new
+    current.object_id = nil
+    current.blocked_flag = false
+    current.ready_flag = false
+    current.valid_from = last_change_date.to_s
+    current.valid_to = Time.now.to_s
+    current.user = changes.empty? ? issue_creator : changes.last.user
+    current.state = current_status
+    changes << current
+
     StateChangeArray.new(changes)
+  end
+
+  def canonize_state(state)
+    # TODO: This is where Jira state will get canonized into a kanban state
+    # TODO: Leverage WorkItemState here and in StateChangeArray
+    # valid_states = %w(Ready Design Development Validation Accepted Rejected)
+    state
+  end
+
+  def canonize_schedule_state(state)
+    # TODO: This is where Jira state will get canonized into a schedule state
+    # valid_states = ['Requested', 'Design', 'In Progress', 'Completed', 'Accepted']
+    state
   end
 end

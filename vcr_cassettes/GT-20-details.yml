@@ -1,0 +1,97 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://cdurfee:VS3KcMDf@jira.exadel.com/rest/api/latest/issue/GT-20?-comments&expand=changelog
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 17 Nov 2014 23:06:14 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Arequestid:
+      - 906x5723774x1
+      Set-Cookie:
+      - JSESSIONID=FD517D98C066D30351FAE9C3B3EF9532; Path=/; Secure; HttpOnly
+      - atlassian.xsrf.token=AUHV-L92U-M48I-UCT3|5df68386cea7d14fbdeb050d71712a905c9a02d2|lin;
+        Path=/; Secure
+      X-Seraph-Loginreason:
+      - OK
+      X-Asessionid:
+      - 1t72pz5
+      X-Ausername:
+      - cdurfee
+      Cache-Control:
+      - no-cache, no-store, no-transform
+      Content-Encoding:
+      - gzip
+      Vary:
+      - User-Agent
+      X-Content-Type-Options:
+      - nosniff
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json;charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+        NCHhc2QEG8Z9vbn5nwAAAAD//wMA9h1AGXMgAAA=
+    http_version: 
+  recorded_at: Mon, 17 Nov 2014 23:06:14 GMT
+recorded_with: VCR 2.9.2

@@ -36,6 +36,15 @@ describe 'Jira work item factory' do
     end
   end
 
+  it 'should always have at least one status' do
+    id = 'GT-20'
+    VCR.use_cassette("#{id}-details", :record => :new_episodes) do
+      lookup_data = @lookup.get_data id
+      work_item = @factory.create lookup_data
+      expect(work_item.state_changes.length).to be >= 0
+    end
+  end
+
   after :all do
     ConfigurationFactory.reset
   end
