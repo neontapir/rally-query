@@ -8,7 +8,7 @@ Then,
 
     # gem install bundle
     # bundle install
-    
+
 This will get you all the dependencies you need. I need to run these commands with `sudo` on my system, but it will
 prompt you if you need it.
 
@@ -16,21 +16,27 @@ prompt you if you need it.
 
 ### To see all the options
 
-    ./story_query.rb --help
+    ./query_engine.rb --help
+
+### To get ready for first use
+
+Set up credentials
+
+    ./query_engine.rb -c [username]:[password]
 
 ### Single story
 
-    ./story_query.rb US12345
+    ./query_engine.rb US12345
 
 ### Data dump
 
-    ./story_query.rb -i input.txt -x > output.csv
-    
+    ./query_engine.rb -i input.txt -x > output.csv
+
 ## Extension points
 
 ### Add a new report type
 
-The easiest way would be copy and existing flow. Copy the format Ruby class and the Mustache template. Create a RSpec 
+The easiest way would be copy and existing flow. Copy the format Ruby class and the Mustache template. Create a RSpec
 specification by copying one of the other ones.
 
 You'll also need to add a reference to your formatter class to work_item_formatter.rb
@@ -42,7 +48,7 @@ state -- a category of sorts -- that's used to group hours into buckets.
 
 ### Display a field in a report
 
-To do so, you'll need to modify the "view" and the "model". So, to display on the screen, modify 
+To do so, you'll need to modify the "view" and the "model". So, to display on the screen, modify
 `work_item_screen_format.rb` to make it available to Mustache, then in the associated Mustache file to define where to
 render the value.
 
@@ -63,5 +69,5 @@ Running `rake` will execute all the RSpec tests in a random order.
 
 ### SimpleCov support
 
-Run `COVERAGE=yes rspec .simplecov spec/*_spec.rb` to generate a code coverage report. 
+Run `COVERAGE=yes rspec .simplecov spec/*_spec.rb` to generate a code coverage report.
 Then open `coverage/index.html` to navigate the report.

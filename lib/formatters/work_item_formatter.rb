@@ -8,8 +8,6 @@ require_relative 'work_item_feature_format'
 require_relative 'work_item_screen_format'
 
 class WorkItemFormatter
-
-
   attr_reader :format
 
   def initialize(work_items, formatter = nil)

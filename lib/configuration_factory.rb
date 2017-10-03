@@ -142,7 +142,6 @@ class ConfigurationFactory
     end
 
     def populate_stories_from_releases
-
       lookup = ReleaseLookup.new
 
       stories = []

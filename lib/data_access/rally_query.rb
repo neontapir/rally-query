@@ -7,7 +7,7 @@ class RallyQuery < RestQuery
   def initialize
     ConfigurationFactory.ensure
     if configatron.log_level == Logger::DEBUG
-      RestClient.log = log
+      RestClient.log = configatron.log
     end
   end
 

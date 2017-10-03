@@ -18,6 +18,8 @@ class RestQuery
       resource = RestClient::Resource.new(location,
                                           user: configatron.credentials[0],
                                           password: configatron.credentials[1])
+      configatron.logger.debug("Resource: #{resource}")
+
       results = resource.post body,
                               content_type: APP_JSON,
                               accept: APP_JSON
