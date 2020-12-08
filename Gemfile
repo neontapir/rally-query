@@ -2,10 +2,10 @@ source 'https://rubygems.org'
 gem 'business_time', '0.7.3'
 gem 'configatron', '4.2.1'
 gem 'encryptor', '1.3.0'
-gem 'json', '1.8.3'
-gem 'logger', '1.2.8'
+gem 'json', '~> 2.3.0'
+gem 'logger', '>= 1.2.8'
 gem 'mustache', '0.99.5'
-gem 'rest-client', '1.6.7'
+gem 'rest-client', '~> 1.7.3'
 gem 'slop', '3.5.0'
 
 group :development do
