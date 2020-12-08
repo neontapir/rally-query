@@ -5,7 +5,7 @@ gem 'encryptor', '1.3.0'
 gem 'json', '~> 2.3.0'
 gem 'logger', '>= 1.2.8'
 gem 'mustache', '0.99.5'
-gem 'rest-client', '~> 1.7.3'
+gem 'rest-client', '~> 1.8.0'
 gem 'slop', '3.5.0'
 
 group :development do
